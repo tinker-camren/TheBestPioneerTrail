@@ -7,7 +7,7 @@ package pioneertrail;
 
 /**
  *
- * @author Suckafish
+ * @author CTinker
  */
 public class PioneerTrail {
 
