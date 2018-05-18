@@ -31,13 +31,14 @@ public class Player implements Serializable {
         this.name = name;
     }
 
-    public Double getScore() {
+    public double getScore() {
         return score;
     }
 
-    public void setScore(Double score) {
+    public void setScore(double score) {
         this.score = score;
     }
+
 
     public ArrayList<Game> getGames() {
         return games;
