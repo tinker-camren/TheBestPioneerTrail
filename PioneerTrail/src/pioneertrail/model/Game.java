@@ -54,7 +54,7 @@ public class Game implements Serializable {
 
     @Override
     public String toString() {
-        return "Game{" + "milesTraveled=" + milesTraveled + ", numPeople=" + numPeople + '}';
+        return "Game{" + "milesTraveled=" + milesTraveled + ", numPeople=" + numPeople + ", player=" + player + '}';
     }
 
     @Override
