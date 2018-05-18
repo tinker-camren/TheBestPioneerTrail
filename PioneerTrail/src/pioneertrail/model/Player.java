@@ -6,6 +6,7 @@
 package pioneertrail.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -16,8 +17,8 @@ public class Player implements Serializable {
     
     // Class Instance Variablesa
     private String name;
-    private Double score;
-
+    private double score;
+    private ArrayList<Game> games = new ArrayList<Game>();
     public Player() {
     }
     
@@ -37,6 +38,15 @@ public class Player implements Serializable {
     public void setScore(Double score) {
         this.score = score;
     }
+
+    public ArrayList<Game> getGames() {
+        return games;
+    }
+
+    public void setGames(ArrayList<Game> games) {
+        this.games = games;
+    }
+    
 
     @Override
     public int hashCode() {
