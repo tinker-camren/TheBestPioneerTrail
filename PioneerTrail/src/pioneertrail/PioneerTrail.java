@@ -19,19 +19,19 @@ public class PioneerTrail {
      * @param args the command line arguments
      */
     
-    void CamrenTest(){
+    static void CamrenTest(){
         
     }
     
-    void KathyTest() {
+    static void KathyTest() {
         
     }
     
-    void DanicaTest() {
+    static void DanicaTest() {
         
     }
 
-    void TeamTest() {
+    static void TeamTest() {
         //Player Test
         Player playerOne = new Player();
         
