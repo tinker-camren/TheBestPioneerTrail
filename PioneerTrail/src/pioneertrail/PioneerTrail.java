@@ -5,6 +5,8 @@
  */
 package pioneertrail;
 
+import pioneertrail.model.Player;
+
 /**
  *
  * @author CTinker
@@ -15,7 +17,13 @@ public class PioneerTrail {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Player playerOne = new Player();
+        
+        playerOne.setName("Camren");
+        playerOne.setScore(1500);
+        
+        String playerOneName = playerOne.getName();
+        double playerOneScore.playerOne.getScore();
     }
     
 }
