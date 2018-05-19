@@ -89,8 +89,7 @@ public class RegularScene {
         hash = 97 * hash + Objects.hashCode(this.terrainEffect);
         hash = 97 * hash + Objects.hashCode(this.terrainType);
         hash = 97 * hash + Objects.hashCode(this.sicknessType);
-        hash = 97 * hash + Objects.hashCode(this.sicknessEffect);
-        hash = 97 * hash + (int) (Double.doubleToLongBits(this.mortalityRate) ^ (Double.doubleToLongBits(this.mortalityRate) >>> 32));
+
         return hash;
     }
 
@@ -127,9 +126,6 @@ public class RegularScene {
             return false;
         }
         if (!Objects.equals(this.sicknessType, other.sicknessType)) {
-            return false;
-        }
-        if (!Objects.equals(this.sicknessEffect, other.sicknessEffect)) {
             return false;
         }
         return true;
