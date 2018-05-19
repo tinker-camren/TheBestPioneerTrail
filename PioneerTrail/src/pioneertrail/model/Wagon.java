@@ -11,11 +11,12 @@ import java.io.Serializable;
  *
  * @author Danica
  */
-public class Wagon implements Serializable{
-    
+public class Wagon implements Serializable {
+
     //class instance variables
     private int health;
     private double inventoryWeight;
+    private Player player;
 
     public Wagon() {
     }
@@ -26,7 +27,7 @@ public class Wagon implements Serializable{
 
     public void setHealth(int health) {
         this.health = health;
-    }    
+    }
 
     public double getInventoryWeight() {
         return inventoryWeight;
@@ -34,6 +35,14 @@ public class Wagon implements Serializable{
 
     public void setInventoryWeight(double inventoryWeight) {
         this.inventoryWeight = inventoryWeight;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 
     @Override
@@ -69,5 +78,5 @@ public class Wagon implements Serializable{
     public String toString() {
         return "Wagon{" + "health=" + health + ", inventoryWeight=" + inventoryWeight + '}';
     }
-    
+
 }

@@ -12,20 +12,21 @@ import java.util.Objects;
  *
  * @author Danica
  */
-public class Tool implements Serializable{
-    
+public class Tool implements Serializable {
+
     //class instance variables
-    private String action;
+    private char action;
     private int durability;
+    private String toolType;
 
     public Tool() {
     }
 
-    public String getAction() {
+    public char getAction() {
         return action;
     }
 
-    public void setAction(String action) {
+    public void setAction(char action) {
         this.action = action;
     }
 
@@ -37,11 +38,20 @@ public class Tool implements Serializable{
         this.durability = durability;
     }
 
+    public String getToolType() {
+        return toolType;
+    }
+
+    public void setToolType(String toolType) {
+        this.toolType = toolType;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 83 * hash + Objects.hashCode(this.action);
-        hash = 83 * hash + this.durability;
+        int hash = 5;
+        hash = 97 * hash + this.action;
+        hash = 97 * hash + this.durability;
+        hash = 97 * hash + Objects.hashCode(this.toolType);
         return hash;
     }
 
@@ -57,10 +67,13 @@ public class Tool implements Serializable{
             return false;
         }
         final Tool other = (Tool) obj;
+        if (this.action != other.action) {
+            return false;
+        }
         if (this.durability != other.durability) {
             return false;
         }
-        if (!Objects.equals(this.action, other.action)) {
+        if (!Objects.equals(this.toolType, other.toolType)) {
             return false;
         }
         return true;
@@ -68,7 +81,7 @@ public class Tool implements Serializable{
 
     @Override
     public String toString() {
-        return "Tool{" + "action=" + action + ", durability=" + durability + '}';
+        return "Tool{" + "action=" + action + ", durability=" + durability + ", toolType=" + toolType + '}';
     }
-    
+
 }

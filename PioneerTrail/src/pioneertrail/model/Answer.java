@@ -5,48 +5,39 @@
  */
 package pioneertrail.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author tinkerc
  */
-public class Answer {
+public class Answer implements Serializable {
 
     // Class instance variables
-    private String answer;
-    private Question question;
+    private boolean answer;
 
     public Answer() {
     }
 
-    public String getAnswer() {
+    public boolean isAnswer() {
         return answer;
     }
 
-    public void setAnswer(String answer) {
+    public void setAnswer(boolean answer) {
         this.answer = answer;
-    }
-
-    public Question getQuestion() {
-        return question;
-    }
-
-    public void setQuestion(Question question) {
-        this.question = question;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 97 * hash + Objects.hashCode(this.answer);
-        hash = 97 * hash + Objects.hashCode(this.question);
+        int hash = 5;
+        hash = 11 * hash + (this.answer ? 1 : 0);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Answer{" + "answer=" + answer + ", question=" + question + '}';
+        return "Answer{" + "answer=" + answer + '}';
     }
 
     @Override
@@ -61,10 +52,7 @@ public class Answer {
             return false;
         }
         final Answer other = (Answer) obj;
-        if (!Objects.equals(this.answer, other.answer)) {
-            return false;
-        }
-        if (!Objects.equals(this.question, other.question)) {
+        if (this.answer != other.answer) {
             return false;
         }
         return true;

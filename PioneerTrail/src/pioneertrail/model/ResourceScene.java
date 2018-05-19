@@ -5,6 +5,7 @@
  */
 package pioneertrail.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -12,7 +13,7 @@ import java.util.Objects;
  *
  * @author tinkerc
  */
-public class ResourceScene {
+public class ResourceScene implements Serializable {
 
     //Class instance variables
     private int amount;
@@ -45,6 +46,8 @@ public class ResourceScene {
     public void setInventoryItems(ArrayList<InventoryItem> inventoryItems) {
         this.inventoryItems = inventoryItems;
     }
+
+
 
     @Override
     public int hashCode() {

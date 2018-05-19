@@ -5,24 +5,23 @@
  */
 package pioneertrail.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author tinkerc
  */
-public class RegularScene {
-    
+public class RegularScene implements Serializable {
+
     //Class instance variables
     private String sceneName;
     private String description;
     private String terrainEffect;
     private String terrainType;
     private String sicknessType;
-    private String sicknessEffect;
-    private double mortalityRate;
-    private Location location;
-    
+    private double sicknessChance;
+    //private Location location;
 
     public RegularScene() {
     }
@@ -67,31 +66,21 @@ public class RegularScene {
         this.sicknessType = sicknessType;
     }
 
-    public String getSicknessEffect() {
-        return sicknessEffect;
+    public double getSicknessChance() {
+        return sicknessChance;
     }
 
-    public void setSicknessEffect(String sicknessEffect) {
-        this.sicknessEffect = sicknessEffect;
+    public void setSicknessChance(double sicknessChance) {
+        this.sicknessChance = sicknessChance;
     }
 
-    public double getMortalityRate() {
-        return mortalityRate;
-    }
-
-    public void setMortalityRate(double mortalityRate) {
-        this.mortalityRate = mortalityRate;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-    
-    
+//    public Location getLocation() {
+//        return location;
+//    }
+//
+//    public void setLocation(Location location) {
+//        this.location = location;
+//    }
 
     @Override
     public int hashCode() {
@@ -101,17 +90,14 @@ public class RegularScene {
         hash = 97 * hash + Objects.hashCode(this.terrainEffect);
         hash = 97 * hash + Objects.hashCode(this.terrainType);
         hash = 97 * hash + Objects.hashCode(this.sicknessType);
-        hash = 97 * hash + Objects.hashCode(this.sicknessEffect);
-        hash = 97 * hash + (int) (Double.doubleToLongBits(this.mortalityRate) ^ (Double.doubleToLongBits(this.mortalityRate) >>> 32));
+
         return hash;
     }
 
     @Override
     public String toString() {
-        return "RegularScene{" + "sceneName=" + sceneName + ", description=" + description + ", terrainEffect=" + terrainEffect + ", terrainType=" + terrainType + ", sicknessType=" + sicknessType + ", sicknessEffect=" + sicknessEffect + ", mortalityRate=" + mortalityRate + '}';
+        return "RegularScene{" + "sceneName=" + sceneName + ", description=" + description + ", terrainEffect=" + terrainEffect + ", terrainType=" + terrainType + ", sicknessType=" + sicknessType + ", sicknessChance=" + sicknessChance + '}';
     }
-    
-    
 
     @Override
     public boolean equals(Object obj) {
@@ -125,9 +111,9 @@ public class RegularScene {
             return false;
         }
         final RegularScene other = (RegularScene) obj;
-        if (Double.doubleToLongBits(this.mortalityRate) != Double.doubleToLongBits(other.mortalityRate)) {
-            return false;
-        }
+        //if (Double.doubleToLongBits(this.mortalityRate) != Double.doubleToLongBits(other.mortalityRate)) {
+//            return false;
+//        }
         if (!Objects.equals(this.sceneName, other.sceneName)) {
             return false;
         }
@@ -143,12 +129,7 @@ public class RegularScene {
         if (!Objects.equals(this.sicknessType, other.sicknessType)) {
             return false;
         }
-        if (!Objects.equals(this.sicknessEffect, other.sicknessEffect)) {
-            return false;
-        }
         return true;
     }
-    
-    
-            
+
 }
