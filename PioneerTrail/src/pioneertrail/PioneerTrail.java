@@ -8,6 +8,7 @@ package pioneertrail;
 import pioneertrail.model.Actor;
 import pioneertrail.model.Game;
 import pioneertrail.model.Player;
+import pioneertrail.model.RegularScene;
 
 /**
  *
@@ -20,6 +21,35 @@ public class PioneerTrail {
      */
     
     static void CamrenTest(){
+        
+        // test RegularScene
+        RegularScene rockyRidgeRegularScene = new RegularScene();
+        
+        //rockyRidgeRegularScene.setLocation(rockyRidge);
+        rockyRidgeRegularScene.setDescription("You have just arrived at Rocky Ridge. This ridge has claimed the lives of many pioneers because of its steep and rugged terrain."
+                + "It's hard on handcarts so you will need some spare wheels if you don't want an increased risk of damaging your wagon. There is also an increased chance of breaking bones in this terrain");
+        rockyRidgeRegularScene.setSicknessType("Broken Bone");
+        rockyRidgeRegularScene.setSicknessChance(.30);
+        rockyRidgeRegularScene.setSceneName("Rocky Ridge");
+        rockyRidgeRegularScene.setTerrainType("Rocky");
+        rockyRidgeRegularScene.setTerrainEffect("Increased chance of broken bones and your wagon will be damaged if you don't have spare wheels");
+        
+        System.out.println(rockyRidgeRegularScene.toString());
+                
+        // test SicknessScene
+        
+        
+        // test ResourceScene
+        
+        
+        // test QuestionScene
+        
+        
+        // test Question
+        
+        
+        // test Answer
+        
         
     }
     
@@ -68,6 +98,8 @@ public class PioneerTrail {
     
     public static void main(String[] args) {
         TeamTest();
+        
+        CamrenTest();
         
     }
     
