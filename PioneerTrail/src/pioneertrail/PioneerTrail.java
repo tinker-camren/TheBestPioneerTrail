@@ -28,6 +28,13 @@ public class PioneerTrail {
     }
     
     static void DanicaTest() {
+        //InventoryItem test
+        
+        
+        //Tool test
+        
+        
+        //Wagon Test
         
     }
 
