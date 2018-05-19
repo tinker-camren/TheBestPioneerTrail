@@ -46,6 +46,8 @@ public class ResourceScene {
         this.inventoryItems = inventoryItems;
     }
 
+
+
     @Override
     public int hashCode() {
         int hash = 7;

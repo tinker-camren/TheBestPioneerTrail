@@ -16,9 +16,10 @@ public class SicknessScene {
 
     // class instance variables
     private String description;
-    private RegularScene sicknessType;
+    private String sicknessType;
     private double mortalityRate;
     private ArrayList<InventoryItem> sicknessItems = new ArrayList<InventoryItem>();
+    private RegularScene sceneInfo;
 
     public SicknessScene() {
     }
@@ -31,12 +32,20 @@ public class SicknessScene {
         this.description = description;
     }
 
-    public RegularScene getSicknessType() {
+    public String getSicknessType() {
         return sicknessType;
     }
 
-    public void setSicknessType(RegularScene sicknessType) {
+    public void setSicknessType(String sicknessType) {
         this.sicknessType = sicknessType;
+    }
+
+    public RegularScene getSceneInfo() {
+        return sceneInfo;
+    }
+
+    public void setSceneInfo(RegularScene sceneInfo) {
+        this.sceneInfo = sceneInfo;
     }
 
     public double getMortalityRate() {
@@ -57,17 +66,18 @@ public class SicknessScene {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 13 * hash + Objects.hashCode(this.description);
-        hash = 13 * hash + Objects.hashCode(this.sicknessType);
-        hash = 13 * hash + (int) (Double.doubleToLongBits(this.mortalityRate) ^ (Double.doubleToLongBits(this.mortalityRate) >>> 32));
-        hash = 13 * hash + Objects.hashCode(this.sicknessItems);
+        int hash = 7;
+        hash = 89 * hash + Objects.hashCode(this.description);
+        hash = 89 * hash + Objects.hashCode(this.sicknessType);
+        hash = 89 * hash + Objects.hashCode(this.sceneInfo);
+        hash = 89 * hash + (int) (Double.doubleToLongBits(this.mortalityRate) ^ (Double.doubleToLongBits(this.mortalityRate) >>> 32));
+        hash = 89 * hash + Objects.hashCode(this.sicknessItems);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "SicknessScene{" + "description=" + description + ", sicknessType=" + sicknessType + ", mortalityRate=" + mortalityRate + ", sicknessItems=" + sicknessItems + '}';
+        return "SicknessScene{" + "description=" + description + ", sicknessType=" + sicknessType + ", mortalityRate=" + mortalityRate + ", sicknessItems=" + sicknessItems + ", sceneInfo=" + sceneInfo + '}';
     }
 
     @Override
@@ -89,6 +99,9 @@ public class SicknessScene {
             return false;
         }
         if (!Objects.equals(this.sicknessType, other.sicknessType)) {
+            return false;
+        }
+        if (!Objects.equals(this.sceneInfo, other.sceneInfo)) {
             return false;
         }
         if (!Objects.equals(this.sicknessItems, other.sicknessItems)) {
