@@ -19,9 +19,9 @@ public class Player implements Serializable {
     private String name;
     private double score;
     private ArrayList<Game> games = new ArrayList<Game>();
+
     public Player() {
     }
-    
     
     public String getName() {
         return name;
