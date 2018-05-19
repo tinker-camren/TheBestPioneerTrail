@@ -18,6 +18,7 @@ public class InventoryItem implements Serializable {
     private double weight;
     private String description;
     private String itemType;
+    private Game game;
 
     public InventoryItem() {
     }
@@ -44,6 +45,14 @@ public class InventoryItem implements Serializable {
 
     public void setItemType(String itemType) {
         this.itemType = itemType;
+    }
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
     }
 
     @Override
