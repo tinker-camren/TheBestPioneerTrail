@@ -20,6 +20,7 @@ public class RegularScene {
     private String terrainType;
     private String sicknessType;
     private String sicknessEffect;
+    private double sicknessChance;
     private double mortalityRate;
     private Location location;
     
@@ -74,6 +75,16 @@ public class RegularScene {
     public void setSicknessEffect(String sicknessEffect) {
         this.sicknessEffect = sicknessEffect;
     }
+
+    public double getSicknessChance() {
+        return sicknessChance;
+    }
+
+    public void setSicknessChance(double sicknessChance) {
+        this.sicknessChance = sicknessChance;
+    }
+    
+    
 
     public double getMortalityRate() {
         return mortalityRate;
