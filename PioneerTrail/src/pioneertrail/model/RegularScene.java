@@ -5,13 +5,14 @@
  */
 package pioneertrail.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author tinkerc
  */
-public class RegularScene {
+public class RegularScene implements Serializable {
 
     //Class instance variables
     private String sceneName;

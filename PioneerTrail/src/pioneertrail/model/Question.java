@@ -5,13 +5,14 @@
  */
 package pioneertrail.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author tinkerc
  */
-public class Question {
+public class Question implements Serializable {
 
     // Class instance variables
     private String questionText;

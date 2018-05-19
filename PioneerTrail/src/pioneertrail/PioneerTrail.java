@@ -6,9 +6,14 @@
 package pioneertrail;
 
 import pioneertrail.model.Actor;
+import pioneertrail.model.Answer;
 import pioneertrail.model.Game;
 import pioneertrail.model.Player;
+import pioneertrail.model.Question;
+import pioneertrail.model.QuestionScene;
 import pioneertrail.model.RegularScene;
+import pioneertrail.model.ResourceScene;
+import pioneertrail.model.SicknessScene;
 
 /**
  *
@@ -37,18 +42,48 @@ public class PioneerTrail {
         System.out.println(rockyRidgeRegularScene.toString());
                 
         // test SicknessScene
+        SicknessScene brokenBoneSicknessScene = new SicknessScene();
         
+        brokenBoneSicknessScene.setDescription("One of your family members has broken a bone on some rocky terrain. You must now choose to leave the broken bone" +  
+                " and let it heal naturally, which increases the chance of infection and death, or you can choose to rest and let it heal, which improves your chances of surviving");
+        brokenBoneSicknessScene.setSicknessType(rockyRidgeRegularScene.getSicknessType());
+        brokenBoneSicknessScene.setMortalityRate(.50);
+        brokenBoneSicknessScene.setSceneInfo(rockyRidgeRegularScene);
+        
+        System.out.println(brokenBoneSicknessScene.toString());
         
         // test ResourceScene
+        ResourceScene rockyRidgeResourceScene = new ResourceScene();
         
+        rockyRidgeResourceScene.setAmount(5);
+        rockyRidgeResourceScene.setSceneItemType("Water");
         
-        // test QuestionScene
+        System.out.println(rockyRidgeResourceScene.toString());
+ 
+        // test Answer
+        Answer brokenBoneAnswer1 = new Answer();
         
+        brokenBoneAnswer1.setAnswer(false);
+        
+        System.out.println(brokenBoneAnswer1.toString());
         
         // test Question
+        Question brokenBoneQuestion1 = new Question();
         
+        brokenBoneQuestion1.setQuestionText("Do you want to use items to decrease the mortality rate?");
+        brokenBoneQuestion1.setAnswer(brokenBoneAnswer1);
         
-        // test Answer
+        System.out.println(brokenBoneQuestion1.toString());
+        
+        // test QuestionScene
+        QuestionScene brokenBoneQuestionScene = new QuestionScene();
+        
+        brokenBoneQuestionScene.setQuestion(brokenBoneQuestion1);
+        brokenBoneQuestionScene.setEffect("Decreases mortality rate by 5% per item");
+        brokenBoneQuestionScene.setCorrectAnswer(true);
+        
+        System.out.println(brokenBoneQuestionScene.toString());
+        
         
         
     }

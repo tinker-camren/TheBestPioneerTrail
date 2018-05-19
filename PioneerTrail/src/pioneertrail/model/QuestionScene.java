@@ -5,6 +5,7 @@
  */
 package pioneertrail.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -12,21 +13,21 @@ import java.util.Objects;
  *
  * @author tinkerc
  */
-public class QuestionScene {
+public class QuestionScene implements Serializable {
 
     //Class instance variables
-    private String correctAnswer;
+    private boolean correctAnswer;
     private String effect;
-    private ArrayList<Question> question = new ArrayList<Question>();
+    private Question question;
 
     public QuestionScene() {
     }
 
-    public String getCorrectAnswer() {
+    public boolean isCorrectAnswer() {
         return correctAnswer;
     }
 
-    public void setCorrectAnswer(String correctAnswer) {
+    public void setCorrectAnswer(boolean correctAnswer) {
         this.correctAnswer = correctAnswer;
     }
 
@@ -38,13 +39,15 @@ public class QuestionScene {
         this.effect = effect;
     }
 
-    public ArrayList<Question> getQuestion() {
+    public Question getQuestion() {
         return question;
     }
 
-    public void setQuestion(ArrayList<Question> question) {
+    public void setQuestion(Question question) {
         this.question = question;
     }
+
+
 
     @Override
     public int hashCode() {

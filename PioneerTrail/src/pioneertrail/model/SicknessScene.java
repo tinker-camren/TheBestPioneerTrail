@@ -5,6 +5,7 @@
  */
 package pioneertrail.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -12,7 +13,7 @@ import java.util.Objects;
  *
  * @author tinkerc
  */
-public class SicknessScene {
+public class SicknessScene implements Serializable{
 
     // class instance variables
     private String description;
