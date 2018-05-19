@@ -117,6 +117,8 @@ public class PioneerTrail {
 
         wagonOne.setHealth(200);
         wagonOne.setInventoryWeight(75.5);
+        
+        System.out.println(wagonOne.toString());
     }
 
     static void TeamTest() {
