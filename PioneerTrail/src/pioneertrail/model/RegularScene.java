@@ -12,7 +12,7 @@ import java.util.Objects;
  * @author tinkerc
  */
 public class RegularScene {
-    
+
     //Class instance variables
     private String sceneName;
     private String description;
@@ -20,8 +20,7 @@ public class RegularScene {
     private String terrainType;
     private String sicknessType;
     private double sicknessChance;
-    private Location location;
-    
+    //private Location location;
 
     public RegularScene() {
     }
@@ -73,7 +72,7 @@ public class RegularScene {
     public void setSicknessChance(double sicknessChance) {
         this.sicknessChance = sicknessChance;
     }
-    
+
     public Location getLocation() {
         return location;
     }
@@ -81,8 +80,6 @@ public class RegularScene {
     public void setLocation(Location location) {
         this.location = location;
     }
-    
-    
 
     @Override
     public int hashCode() {
@@ -99,10 +96,8 @@ public class RegularScene {
 
     @Override
     public String toString() {
-        return "RegularScene{" + "sceneName=" + sceneName + ", description=" + description + ", terrainEffect=" + terrainEffect + ", terrainType=" + terrainType + ", sicknessType=" + sicknessType + ", sicknessEffect=" + sicknessEffect + ", mortalityRate=" + mortalityRate + '}';
+        return "RegularScene{" + "sceneName=" + sceneName + ", description=" + description + ", terrainEffect=" + terrainEffect + ", terrainType=" + terrainType + ", sicknessType=" + sicknessType + ", sicknessChance=" + sicknessChance + '}';
     }
-    
-    
 
     @Override
     public boolean equals(Object obj) {
@@ -139,7 +134,5 @@ public class RegularScene {
         }
         return true;
     }
-    
-    
-            
+
 }
