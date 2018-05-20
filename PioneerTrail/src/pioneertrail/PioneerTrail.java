@@ -5,10 +5,13 @@
  */
 package pioneertrail;
 
+import static java.time.Clock.system;
 import pioneertrail.model.Actor;
 import pioneertrail.model.Answer;
 import pioneertrail.model.Game;
 import pioneertrail.model.InventoryItem;
+import pioneertrail.model.Location;
+import pioneertrail.model.Map;
 import pioneertrail.model.Player;
 import pioneertrail.model.Tool;
 import pioneertrail.model.Wagon;
@@ -90,7 +93,28 @@ public class PioneerTrail {
     }
 
     static void KathyTest() {
-
+        //Map test
+        Map map1 = new Map();
+        Location Nauvoo = new Location();
+        Nauvoo.setColumn(2);
+        Nauvoo.setRow(2);
+        Nauvoo.setVisited(true);
+        map1.setDescription("Location1");
+        map1.setRowCount(1);
+        map1.setColumnCount(2);
+        map1.setCurrentLocation(Nauvoo);
+        map1.setCurrentRow(2);
+        map1.setCurrentColumn(2);
+        System.out.println(map1.toString());
+        
+        //location test
+          Location locationOne = new Location();
+        
+        locationOne.setColumn(1);
+        locationOne.setRow(2);
+        locationOne.setAmountRemaining(.5);
+        locationOne.setVisited(true);
+        System.out.println(locationOne.toString());
     }
 
     static void DanicaTest() {
@@ -153,6 +177,7 @@ public class PioneerTrail {
         TeamTest();
         DanicaTest();
         CamrenTest();
+        KathyTest();
 
     }
 
