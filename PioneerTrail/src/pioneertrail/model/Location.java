@@ -14,7 +14,7 @@ import java.util.Objects;
  * @author Guest
  */
 public class Location implements Serializable {
-    
+    // Class Instance Variables
     private int column;
     private int row;
     private boolean visited;
