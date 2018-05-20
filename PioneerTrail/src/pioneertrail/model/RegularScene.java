@@ -111,9 +111,6 @@ public class RegularScene implements Serializable {
             return false;
         }
         final RegularScene other = (RegularScene) obj;
-        //if (Double.doubleToLongBits(this.mortalityRate) != Double.doubleToLongBits(other.mortalityRate)) {
-//            return false;
-//        }
         if (!Objects.equals(this.sceneName, other.sceneName)) {
             return false;
         }
