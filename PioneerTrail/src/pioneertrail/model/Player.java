@@ -18,7 +18,7 @@ public class Player implements Serializable {
     // Class Instance Variablesa
     private String name;
     private double score;
-    private ArrayList<Game> games = new ArrayList<Game>();
+    private ArrayList<Game> games = new ArrayList<>();
 
     public Player() {
     }
