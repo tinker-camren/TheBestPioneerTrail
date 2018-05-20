@@ -21,7 +21,7 @@ public class RegularScene implements Serializable {
     private String terrainType;
     private String sicknessType;
     private double sicknessChance;
-    //private Location location;
+    private Location location;
 
     public RegularScene() {
     }
@@ -74,29 +74,30 @@ public class RegularScene implements Serializable {
         this.sicknessChance = sicknessChance;
     }
 
-//    public Location getLocation() {
-//        return location;
-//    }
-//
-//    public void setLocation(Location location) {
-//        this.location = location;
-//    }
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 97 * hash + Objects.hashCode(this.sceneName);
-        hash = 97 * hash + Objects.hashCode(this.description);
-        hash = 97 * hash + Objects.hashCode(this.terrainEffect);
-        hash = 97 * hash + Objects.hashCode(this.terrainType);
-        hash = 97 * hash + Objects.hashCode(this.sicknessType);
-
+        int hash = 7;
+        hash = 61 * hash + Objects.hashCode(this.sceneName);
+        hash = 61 * hash + Objects.hashCode(this.description);
+        hash = 61 * hash + Objects.hashCode(this.terrainEffect);
+        hash = 61 * hash + Objects.hashCode(this.terrainType);
+        hash = 61 * hash + Objects.hashCode(this.sicknessType);
+        hash = 61 * hash + (int) (Double.doubleToLongBits(this.sicknessChance) ^ (Double.doubleToLongBits(this.sicknessChance) >>> 32));
+        hash = 61 * hash + Objects.hashCode(this.location);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "RegularScene{" + "sceneName=" + sceneName + ", description=" + description + ", terrainEffect=" + terrainEffect + ", terrainType=" + terrainType + ", sicknessType=" + sicknessType + ", sicknessChance=" + sicknessChance + '}';
+        return "RegularScene{" + "sceneName=" + sceneName + ", description=" + description + ", terrainEffect=" + terrainEffect + ", terrainType=" + terrainType + ", sicknessType=" + sicknessType + ", sicknessChance=" + sicknessChance + ", location=" + location + '}';
     }
 
     @Override
@@ -111,6 +112,9 @@ public class RegularScene implements Serializable {
             return false;
         }
         final RegularScene other = (RegularScene) obj;
+        if (Double.doubleToLongBits(this.sicknessChance) != Double.doubleToLongBits(other.sicknessChance)) {
+            return false;
+        }
         if (!Objects.equals(this.sceneName, other.sceneName)) {
             return false;
         }
@@ -124,6 +128,9 @@ public class RegularScene implements Serializable {
             return false;
         }
         if (!Objects.equals(this.sicknessType, other.sicknessType)) {
+            return false;
+        }
+        if (!Objects.equals(this.location, other.location)) {
             return false;
         }
         return true;

@@ -31,12 +31,67 @@ public class PioneerTrail {
      * @param args the command line arguments
      */
     
-    static void CamrenTest() {
+
+
+    static void KathyTest() {
+        //Map test
+        Map map1 = new Map();
+        Location Nauvoo = new Location();
+        Nauvoo.setColumn(2);
+        Nauvoo.setRow(2);
+        Nauvoo.setVisited(true);
+        map1.setDescription("Location1");
+        map1.setRowCount(1);
+        map1.setColumnCount(2);
+        map1.setCurrentLocation(Nauvoo);
+        map1.setCurrentRow(2);
+        map1.setCurrentColumn(2);
+        System.out.println(map1.toString());
+        
+        //location test
+        Location locationOne = new Location();
+        
+        locationOne.setColumn(1);
+        locationOne.setRow(2);
+        locationOne.setAmountRemaining(.5);
+        locationOne.setVisited(true);
+        System.out.println(locationOne.toString());
+    }
+
+    static void DanicaTest() {
+        //InventoryItem test
+        InventoryItem itemOne = new InventoryItem();
+
+        itemOne.setDescription("Fresh drinking water is rejuvenating");
+        itemOne.setWeight(1.5);
+        itemOne.setItemType("Water");
+
+        System.out.println(itemOne.toString());
+
+        //Tool test
+        Tool toolOne = new Tool();
+
+        toolOne.setAction('H');
+        toolOne.setDurability(50);
+        toolOne.setToolType("Hammer");
+
+        System.out.println(toolOne.toString());
+
+        //Wagon Test
+        Wagon wagonOne = new Wagon();
+
+        wagonOne.setHealth(200);
+        wagonOne.setInventoryWeight(75.5);
+        
+        System.out.println(wagonOne.toString());
+    }
+    
+        static void CamrenTest() {
 
         // test RegularScene
         RegularScene rockyRidgeRegularScene = new RegularScene();
 
-        //rockyRidgeRegularScene.setLocation(rockyRidge);
+        //rockyRidgeRegularScene.setLocation(locationOne);
         rockyRidgeRegularScene.setDescription("You have just arrived at Rocky Ridge. This ridge has claimed the lives of many pioneers because of its steep and rugged terrain."
                 + "It's hard on handcarts so you will need some spare wheels if you don't want an increased risk of damaging your wagon. There is also an increased chance of breaking bones in this terrain");
         rockyRidgeRegularScene.setSicknessType("Broken Bone");
@@ -90,59 +145,6 @@ public class PioneerTrail {
        
        System.out.println(brokenBoneQuestionScene.toString());
 
-    }
-
-    static void KathyTest() {
-        //Map test
-        Map map1 = new Map();
-        Location Nauvoo = new Location();
-        Nauvoo.setColumn(2);
-        Nauvoo.setRow(2);
-        Nauvoo.setVisited(true);
-        map1.setDescription("Location1");
-        map1.setRowCount(1);
-        map1.setColumnCount(2);
-        map1.setCurrentLocation(Nauvoo);
-        map1.setCurrentRow(2);
-        map1.setCurrentColumn(2);
-        System.out.println(map1.toString());
-        
-        //location test
-          Location locationOne = new Location();
-        
-        locationOne.setColumn(1);
-        locationOne.setRow(2);
-        locationOne.setAmountRemaining(.5);
-        locationOne.setVisited(true);
-        System.out.println(locationOne.toString());
-    }
-
-    static void DanicaTest() {
-        //InventoryItem test
-        InventoryItem itemOne = new InventoryItem();
-
-        itemOne.setDescription("Fresh drinking water is rejuvenating");
-        itemOne.setWeight(1.5);
-        itemOne.setItemType("Water");
-
-        System.out.println(itemOne.toString());
-
-        //Tool test
-        Tool toolOne = new Tool();
-
-        toolOne.setAction('H');
-        toolOne.setDurability(50);
-        toolOne.setToolType("Hammer");
-
-        System.out.println(toolOne.toString());
-
-        //Wagon Test
-        Wagon wagonOne = new Wagon();
-
-        wagonOne.setHealth(200);
-        wagonOne.setInventoryWeight(75.5);
-        
-        System.out.println(wagonOne.toString());
     }
 
     static void TeamTest() {
