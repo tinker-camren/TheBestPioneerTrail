@@ -17,6 +17,8 @@ public class Answer implements Serializable {
     // Class instance variables
     private boolean answer;
 
+    private String answerText;
+
     public Answer() {
     }
 
@@ -28,16 +30,25 @@ public class Answer implements Serializable {
         this.answer = answer;
     }
 
+    public String getAnswerText() {
+        return answerText;
+    }
+
+    public void setAnswerText(String answerText) {
+        this.answerText = answerText;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 11 * hash + (this.answer ? 1 : 0);
+        int hash = 7;
+        hash = 59 * hash + (this.answer ? 1 : 0);
+        hash = 59 * hash + Objects.hashCode(this.answerText);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Answer{" + "answer=" + answer + '}';
+        return "Answer{" + "answer=" + answer + ", answerText=" + answerText + '}';
     }
 
     @Override
@@ -53,6 +64,9 @@ public class Answer implements Serializable {
         }
         final Answer other = (Answer) obj;
         if (this.answer != other.answer) {
+            return false;
+        }
+        if (!Objects.equals(this.answerText, other.answerText)) {
             return false;
         }
         return true;
