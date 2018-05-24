@@ -18,6 +18,7 @@ public class InventoryItem implements Serializable {
     private double weight;
     private String description;
     private String itemType;
+    private int count;
     private Game game;
 
     public InventoryItem() {
@@ -47,6 +48,14 @@ public class InventoryItem implements Serializable {
         this.itemType = itemType;
     }
 
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
     public Game getGame() {
         return game;
     }
@@ -57,10 +66,12 @@ public class InventoryItem implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 53 * hash + (int) (Double.doubleToLongBits(this.weight) ^ (Double.doubleToLongBits(this.weight) >>> 32));
-        hash = 53 * hash + Objects.hashCode(this.description);
-        hash = 53 * hash + Objects.hashCode(this.itemType);
+        int hash = 7;
+        hash = 59 * hash + (int) (Double.doubleToLongBits(this.weight) ^ (Double.doubleToLongBits(this.weight) >>> 32));
+        hash = 59 * hash + Objects.hashCode(this.description);
+        hash = 59 * hash + Objects.hashCode(this.itemType);
+        hash = 59 * hash + this.count;
+        hash = 59 * hash + Objects.hashCode(this.game);
         return hash;
     }
 
@@ -79,10 +90,16 @@ public class InventoryItem implements Serializable {
         if (Double.doubleToLongBits(this.weight) != Double.doubleToLongBits(other.weight)) {
             return false;
         }
+        if (this.count != other.count) {
+            return false;
+        }
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
         if (!Objects.equals(this.itemType, other.itemType)) {
+            return false;
+        }
+        if (!Objects.equals(this.game, other.game)) {
             return false;
         }
         return true;
@@ -90,7 +107,8 @@ public class InventoryItem implements Serializable {
 
     @Override
     public String toString() {
-        return "InventoryItem{" + "weight=" + weight + ", description=" + description + ", itemType=" + itemType + '}';
+        return "InventoryItem{" + "weight=" + weight + ", description=" + description + ", itemType=" + itemType + ", count=" + count + ", game=" + game + '}';
     }
+
 
 }
