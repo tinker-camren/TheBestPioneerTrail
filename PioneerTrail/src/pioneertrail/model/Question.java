@@ -6,6 +6,7 @@
 package pioneertrail.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -16,7 +17,7 @@ public class Question implements Serializable {
 
     // Class instance variables
     private String questionText;
-    private Answer answer;
+    private ArrayList<Answer> answer = new ArrayList<Answer>();
 
     public Question() {
     }
@@ -29,19 +30,19 @@ public class Question implements Serializable {
         this.questionText = questionText;
     }
 
-    public Answer getAnswer() {
+    public ArrayList<Answer> getAnswer() {
         return answer;
     }
 
-    public void setAnswer(Answer answer) {
+    public void setAnswer(ArrayList<Answer> answer) {
         this.answer = answer;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 97 * hash + Objects.hashCode(this.questionText);
-        hash = 97 * hash + Objects.hashCode(this.answer);
+        hash = 71 * hash + Objects.hashCode(this.questionText);
+        hash = 71 * hash + Objects.hashCode(this.answer);
         return hash;
     }
 
@@ -70,5 +71,6 @@ public class Question implements Serializable {
         }
         return true;
     }
+
 
 }
