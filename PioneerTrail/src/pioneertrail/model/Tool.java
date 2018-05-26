@@ -35,7 +35,10 @@ public class Tool implements Serializable {
     }
 
     public void setDurability(int durability) {
-        this.durability = durability;
+        if (durability < 0)
+            this.durability = 0;
+        else
+            this.durability = durability;
     }
 
     public String getToolType() {
