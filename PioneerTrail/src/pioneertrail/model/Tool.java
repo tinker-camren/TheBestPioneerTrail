@@ -18,6 +18,7 @@ public class Tool implements Serializable {
     private char action;
     private int durability;
     private String toolType;
+    private int multiplier;
 
     public Tool() {
     }
@@ -49,12 +50,21 @@ public class Tool implements Serializable {
         this.toolType = toolType;
     }
 
+    public int getMultiplier() {
+        return multiplier;
+    }
+
+    public void setMultiplier(int multiplier) {
+        this.multiplier = multiplier;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 97 * hash + this.action;
-        hash = 97 * hash + this.durability;
-        hash = 97 * hash + Objects.hashCode(this.toolType);
+        int hash = 3;
+        hash = 23 * hash + this.action;
+        hash = 23 * hash + this.durability;
+        hash = 23 * hash + Objects.hashCode(this.toolType);
+        hash = 23 * hash + this.multiplier;
         return hash;
     }
 
@@ -76,6 +86,9 @@ public class Tool implements Serializable {
         if (this.durability != other.durability) {
             return false;
         }
+        if (this.multiplier != other.multiplier) {
+            return false;
+        }
         if (!Objects.equals(this.toolType, other.toolType)) {
             return false;
         }
@@ -84,7 +97,8 @@ public class Tool implements Serializable {
 
     @Override
     public String toString() {
-        return "Tool{" + "action=" + action + ", durability=" + durability + ", toolType=" + toolType + '}';
+        return "Tool{" + "action=" + action + ", durability=" + durability + ", toolType=" + toolType + ", multiplier=" + multiplier + '}';
     }
+
 
 }
