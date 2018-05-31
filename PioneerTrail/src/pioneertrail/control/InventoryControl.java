@@ -14,7 +14,7 @@ import pioneertrail.model.Wagon;
  */
 public class InventoryControl {
     
-    public static double calcNewWeight(double InventoryItem, double Wagon) {
+    public static double calcNewWeight(InventoryItem InventoryItem, Wagon Wagon) {
         
 //        BEGIN
 //            IF (inventoryItem.getWeight < 1) THEN
