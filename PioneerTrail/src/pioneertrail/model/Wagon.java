@@ -17,7 +17,8 @@ public class Wagon implements Serializable {
     //class instance variables
     private int health;
     private int maxHealth;
-    private double inventoryWeight;
+    private double weight;
+    private double maxWeight;
     private Player player;
 
     public Wagon() {
@@ -39,12 +40,20 @@ public class Wagon implements Serializable {
         this.maxHealth = maxHealth;
     }
 
-    public double getInventoryWeight() {
-        return inventoryWeight;
+    public double getWeight() {
+        return weight;
     }
 
-    public void setInventoryWeight(double inventoryWeight) {
-        this.inventoryWeight = inventoryWeight;
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public double getMaxWeight() {
+        return maxWeight;
+    }
+
+    public void setMaxWeight(double maxWeight) {
+        this.maxWeight = maxWeight;
     }
 
     public Player getPlayer() {
@@ -57,11 +66,12 @@ public class Wagon implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 83 * hash + this.health;
-        hash = 83 * hash + this.maxHealth;
-        hash = 83 * hash + (int) (Double.doubleToLongBits(this.inventoryWeight) ^ (Double.doubleToLongBits(this.inventoryWeight) >>> 32));
-        hash = 83 * hash + Objects.hashCode(this.player);
+        int hash = 7;
+        hash = 37 * hash + this.health;
+        hash = 37 * hash + this.maxHealth;
+        hash = 37 * hash + (int) (Double.doubleToLongBits(this.weight) ^ (Double.doubleToLongBits(this.weight) >>> 32));
+        hash = 37 * hash + (int) (Double.doubleToLongBits(this.maxWeight) ^ (Double.doubleToLongBits(this.maxWeight) >>> 32));
+        hash = 37 * hash + Objects.hashCode(this.player);
         return hash;
     }
 
@@ -83,7 +93,10 @@ public class Wagon implements Serializable {
         if (this.maxHealth != other.maxHealth) {
             return false;
         }
-        if (Double.doubleToLongBits(this.inventoryWeight) != Double.doubleToLongBits(other.inventoryWeight)) {
+        if (Double.doubleToLongBits(this.weight) != Double.doubleToLongBits(other.weight)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.maxWeight) != Double.doubleToLongBits(other.maxWeight)) {
             return false;
         }
         if (!Objects.equals(this.player, other.player)) {
@@ -94,8 +107,9 @@ public class Wagon implements Serializable {
 
     @Override
     public String toString() {
-        return "Wagon{" + "health=" + health + ", maxHealth=" + maxHealth + ", inventoryWeight=" + inventoryWeight + ", player=" + player + '}';
+        return "Wagon{" + "health=" + health + ", maxHealth=" + maxHealth + ", weight=" + weight + ", maxWeight=" + maxWeight + ", player=" + player + '}';
     }
 
+   
 
 }
