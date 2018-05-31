@@ -132,7 +132,7 @@ public class PioneerTrail {
         Question brokenBoneQuestion1 = new Question();
         
         brokenBoneQuestion1.setQuestionText("Do you want to use items to decrease the mortality rate?");
-       brokenBoneQuestion1.setAnswer(brokenBoneAnswer1);
+//       brokenBoneQuestion1.setAnswer(brokenBoneAnswer1);
        
        System.out.println(brokenBoneQuestion1.toString());
        
