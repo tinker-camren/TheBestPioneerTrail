@@ -11,6 +11,8 @@ import pioneertrail.model.Wagon;
 /**
  *
  * @author tinkerc
+ * THIS CLASS IS RETIRED
+ * I just left it here to reference in case anyone wants to look at it. 
  */
 public class ZzInventoryControl2 {
     
