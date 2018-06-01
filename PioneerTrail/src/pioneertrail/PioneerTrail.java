@@ -81,7 +81,7 @@ public class PioneerTrail {
         Wagon wagonOne = new Wagon();
 
         wagonOne.setHealth(200);
-        wagonOne.setInventoryWeight(75.5);
+        wagonOne.setWeight(75.5);
         
         System.out.println(wagonOne.toString());
     }
