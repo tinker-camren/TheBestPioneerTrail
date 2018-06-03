@@ -175,5 +175,35 @@ public class InventoryControlTest {
         System.out.println("\tNew Wagon Weight = " + result);
         
     }
+    /**
+     * Test of calcFoodHunt method, of class ToolControl.
+     */
+    @Test
+    public void testCalcFoodHunt() {
+        System.out.println("FoodHunt Test 1");
+        InventoryItem food = new InventoryItem();
+        food.setWeight(10);
+        food.setCount(10);
+        double expResult = 110;
+        double result = ToolControl.calcFoodHunt((food));
+        assertEquals(expResult, result, 0.0);
+        System.out.println("\tcalc Food Result = " + result);
+        
+        System.out.println("FoodHunt Test 2");
+        food.setWeight(5);
+        food.setCount(4);
+        expResult = 25;
+        result = ToolControl.calcFoodHunt((food));
+        assertEquals(expResult, result, 0.0);
+        System.out.println("\tcalc Food Result = " + result);
+        
+        System.out.println("FoodHunt Test 3");
+        food.setWeight(50);
+        food.setCount(3);
+        expResult = 200;
+        result = ToolControl.calcFoodHunt((food));
+        assertEquals(expResult, result, 0.0);
+        System.out.println("\tcalc Food Result = " + result);
+    }
     
 }
