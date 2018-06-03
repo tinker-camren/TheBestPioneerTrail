@@ -102,4 +102,28 @@ public class ToolControl {
         return item.getCount() * (item.getWeight() - item.getWeight() * scrap);
     }
 
+    //Kathy
+    public static double calcFoodHunt(InventoryItem food){
+    //Pseudocode:
+    //BEGIN
+        //IF (InventoryItem.getType == "Food") THEN
+		//RETURN -1
+        //IF (InventoryItem.getCount <1) THEN
+                //RETURN -2
+        //IF totalInventoryItem.getWeight + (inventoryItem.getWeight *   inventoryItem.getCount) > 200 THEN
+		//RETURN -3
+        //RETURN totalInventoryItem.getWeight + (inventoryItem.getWeight * inventoryItem.getCount)
+    //END
+    if (food.getItemType() == "Not food"){
+	return -1; //if the item is something else than food
+    }
+    
+    if (food.getCount() < 1){
+        return -2; // if food is less than 1
+    }
+    if ((food.getWeight() + (food.getWeight() * food.getCount())) > 200){
+        return -3; // food more than 200lbs
+    }
+    return (food.getWeight() + (food.getWeight() * food.getCount()));
+    }
 }
