@@ -17,10 +17,7 @@ import pioneertrail.model.Wagon;
  * @author tinkerc
  */
 public class InventoryControlTest {
-    
-    public InventoryControlTest() {
-    }
-    
+        
     @BeforeClass
     public static void setUpClass() {
     }
@@ -174,7 +171,7 @@ public class InventoryControlTest {
         assertEquals(expResult, result, 0.0);
         System.out.println("\tNew Wagon Weight = " + result);
         
-    }
+    }  
     /**
      * Test of calcFoodHunt method, of class ToolControl.
      */
@@ -205,5 +202,5 @@ public class InventoryControlTest {
         assertEquals(expResult, result, 0.0);
         System.out.println("\tcalc Food Result = " + result);
     }
-    
+
 }
