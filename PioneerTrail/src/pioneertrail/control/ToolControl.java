@@ -6,12 +6,62 @@
 package pioneertrail.control;
 
 import pioneertrail.model.InventoryItem;
+import pioneertrail.model.Tool;
+import pioneertrail.model.Wagon;
 
 /**
  *
  * @author Tinkerc
  */
 public class ToolControl {
+    
+    //Camren
+    public static int repairWagon(InventoryItem item, Tool tool, Wagon wagon) {
+     
+//        pseudo code
+//        BEGIN
+//            IF (InventoryItem.getType != ‘Wood’ ) THEN
+//              RETURN -1
+//            IF (Tool.getDurability <1) THEN
+//              RETURN -2
+//            IF (InventoryItem.getCount < 1) THEN
+//              RETURN -3
+//            IF (Tool.getType != ‘Hammer’) THEN
+//              RETURN -4
+//            IF ((InventoryItem.getCount * Tool.getMultiplier) + Wagon.getHealth > Wagon.getMaxHealth) THEN
+//              Wagon.setHealth (Wagon.getMaxHealth)
+//            Tool.setDurability (Tool.getDurability – InventoryItem.getCount)
+//              Return Wagon.getHealth
+//            Wagon.setHealth (InventoryItem.getCount * InventoryItem.getMultiplier) + Wagon.getHealth
+//              Tool.setDurability (Tool.getDurability – InventoryItem.getCount)
+//          RETURN  Wagon.getHealth
+
+
+        if (item.getItemType() != "Wood") {
+            return -1;
+        }
+        
+        if (tool.getDurability() < 1) {
+            return -2;
+        }
+        
+        if (item.getCount() < 1) {
+            return -3;
+        }
+        
+        if (tool.getToolType() != "Hammer") {
+            return -4;
+        }
+        
+        if ((item.getCount() * tool.getMultiplier()) + wagon.getHealth() > wagon.getMaxHealth()) {
+            wagon.setHealth(wagon.getMaxHealth());
+            return wagon.getHealth();
+        }
+        
+        wagon.setHealth((item.getCount() * tool.getMultiplier()) + wagon.getHealth());
+        tool.setDurability(tool.getDurability() - item.getCount());
+        return wagon.getHealth();
+    }
 
     //Danica
     public static double chopWood(InventoryItem item, double scrap) {
