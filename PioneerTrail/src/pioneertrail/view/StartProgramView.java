@@ -18,15 +18,18 @@ public class StartProgramView {
     public StartProgramView() {
     }
     
-    public displayStartProgramView() {
+    public void displayStartProgramView() {
         boolean endOfView = false;
-
-        String[] inputs = this.getInputs();
-//        IF no inputs were entered OR the first input is Q  
-//        RETURN 
-//        ENDIF 
+        do {
+                
+       String[] inputs = this.getInputs();
+       String toUpperCase = inputs[0].toUpperCase();
+            if (toUpperCase.equals("Q") || inputs[0].length() < 1) {
+                java.lang.System.exit(0);
+            } 
         endOfView = doAction(inputs);
-//        WHILE endOfView != true 
+        }while (endOfView != true); 
+        
 }
 
     private String[] getInputs() {
@@ -61,10 +64,7 @@ public class StartProgramView {
             inputs[0] = scanner.nextLine();
             inputs[0] = inputs[0].trim();
             
-            String toUpperCase = inputs[0].toUpperCase();
-            if (toUpperCase.equals("Q")) {
-                java.lang.System.exit(0);
-            }
+            
             
             if (inputs[0].length() < 1) {
                 System.out.println("You must enter a non-blank value");

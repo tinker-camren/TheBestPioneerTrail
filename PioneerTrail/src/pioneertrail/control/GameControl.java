@@ -14,7 +14,12 @@ import pioneertrail.model.Player;
 public class GameControl {
 
     public static Player savePlayer(String playersName) {
-        System.out.println("*** savePlayer() called ***");
+        if (playersName.length() < 1){
+        
+            return null;
+        }
+        Player player = new Player();
+        player.setName(playersName);
         return new Player();
     }
     
