@@ -23,4 +23,8 @@ public class GameControl {
         return new Player();
     }
     
+    public static void createNewGame(Player player){
+        System.out.println("Test create new game");
+    }
+   
 }

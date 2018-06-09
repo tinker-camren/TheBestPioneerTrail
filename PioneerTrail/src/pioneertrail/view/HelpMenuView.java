@@ -6,18 +6,13 @@
 package pioneertrail.view;
 
 import java.util.Scanner;
-import pioneertrail.PioneerTrail;
-import pioneertrail.control.GameControl;
-import pioneertrail.model.Game;
-import pioneertrail.model.Player;
 
 /**
  *
- * @author Suckafish
+ * @author Danica
  */
-class MainMenuView {
-
-    void displayMainMenuView() {
+class HelpMenuView {
+    void displayHelpMenuView(){
         boolean endView = false;
         
         do{
@@ -29,24 +24,22 @@ class MainMenuView {
             } 
         endView = doAction(inputs);
         }while (endView != true);
-        
-        
-        }
-
-    private String[] getInputs() {
-        System.out.println("\nMain Menu view get inputs");
+    }
+    
+        private String[] getInputs() {
+        System.out.println("Main Menu view get inputs");
         String[] inputs = new String[1];
         boolean valid = false;
         
         while (valid == false) {
         System.out.println("**********"
-                + "\nMain MENU"
+                + "\nhelp MENU"
                 + "\n**********");
         System.out.println(
-            "N - Start new game\n" +
-            "R - Restart existing game\n" +
-            "H - Get help on how to play the game\n" +
-            "E - Exit");
+            "G - What is the goal of the game?"
+            + "\nM - How to move"
+            + "\nR - Using the resources"
+            + "\nQ - Quit");
         System.out.println("Enter your selection: ");
             Scanner scanner = new Scanner(System.in);
             inputs[0] = scanner.nextLine();
@@ -62,43 +55,37 @@ class MainMenuView {
         
         return inputs;
     }
-
-    private boolean doAction(String[] inputs) {
+        
+      private boolean doAction(String[] inputs) {
         
         String menuItem = inputs[0].toUpperCase();
              
         switch (menuItem){
-            case "N": startNewGame();
+            case "G": gameGoal();
                 break;
-            case "R": restartGame();
+            case "M": moveHelp();
                 break;
-            case "H": getHelp();
+            case "R": resourceHelp();
                 break;
-            case "E": return true;
+            case "Q": return true;
             
-            default: System.out.println("Invalid menu item");
-                         
+            default: System.out.println("Invalid menu item");                
         }
-                 
-            
         return false; 
+}
+
+    private void gameGoal() {
+        GameGoal gameGoal = new GameGoal();
+        gameGoal.displayGameGoal();
     }
     
-    private void startNewGame() {
-        GameControl.createNewGame(PioneerTrail.getPlayer());
-        GameMenuView gameMenuView = new GameMenuView();
-        gameMenuView.displayGameMenuView();
+    private void moveHelp() {
+        MoveHelp moveHelp = new MoveHelp();
+        moveHelp.displayMoveHelp();
     }
 
-    private void restartGame() {
-        StartExistingGameView startExistingGameView = new StartExistingGameView();
-        startExistingGameView.displayStartExistingGameView();
+    private void resourceHelp() {
+        ResourceHelp resourceHelp = new ResourceHelp();
+        resourceHelp.displayResourceHelp();
     }
-
-    private void getHelp() {
-        HelpMenuView helpMenuView = new HelpMenuView();
-        helpMenuView.displayHelpMenuView();
-    }
-       
-    
 }
