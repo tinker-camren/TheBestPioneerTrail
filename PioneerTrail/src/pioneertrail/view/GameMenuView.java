@@ -13,6 +13,6 @@ import pioneertrail.model.Player;
  */
 class GameMenuView {
     public static void displayGameMenuView(){
-        System.out.println("Test create new game");
+        //System.out.println("Test create new game");
     }
 }
