@@ -20,7 +20,7 @@ class HelpMenuView {
        String[] inputs = this.getInputs();
        String toUpperCase = inputs[0].toUpperCase();
             if (toUpperCase.equals("Q") || inputs[0].length() < 1) {
-                java.lang.System.exit(0);
+                return;
             } 
         endView = doAction(inputs);
         }while (endView != true);
@@ -67,7 +67,7 @@ class HelpMenuView {
                 break;
             case "R": resourceHelp();
                 break;
-            case "Q": return true;
+            case "Q": mainMenuView();
             
             default: System.out.println("Invalid menu item");                
         }
@@ -87,5 +87,10 @@ class HelpMenuView {
     private void resourceHelp() {
         ResourceHelp resourceHelp = new ResourceHelp();
         resourceHelp.displayResourceHelp();
+    }
+
+    private void mainMenuView() {
+        MainMenuView mainMenuView = new MainMenuView();
+        mainMenuView.displayMainMenuView();
     }
 }
