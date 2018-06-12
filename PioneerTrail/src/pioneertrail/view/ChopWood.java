@@ -9,10 +9,10 @@ package pioneertrail.view;
  *
  * @author Danica
  */
-class GameGoal {
+class ChopWood {
 
-    void displayGameGoal() {
-        System.out.println("test game goal");
+    void displayChopWood() {
+        System.out.println("There are trees near the trail. "
+                + "You decide to chop some down.");
     }
-
 }

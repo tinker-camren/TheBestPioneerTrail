@@ -5,6 +5,7 @@
  */
 package pioneertrail.control;
 
+import pioneertrail.PioneerTrail;
 import pioneertrail.model.Player;
 
 /**
@@ -14,17 +15,23 @@ import pioneertrail.model.Player;
 public class GameControl {
 
     public static Player savePlayer(String playersName) {
-        if (playersName.length() < 1){
-        
+        if (playersName.length() < 1) {
+
             return null;
         }
         Player player = new Player();
         player.setName(playersName);
+        PioneerTrail.setPlayer(player);
         return new Player();
     }
-    
-    public static void createNewGame(Player player){
+
+    public static void createNewGame(Player player) {
         System.out.println("Test create new game");
     }
-   
+
+    public static void saveGame() {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("save game not implemented yet");
+    }
+
 }

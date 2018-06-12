@@ -9,10 +9,9 @@ package pioneertrail.view;
  *
  * @author Danica
  */
-class GameGoal {
+class FamilyMembers {
 
-    void displayGameGoal() {
-        System.out.println("test game goal");
+    void displayFamilyMembers() {
+        System.out.println("List of family members will be here.");
     }
-
 }

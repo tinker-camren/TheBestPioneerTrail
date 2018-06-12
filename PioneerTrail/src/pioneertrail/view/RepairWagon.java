@@ -9,10 +9,9 @@ package pioneertrail.view;
  *
  * @author Danica
  */
-class GameGoal {
+class RepairWagon {
 
-    void displayGameGoal() {
-        System.out.println("test game goal");
+    void displayRepairWagon() {
+        System.out.println("You repair the wagon.");
     }
-
 }

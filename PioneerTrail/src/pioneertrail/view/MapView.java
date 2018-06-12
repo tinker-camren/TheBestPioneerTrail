@@ -9,10 +9,9 @@ package pioneertrail.view;
  *
  * @author Danica
  */
-class GameGoal {
+class MapView {
 
-    void displayGameGoal() {
-        System.out.println("test game goal");
+    void displayMapView() {
+        System.out.println("This will show the map view.");
     }
-
 }

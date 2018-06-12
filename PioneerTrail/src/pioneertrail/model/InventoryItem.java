@@ -110,5 +110,9 @@ public class InventoryItem implements Serializable {
         return "InventoryItem{" + "weight=" + weight + ", description=" + description + ", itemType=" + itemType + ", count=" + count + ", game=" + game + '}';
     }
 
+    public void displayInventoryItem() {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("List of inventory items will be here.");
+    }
 
 }

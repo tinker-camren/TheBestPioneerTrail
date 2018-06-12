@@ -49,13 +49,12 @@ public class PioneerTrail {
     public static void setPlayer(Player player) {
         PioneerTrail.player = player;
     }
-    
 
     public static void main(String[] args) {
-        
+
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.displayStartProgramView();
-        PioneerTrail.setPlayer(player);
+        //PioneerTrail.setPlayer(player);
     }
 
 }

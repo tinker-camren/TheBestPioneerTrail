@@ -9,10 +9,9 @@ package pioneertrail.view;
  *
  * @author Danica
  */
-class GameGoal {
+class HandleSickness {
 
-    void displayGameGoal() {
-        System.out.println("test game goal");
+    void displayHandleSickness() {
+        System.out.println("You take care of the sick and injured.");
     }
-
 }

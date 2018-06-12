@@ -17,27 +17,27 @@ public class StartProgramView {
 
     public StartProgramView() {
     }
-    
+
     public void displayStartProgramView() {
         boolean endOfView = false;
         do {
-                
-       String[] inputs = this.getInputs();
-       String toUpperCase = inputs[0].toUpperCase();
+
+            String[] inputs = this.getInputs();
+            String toUpperCase = inputs[0].toUpperCase();
             if (toUpperCase.equals("Q") || inputs[0].length() < 1) {
                 java.lang.System.exit(0);
-            } 
-        endOfView = doAction(inputs);
-        }while (endOfView != true); 
-        
-}
+            }
+            endOfView = doAction(inputs);
+        } while (endOfView != true);
+
+    }
 
     private String[] getInputs() {
         System.out.println("getInputs() called");
-        
+
         String[] inputs = new String[1];
         boolean valid = false;
-        
+
         while (valid == false) {
             System.out.println("\n*****************************"
                     + "*******************************"
@@ -60,45 +60,43 @@ public class StartProgramView {
                     + "\n*******************************"
                     + "*******************************"
                     + "*******************************");
-            
+
             System.out.println("\nPlease enter your name: ");
             Scanner scanner = new Scanner(System.in);
             inputs[0] = scanner.nextLine();
             inputs[0] = inputs[0].trim();
-            
-            
-            
+
             if (inputs[0].length() < 1) {
                 System.out.println("You must enter a non-blank value");
                 continue; //Move to the top of the loop and repeat
             }
-            
+
             valid = true;
             return inputs;
         }
-        
+
         return inputs;
     }
 
     private boolean doAction(String[] inputs) {
-        
+
         String playersName = inputs[0];
         Player player = GameControl.savePlayer(playersName);
         if (player == null) {
-            System.out.println("Could not create the player." + 
-                    "Enter a different name.");
+            System.out.println("Could not create the player."
+                    + "Enter a different name.");
             return false;
         }
-        
-        System.out.println("\n=========================================="
-                + "Welcome to the game " + playersName
+
+        System.out.println("\n======================================"
+                + "Welcome to the Best Pioneer Trail game "
+                + playersName + "!"
                 + " We hope you have a lot of fun!"
-                + "===========================================");
+                + "=======================================");
 
         MainMenuView mainMenuView = new MainMenuView();
         mainMenuView.displayMainMenuView();
 
-        
         return true;
     }
 }

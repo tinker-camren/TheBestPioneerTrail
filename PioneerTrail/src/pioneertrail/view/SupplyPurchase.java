@@ -9,10 +9,9 @@ package pioneertrail.view;
  *
  * @author Danica
  */
-class GameGoal {
+class SupplyPurchase {
 
-    void displayGameGoal() {
-        System.out.println("test game goal");
+    void displaySupplyPurchase() {
+        System.out.println("Items will be purchased here.");
     }
-
 }

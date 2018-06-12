@@ -9,10 +9,9 @@ package pioneertrail.view;
  *
  * @author Danica
  */
-class GameGoal {
+class HuntAnimals {
 
-    void displayGameGoal() {
-        System.out.println("test game goal");
+    void displayHuntAnimals() {
+        System.out.println("You see some elk in the distance and decide to hunt them.");
     }
-
 }

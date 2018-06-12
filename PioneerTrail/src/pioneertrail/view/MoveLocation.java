@@ -9,10 +9,9 @@ package pioneertrail.view;
  *
  * @author Danica
  */
-class GameGoal {
+class MoveLocation {
 
-    void displayGameGoal() {
-        System.out.println("test game goal");
+    void displayMoveLocation() {
+        System.out.println("This will move your location.");
     }
-
 }
