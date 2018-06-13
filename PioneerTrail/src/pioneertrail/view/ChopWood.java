@@ -6,7 +6,7 @@
 package pioneertrail.view;
 
 import java.util.Scanner;
-import pioneertrail.control.ToolControl;
+//import pioneertrail.control.ToolControl;
 
 /**
  *
