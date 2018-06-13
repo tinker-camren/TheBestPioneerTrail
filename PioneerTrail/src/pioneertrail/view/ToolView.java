@@ -10,6 +10,7 @@ package pioneertrail.view;
  * @author Camren
  */
 class ToolView {
-    void displayInventoryItemView() {
+    void displayToolView() {
         System.out.println("Display ToolView Called");
+    }
 }
