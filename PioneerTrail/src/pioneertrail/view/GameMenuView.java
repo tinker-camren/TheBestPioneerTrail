@@ -79,7 +79,10 @@ class GameMenuView {
                 mapView();
                 break;
             case "I":
-                inventoryItem();
+                inventoryItemView();
+                break;
+            case "I":
+                ToolView();
                 break;
             case "P":
                 supplyPurchase();
@@ -161,6 +164,11 @@ class GameMenuView {
 
     private void saveGame() {
         GameControl.saveGame();
+    }
+
+    private void ToolView() {
+        ToolView toolView = new ToolView();
+        ToolView.displayToolView();
     }
 
 }
