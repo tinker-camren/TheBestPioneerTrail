@@ -168,7 +168,7 @@ class GameMenuView {
 
     private void ToolView() {
         ToolView toolView = new ToolView();
-        ToolView.displayToolView();
+        toolView.displayToolView();
     }
 
 }
