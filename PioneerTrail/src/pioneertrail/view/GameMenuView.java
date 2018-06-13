@@ -9,6 +9,7 @@ import java.util.Scanner;
 import pioneertrail.control.GameControl;
 import pioneertrail.model.InventoryItem;
 import pioneertrail.model.Player;
+import pioneertrail.model.Wagon;
 
 /**
  *
@@ -118,9 +119,9 @@ class GameMenuView {
         mapView.displayMapView();
     }
 
-    private void inventoryItem() {
-        InventoryItem inventoryItem = new InventoryItem();
-        inventoryItem.displayInventoryItem();
+    private void inventoryItemView() {
+        InventoryItemView inventoryItemView = new InventoryItemView();
+        inventoryItemView.displayInventoryItemView();
     }
 
     private void supplyPurchase() {
