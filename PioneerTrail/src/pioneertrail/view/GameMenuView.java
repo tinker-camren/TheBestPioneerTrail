@@ -81,7 +81,7 @@ class GameMenuView {
             case "I":
                 inventoryItemView();
                 break;
-            case "I":
+            case "T":
                 ToolView();
                 break;
             case "P":
