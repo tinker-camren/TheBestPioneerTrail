@@ -6,6 +6,7 @@
 package pioneertrail.view;
 
 import java.util.Scanner;
+import pioneertrail.control.ToolControl;
 import pioneertrail.model.InventoryItem;
 import pioneertrail.model.Tool;
 import pioneertrail.model.Wagon;
@@ -19,11 +20,8 @@ public class RepairWagon {
     public void testInstances() {
 
     }
-    
-    public void displayRepairWagon() {
-    }
         
-        public void displayRepairWagonView() {
+        public void displayRepairWagon() {
         boolean endView = false;
         
         do {
@@ -31,7 +29,7 @@ public class RepairWagon {
             String[] inputs = this.getInputs();
             String toUpperCase = inputs[0].toUpperCase();
             if (toUpperCase.equals("Q") || inputs[0].length() < 1) {
-                java.lang.System.exit(0);
+                return;
             }
             endView = doAction(inputs);
         } while (endView != true);
@@ -59,16 +57,29 @@ public class RepairWagon {
                 wood.setItemType("Wood");
                 wood.setWeight(20);
             //End create instances
-            
-            int wagonHealth = wagon.getHealth();
-            String tool = hammer.getToolType();
 
             while (valid == false) {
                 System.out.println("**********"
                         + "\nRepair Wagon"
                         + "\n**********");
-                System.out.println("\nWagon Health: " + wagonHealth
-                        + " \nAvailable Tools: " + tool);
+                System.out.println("\nWagon Health: " + wagon.getHealth());
+                
+                if (hammer.getDurability() > 0) {
+                System.out.println("Hammer Durability: " + hammer.getDurability());
+                } else {
+                System.out.println("Hammer broken or non-existent");
+                }
+                
+                if (wood.getCount() > 0) {
+                System.out.println("Wood Amount: " + wood.getCount());
+                } else {
+                System.out.println("No wood. You must gather wood before repairing"
+                        + " your wagon");
+                }
+                
+                System.out.println("\nR - Repair Wagon "
+                        + "\nQ - Quit");
+                
                 System.out.println("Enter your selection: ");
                 Scanner scanner = new Scanner(System.in);
                 inputs[0] = scanner.nextLine();
@@ -88,26 +99,21 @@ public class RepairWagon {
     private boolean doAction(String[] inputs) {
 
         String menuItem = inputs[0].toUpperCase();
-
-        switch (menuItem) {
-            case "N":
-                startNewGame();
-                break;
-            case "R":
-                restartGame();
-                break;
-            case "H":
-                getHelp();
-                break;
-            case "E":
-                return true;
-
-            default:
-                System.out.println("Invalid menu item");
-
+        
+        if ("R".equals(menuItem)) {
+            repairWagonMenu();
+        } else if ("Q".equals(menuItem)) {
+            return true;
+        } else {
+            System.out.println("Invalid menu item");   
         }
-
+            
         return false;
     }
+
+    private void repairWagonMenu() {
+        RepairWagonMenu repairWagonMenu = new RepairWagonMenu();
+        repairWagonMenu.displayRepairWagonMenu();
+    }
 }
-}
+

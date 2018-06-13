@@ -55,6 +55,7 @@ public class ToolControl {
         
         if ((item.getCount() * tool.getMultiplier()) + wagon.getHealth() > wagon.getMaxHealth()) {
             wagon.setHealth(wagon.getMaxHealth());
+            tool.setDurability(tool.getDurability() - item.getCount());
             return wagon.getHealth();
         }
         

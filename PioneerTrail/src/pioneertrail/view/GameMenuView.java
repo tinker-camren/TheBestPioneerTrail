@@ -45,6 +45,7 @@ class GameMenuView {
             System.out.println(
                     "V - View Map"
                     + "\nI - View inventory items"
+                    + "\nT - View Tool List"
                     + "\nP - Purchase supplies"
                     + "\nM - Move to new location"
                     + "\nF - View Family Members"
