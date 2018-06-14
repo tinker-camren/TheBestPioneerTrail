@@ -52,7 +52,7 @@ public class RepairWagon {
                 hammer.setToolType("Hammer");
                 
             InventoryItem wood = new InventoryItem();
-                wood.setCount(10);
+                wood.setCount(25);
                 wood.setDescription("Wood");
                 wood.setItemType("Wood");
                 wood.setWeight(20);
