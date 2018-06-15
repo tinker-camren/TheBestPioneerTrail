@@ -12,7 +12,11 @@ package pioneertrail.view;
 class GameGoal {
 
     void displayGameGoal() {
-        System.out.println("test game goal");
+        System.out.println(
+                "The goal of this game is to make it to Zion. "
+                + "\nAt least one member of the company must be "
+                + "\nalive to reach Zion. Try to make it with as "
+                + "\nmany family members as possible!");
     }
 
 }

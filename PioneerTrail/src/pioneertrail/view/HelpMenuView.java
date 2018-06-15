@@ -28,7 +28,7 @@ class HelpMenuView {
     }
 
     private String[] getInputs() {
-        System.out.println("Main Menu view get inputs");
+        System.out.println("\nHelp menu view get inputs");
         String[] inputs = new String[1];
         boolean valid = false;
 
