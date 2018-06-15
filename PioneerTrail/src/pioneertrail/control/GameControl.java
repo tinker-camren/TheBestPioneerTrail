@@ -5,7 +5,10 @@
  */
 package pioneertrail.control;
 
+import java.util.ArrayList;
 import pioneertrail.PioneerTrail;
+import pioneertrail.model.Game;
+import pioneertrail.model.InventoryItem;
 import pioneertrail.model.Player;
 
 /**
@@ -27,6 +30,32 @@ public class GameControl {
 
     public static void createNewGame(Player player) {
         System.out.println("Test create new game");
+        Game game = new Game();
+        PioneerTrail.setCurrentGame(game);
+        
+        ArrayList<InventoryItem> items = new ArrayList<InventoryItem>();
+        InventoryItem item = new InventoryItem();
+        item.setDescription("potatoes");
+        item.setCount(20);
+        item.setItemType("food");
+        item.setWeight(1);
+        items.add(item);
+        
+        item = new InventoryItem();
+        item.setDescription("water");
+        item.setCount(5);
+        item.setItemType("drink");
+        item.setWeight(3);
+        items.add(item);
+        game.setItems(items);
+        
+        item = new InventoryItem();
+        item.setDescription("Meat");
+        item.setCount(8);
+        item.setItemType("food");
+        item.setWeight(10);
+        items.add(item);
+        game.setItems(items);
     }
 
     public static void saveGame() {
