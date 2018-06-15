@@ -12,8 +12,10 @@ package pioneertrail.view;
 class MoveHelp {
 
     void displayMoveHelp() {
-        System.out.println("When you want to move to a new location, "
-                + "press M and enter within the game menu.");
+        System.out.println(
+                "When you want to move to a new location, "
+                + "\ngo to the Game MENU, press the 'M' key "
+                + "\nand click enter.");
     }
 
 }

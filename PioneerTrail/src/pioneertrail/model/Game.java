@@ -6,6 +6,7 @@
 package pioneertrail.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -19,6 +20,26 @@ public class Game implements Serializable {
     private Wagon wagon;
     private Tool tool;
     private InventoryItem item;
+    
+    private ArrayList<InventoryItem> items;
+
+    /**
+     * Get the value of items
+     *
+     * @return the value of items
+     */
+    public ArrayList<InventoryItem> getItems() {
+        return items;
+    }
+
+    /**
+     * Set the value of items
+     *
+     * @param items new value of items
+     */
+    public void setItems(ArrayList<InventoryItem> items) {
+        this.items = items;
+    }
 
     public Game() {
         //Create instances for testing
