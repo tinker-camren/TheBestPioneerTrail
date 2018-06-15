@@ -28,11 +28,10 @@ public class GameControl {
         return new Player();
     }
 
-    public static void createNewGame(Player player) {
+    public static Game createNewGame(Player player) {
         System.out.println("Test create new game");
         Game game = new Game();
-        PioneerTrail.setCurrentGame(game);
-        
+                
         ArrayList<InventoryItem> items = new ArrayList<InventoryItem>();
         InventoryItem item = new InventoryItem();
         item.setDescription("potatoes");
@@ -56,6 +55,8 @@ public class GameControl {
         item.setWeight(10);
         items.add(item);
         game.setItems(items);
+        
+        return game;
     }
 
     public static void saveGame() {
