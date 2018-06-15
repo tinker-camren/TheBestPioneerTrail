@@ -6,6 +6,7 @@
 package pioneertrail.control;
 
 import pioneertrail.PioneerTrail;
+import pioneertrail.model.Game;
 import pioneertrail.model.Player;
 
 /**
@@ -25,8 +26,10 @@ public class GameControl {
         return new Player();
     }
 
-    public static void createNewGame(Player player) {
-        System.out.println("Test create new game");
+    public static Game createNewGame(Player player) {
+        System.out.println("Welcome to the game " + player);
+        Game game = new Game();
+        return game;
     }
 
     public static void saveGame() {

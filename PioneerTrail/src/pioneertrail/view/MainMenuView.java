@@ -88,14 +88,14 @@ class MainMenuView {
     }
 
     private void startNewGame() {
-        GameControl.createNewGame(PioneerTrail.getPlayer());
+        PioneerTrail.setCurrentGame(GameControl.createNewGame(PioneerTrail.getPlayer()));
         GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.display();
     }
 
     private void restartGame() {
         StartExistingGameView startExistingGameView = new StartExistingGameView();
-        startExistingGameView.displayStartExistingGameView();
+        StartExistingGameView.displayStartExistingGameView();
     }
 
     private void getHelp() {

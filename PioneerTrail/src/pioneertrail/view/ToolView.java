@@ -7,9 +7,12 @@ package pioneertrail.view;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import pioneertrail.PioneerTrail;
 import pioneertrail.control.ToolControl;
+import pioneertrail.model.Game;
 import pioneertrail.model.InventoryItem;
 import pioneertrail.model.Tool;
+import pioneertrail.model.Wagon;
 
 /**
  *
@@ -34,18 +37,12 @@ class ToolView {
         String[] inputs = new String[1];
         boolean valid = false;
         
-        //Create test instances
-        Tool gun = new Tool();
-            gun.setToolType("Gun");
-            gun.setDurability(80);
-        Tool hammer = new Tool();
-            hammer.setToolType("Hammer");
-            hammer.setDurability(75);
-        Tool axe = new Tool();
-            axe.setToolType("Axe");
-            axe.setDurability(20);
-        //End test instances
-
+        Game game = PioneerTrail.getCurrentGame();
+        Wagon wagon = game.getWagon();
+        Tool hammer = wagon.getTools().get(0);
+        Tool gun = wagon.getTools().get(1);
+        Tool axe = wagon.getTools().get(2);
+        
         while (valid == false) {
             System.out.println("**********"
                     + "\nTool List"

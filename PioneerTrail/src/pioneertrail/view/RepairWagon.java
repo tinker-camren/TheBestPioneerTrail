@@ -6,7 +6,9 @@
 package pioneertrail.view;
 
 import java.util.Scanner;
+import pioneertrail.PioneerTrail;
 import pioneertrail.control.ToolControl;
+import pioneertrail.model.Game;
 import pioneertrail.model.InventoryItem;
 import pioneertrail.model.Tool;
 import pioneertrail.model.Wagon;
@@ -41,22 +43,10 @@ public class RepairWagon {
             String[] inputs = new String[1];
             boolean valid = false;
             
-            //Create instances for testing
-            Wagon wagon = new Wagon(); 
-                wagon.setHealth(80);
-                wagon.setWeight(250);
-            
-            Tool hammer = new Tool();
-                hammer.setDurability(85);
-                hammer.setMultiplier(2);
-                hammer.setToolType("Hammer");
-                
-            InventoryItem wood = new InventoryItem();
-                wood.setCount(25);
-                wood.setDescription("Wood");
-                wood.setItemType("Wood");
-                wood.setWeight(20);
-            //End create instances
+            Game game = PioneerTrail.getCurrentGame();
+            Wagon wagon = game.getWagon();
+            InventoryItem item = wagon.getInventoryItems().get(0);
+            Tool tool = wagon.getTools().get(0);
 
             while (valid == false) {
                 System.out.println("**********"
@@ -64,19 +54,26 @@ public class RepairWagon {
                         + "\n**********");
                 System.out.println("\nWagon Health: " + wagon.getHealth());
                 
-                if (hammer.getDurability() > 0) {
-                System.out.println("Hammer Durability: " + hammer.getDurability());
+                if (tool.getToolType().equalsIgnoreCase("Hammer")) {
+                    if (tool.getDurability() > 0) {
+                        System.out.println("Hammer Durability: " + tool.getDurability());
+                    } else {
+                        System.out.println("Hammer broken or non-existent");
+                    }
                 } else {
-                System.out.println("Hammer broken or non-existent");
+                    System.out.println("Hammer broken or non-existent");
                 }
-                
-                if (wood.getCount() > 0) {
-                System.out.println("Wood Amount: " + wood.getCount());
+                if (item.getItemType().equalsIgnoreCase("Wood")) {
+                    if (item.getCount() > 0) {
+                        System.out.println("Wood Amount: " + item.getCount());
+                    } else {
+                        System.out.println("No wood. You must gather wood before repairing"
+                                + " your wagon");
+                    }
                 } else {
-                System.out.println("No wood. You must gather wood before repairing"
-                        + " your wagon");
+                    System.out.println("No wood. You must gather wood before repairing"
+                            + " your wagon");
                 }
-                
                 System.out.println("\nR - Repair Wagon "
                         + "\nQ - Quit");
                 

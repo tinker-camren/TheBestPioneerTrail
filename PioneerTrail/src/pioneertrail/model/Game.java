@@ -16,8 +16,77 @@ public class Game implements Serializable {
     private double milesTraveled;
     private int numPeople;
     private Player player;
+    private Wagon wagon;
+    private Tool tool;
+    private InventoryItem item;
 
     public Game() {
+        //Create instances for testing
+        wagon = new Wagon(); 
+            wagon.setHealth(80);
+            wagon.setMaxHealth(100);
+            wagon.setWeight(250);
+
+        Tool hammer = new Tool();
+            hammer.setDurability(85);
+            hammer.setMultiplier(2);
+            hammer.setToolType("Hammer");
+            
+        Tool gun = new Tool();
+            gun.setDurability(60);
+            gun.setMultiplier(2);
+            gun.setToolType("Gun");
+            
+        Tool axe = new Tool();
+            axe.setDurability(70);
+            axe.setMultiplier(2);
+            axe.setToolType("Axe");
+
+
+        InventoryItem wood = new InventoryItem();
+            wood.setCount(25);
+            wood.setDescription("Used to repair wagons");
+            wood.setItemType("Wood");
+            
+        InventoryItem water = new InventoryItem();
+            water.setCount(10);
+            water.setDescription("Powerhouse of life");
+            water.setItemType("Water");
+            water.setWeight(water.getCount() * 5);
+            
+        //add to InventoryItems arraylist in the wagon class
+        wagon.getInventoryItems().add(0, wood);
+        wagon.getInventoryItems().add(1, water);
+        
+        //add tools to arraylist in the wagon class
+        wagon.getTools().add(0, hammer);
+        wagon.getTools().add(1, gun);
+        wagon.getTools().add(2, axe);
+        //End create instances
+    }
+
+    public Wagon getWagon() {
+        return wagon;
+    }
+
+    public void setWagon(Wagon wagon) {
+        this.wagon = wagon;
+    }
+
+    public Tool getTool() {
+        return tool;
+    }
+
+    public void setTool(Tool tool) {
+        this.tool = tool;
+    }
+
+    public InventoryItem getItem() {
+        return item;
+    }
+
+    public void setItem(InventoryItem item) {
+        this.item = item;
     }
 
     public double getMilesTraveled() {
