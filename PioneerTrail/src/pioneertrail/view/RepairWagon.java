@@ -5,6 +5,7 @@
  */
 package pioneertrail.view;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import pioneertrail.PioneerTrail;
 import pioneertrail.control.ToolControl;
@@ -43,9 +44,12 @@ public class RepairWagon {
             String[] inputs = new String[1];
             boolean valid = false;
             
+            ArrayList<InventoryItem> items = new ArrayList<InventoryItem>();
             Game game = PioneerTrail.getCurrentGame();
             Wagon wagon = game.getWagon();
-            InventoryItem item = wagon.getInventoryItems().get(0);
+            System.out.println(wagon.getItems());
+            items = wagon.getItems();
+            InventoryItem item = items.get(0);
             Tool tool = wagon.getTools().get(0);
 
             while (valid == false) {

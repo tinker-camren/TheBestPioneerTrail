@@ -20,7 +20,7 @@ class InventoryItemView {
         void displayInventoryItemView() {
         boolean endView = false;
         
-        ArrayList<InventoryItem> item = PioneerTrail.getCurrentGame().getItems();
+        ArrayList<InventoryItem> item = PioneerTrail.getCurrentGame().getWagon().getItems();
         
         do {
 
@@ -43,9 +43,9 @@ class InventoryItemView {
                     + "\nInventory Item List"
                     + "\n**********");
             int count = 0;
-            for (InventoryItem item : PioneerTrail.getCurrentGame().getItems()){
+            for (InventoryItem item : PioneerTrail.getCurrentGame().getWagon().getItems()){
                 count++;
-                System.out.println("\t"+count+" - "+ item.getDescription());
+                System.out.println("\t"+count+" - "+ item.getItemType());
             }
             System.out.println("Enter your selection(Press Q to quit): ");
             Scanner scanner = new Scanner(System.in);

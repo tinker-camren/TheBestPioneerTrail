@@ -75,7 +75,7 @@ class RepairWagonMenu {
     private boolean doAction(String[] inputs) {
         Game game = PioneerTrail.getCurrentGame();
         Wagon wagon = game.getWagon();
-        InventoryItem item = wagon.getInventoryItems().get(0);
+        InventoryItem item = wagon.getItems().get(0);
         Tool tool = wagon.getTools().get(0);
         int menuItem = Integer.parseInt(inputs[0]);
         if (menuItem > item.getCount()) {

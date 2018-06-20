@@ -433,6 +433,7 @@ public class ToolControlTest {
      */
     @Test
     public void testCalcFoodHunt() {
+        System.out.println("Kathy's Test");
         System.out.println("FoodHunt Test 1");
         InventoryItem food = new InventoryItem();
         food.setWeight(10);

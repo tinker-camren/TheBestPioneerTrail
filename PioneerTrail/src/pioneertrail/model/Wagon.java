@@ -21,8 +21,10 @@ public class Wagon implements Serializable {
     private double weight;
     private double maxWeight;
     private Player player;
-    private ArrayList<InventoryItem> inventoryItems = new ArrayList<InventoryItem>();
-    private ArrayList<Tool> tools = new ArrayList<Tool>();
+    private ArrayList<InventoryItem> items;
+    private ArrayList<Tool> tools;
+    
+    
 
     public Wagon() {
 
@@ -36,14 +38,23 @@ public class Wagon implements Serializable {
         this.tools = tools;
     }
 
-    public ArrayList<InventoryItem> getInventoryItems() {
-        return inventoryItems;
+    /**
+     * Get the value of items
+     *
+     * @return the value of items
+     */
+    public ArrayList<InventoryItem> getItems() {
+        return items;
     }
 
-    public void setInventoryItems(ArrayList<InventoryItem> inventoryItems) {
-        this.inventoryItems = inventoryItems;
+    /**
+     * Set the value of items
+     *
+     * @param items new value of items
+     */
+    public void setItems(ArrayList<InventoryItem> items) {
+        this.items = items;
     }
-
     public int getHealth() {
         return health;
     }
