@@ -12,23 +12,10 @@ import pioneertrail.model.Actor;
  *
  * @author Kathy
  */
-class FamilyMembers {
-
-    void displayFamilyMembers() {
-       boolean endView = false;
-
-        do {
-
-            String[] inputs = this.getInputs();
-            String toUpperCase = inputs[0].toUpperCase();
-            if (toUpperCase.equals("Q") || inputs[0].length() < 1) {
-                return;
-            }
-            endView = doAction(inputs);
-        } while (endView != true);
-    }
+class FamilyMembers extends View {
     
-    private String[] getInputs() {
+    @Override
+    public String[] getInputs() {
         String[] inputs = new String[1];
         boolean valid = false;
         
@@ -70,7 +57,8 @@ class FamilyMembers {
 
         return inputs;
     }
-    private boolean doAction(String[] inputs) {
+    @Override
+    public boolean doAction(String[] inputs) {
 
         String menuItem = inputs[0].toUpperCase();
 

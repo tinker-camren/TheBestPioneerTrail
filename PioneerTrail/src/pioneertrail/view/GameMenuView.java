@@ -125,7 +125,7 @@ class GameMenuView {
 
     private void inventoryItemView() {
         InventoryItemView inventoryItemView = new InventoryItemView();
-        inventoryItemView.displayInventoryItemView();
+        inventoryItemView.display();
     }
 
     private void supplyPurchase() {
@@ -140,7 +140,7 @@ class GameMenuView {
 
     private void familyMembers() {
         FamilyMembers familyMembers = new FamilyMembers();
-        familyMembers.displayFamilyMembers();
+        familyMembers.display();
     }
 
     private void gatherResources() {

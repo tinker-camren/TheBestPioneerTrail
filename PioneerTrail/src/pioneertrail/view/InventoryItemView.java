@@ -14,27 +14,11 @@ import pioneertrail.model.InventoryItem;
  *
  * @author Kathy
  */
-class InventoryItemView {
+class InventoryItemView extends View {
 
-    private String InventoryItem;
-        void displayInventoryItemView() {
-        boolean endView = false;
-        
-        ArrayList<InventoryItem> item = PioneerTrail.getCurrentGame().getWagon().getItems();
-        
-        do {
-
-            String[] inputs = this.getInputs();
-            String toUpperCase = inputs[0].toUpperCase();
-            if (toUpperCase.equals("Q") || inputs[0].length() < 1) {
-                return;
-            }
-            endView = doAction(inputs);
-        } while (endView != true);
-    }
-         
-
-    private String[] getInputs() {
+            
+    @Override
+    public String[] getInputs() {
         String[] inputs = new String[1];
         boolean valid = false;
         
@@ -61,7 +45,8 @@ class InventoryItemView {
     }
         return inputs;
     }
-    private boolean doAction(String[] inputs) {
+    @Override
+    public boolean doAction(String[] inputs) {
 
         String item = inputs[0].toUpperCase();
 

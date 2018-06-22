@@ -5,6 +5,13 @@
  */
 package pioneertrail.view;
 
+import java.util.Scanner;
+import pioneertrail.PioneerTrail;
+import pioneertrail.model.Game;
+import pioneertrail.model.InventoryItem;
+import pioneertrail.model.Tool;
+import pioneertrail.model.Wagon;
+
 /**
  *
  * @author Danica
@@ -13,5 +20,6 @@ class HuntAnimals {
 
     void displayHuntAnimals() {
         System.out.println("You see some elk in the distance and decide to hunt them.");
-    }
+          
+}
 }
