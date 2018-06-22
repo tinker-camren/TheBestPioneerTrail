@@ -15,7 +15,6 @@ class HelpMenuView extends View {
 
     @Override
     public String[] getInputs() {
-        System.out.println("\nHelp menu view get inputs");
         String[] inputs = new String[1];
 
         System.out.println("**********"
@@ -26,8 +25,6 @@ class HelpMenuView extends View {
                 + "\nM - How to move"
                 + "\nR - Using the resources"
                 + "\nQ - Quit");
-        System.out.println("Enter your selection: ");
-
         String input = this.getInput("Enter your selection: ");
         inputs[0] = input;
 

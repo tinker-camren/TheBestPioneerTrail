@@ -15,63 +15,39 @@ import pioneertrail.model.Wagon;
  *
  * @author Danica
  */
-class GameMenuView {
+class GameMenuView extends View {
 
     public GameMenuView() {
     }
 
-    public void display() {
-        boolean endView = false;
-
-        do {
-            String[] inputs = this.getInputs();
-            String toUpperCase = inputs[0].toUpperCase();
-            if (toUpperCase.equals("Q") || inputs[0].length() < 1) {
-                return;
-            }
-            endView = doAction(inputs);
-        } while (endView != true);
-    }
-
-    private String[] getInputs() {
-        System.out.println("\ngame menu view get inputs");
+    @Override
+    public String[] getInputs() {
         String[] inputs = new String[1];
-        boolean valid = false;
 
-        while (valid == false) {
-            System.out.println("**********"
-                    + "\nGame MENU"
-                    + "\n**********");
-            System.out.println(
-                    "V - View Map"
-                    + "\nI - View inventory items"
-                    + "\nT - View Tool List"
-                    + "\nP - Purchase supplies"
-                    + "\nM - Move to new location"
-                    + "\nF - View Family Members"
-                    + "\nG - Gather resources"
-                    + "\nR - Repair wagon"
-                    + "\nD - Deal with sickness"
-                    + "\nH - Help"
-                    + "\nS - Save game"
-                    + "\nQ - Quit");
-            System.out.println("\nEnter your selection: ");
-            Scanner scanner = new Scanner(System.in);
-            inputs[0] = scanner.nextLine();
-            inputs[0] = inputs[0].trim();
-
-            if (inputs[0].length() < 1) {
-                System.out.println("You must enter a non-blank value");
-                continue; //Move to the top of the loop and repeat
-            }
-            valid = true;
-            return inputs;
-        }
+        System.out.println("**********"
+                + "\nGame MENU"
+                + "\n**********");
+        System.out.println(
+                "V - View Map"
+                + "\nI - View inventory items"
+                + "\nT - View Tool List"
+                + "\nP - Purchase supplies"
+                + "\nM - Move to new location"
+                + "\nF - View Family Members"
+                + "\nG - Gather resources"
+                + "\nR - Repair wagon"
+                + "\nD - Deal with sickness"
+                + "\nH - Help"
+                + "\nS - Save game"
+                + "\nQ - Quit");
+        String input = this.getInput("Enter your selection: ");
+        inputs[0] = input;
 
         return inputs;
     }
 
-    private boolean doAction(String[] inputs) {
+    @Override
+    public boolean doAction(String[] inputs) {
 
         String menuItem = inputs[0].toUpperCase();
 
@@ -145,7 +121,7 @@ class GameMenuView {
 
     private void gatherResources() {
         GatherResources gatherResources = new GatherResources();
-        gatherResources.displayGatherResources();
+        gatherResources.display();
     }
 
     private void repairWagon() {
