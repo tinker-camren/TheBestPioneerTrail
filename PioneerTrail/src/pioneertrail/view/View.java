@@ -24,7 +24,7 @@ public abstract class View implements ViewInterface {
             String[] inputs = this.getInputs();
             String toUpperCase = inputs[0].toUpperCase();
             if (toUpperCase.equals("Q") || inputs[0].length() < 1) {
-                java.lang.System.exit(0);
+                return;
             }
             endOfView = doAction(inputs);
         } while (endOfView != true);

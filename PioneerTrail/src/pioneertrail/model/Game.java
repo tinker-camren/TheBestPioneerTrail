@@ -20,7 +20,7 @@ public class Game implements Serializable {
     private Wagon wagon;
     private Tool tool;
     private InventoryItem item;
-    
+    private ArrayList<ActorObject> actors = new ArrayList<ActorObject>();
     private ArrayList<InventoryItem> items;
 
     /**
@@ -84,6 +84,14 @@ public class Game implements Serializable {
 //        wagon.getTools().add(1, gun);
 //        wagon.getTools().add(2, axe);
 //        //End create instances
+    }
+
+    public ArrayList<ActorObject> getActors() {
+        return actors;
+    }
+
+    public void setActors(ArrayList<ActorObject> actors) {
+        this.actors = actors;
     }
 
     public Wagon getWagon() {

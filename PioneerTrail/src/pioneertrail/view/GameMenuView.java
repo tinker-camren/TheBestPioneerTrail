@@ -126,12 +126,12 @@ class GameMenuView extends View {
 
     private void repairWagon() {
         RepairWagon repairWagon = new RepairWagon();
-        repairWagon.displayRepairWagon();
+        repairWagon.display();
     }
 
     private void handleSickness() {
         HandleSickness handleSickness = new HandleSickness();
-        handleSickness.displayHandleSickness();
+        handleSickness.display();
     }
 
     private void getHelp() {

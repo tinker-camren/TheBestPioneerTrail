@@ -7,6 +7,7 @@ package pioneertrail.control;
 
 import java.util.ArrayList;
 import pioneertrail.PioneerTrail;
+import pioneertrail.model.ActorObject;
 import pioneertrail.model.Game;
 import pioneertrail.model.InventoryItem;
 import pioneertrail.model.Player;
@@ -39,43 +40,18 @@ public class GameControl {
         ArrayList<Tool> tools = new ArrayList<Tool>();
         ArrayList<InventoryItem> items = new ArrayList<InventoryItem>();
         InventoryItem item = new InventoryItem();
-        
+        ArrayList<ActorObject> actors = new ArrayList<ActorObject>();
+                
         //Create instances for testing
+        
+        //Create Wagon
         Wagon wagon = new Wagon(); 
             wagon.setHealth(80);
             wagon.setMaxHealth(100);
             wagon.setWeight(250);
         game.setWagon(wagon);
         
-        //Commented out because testing failed. Will use in the future
-//        Tool tool = new Tool();
-//            tool.setDurability(85);
-//            tool.setMultiplier(2);
-//            tool.setToolType("Hammer");
-//            tools.add(tool);
-//            
-//        tool = new Tool();
-//            tool.setDurability(60);
-//            tool.setMultiplier(2);
-//            tool.setToolType("Gun");
-//            tools.add(tool);
-//            wagon.setTools(tools);
-//            
-//        tool = new Tool();
-//            tool.setDurability(70);
-//            tool.setMultiplier(2);
-//            tool.setToolType("Axe");
-//            tools.add(tool);
-//            wagon.setTools(tools);
-//
-//        item = new InventoryItem();
-//            item.setCount(25);
-//            item.setDescription("Used to repair wagons");
-//            item.setItemType("Wood");
-//            inventoryItems.add(item);
-//            items.add(item);
-//            wagon.setItems(items);
-            
+        //Create Tools
         Tool tool = new Tool();
             tool.setDurability(85);
             tool.setMultiplier(2);
@@ -95,29 +71,13 @@ public class GameControl {
             tools.add(2, tool);
             wagon.setTools(tools);
 
+        //Create Inventory Items
         InventoryItem wood = new InventoryItem();
             wood.setCount(25);
             wood.setDescription("Used to repair wagons");
             wood.setItemType("Wood");
             items.add(0, wood);
             
-//        InventoryItem water = new InventoryItem();
-//            water.setCount(10);
-//            water.setDescription("Powerhouse of life");
-//            water.setItemType("Water");
-//            water.setWeight(water.getCount() * 5);
-//            items.add(1, water);
-            
-//        //add to InventoryItems arraylist in the wagon class
-//        wagon.getItems().add(0, wood);
-//        wagon.getItems().add(1, water);
-//        
-//        //add tools to arraylist in the wagon class
-//        wagon.getTools().add(0, hammer);
-//        wagon.getTools().add(1, gun);
-//        wagon.getTools().add(2, axe);
-        //End create instances
-        
         //For Kathy's view
         item = new InventoryItem();
         item.setDescription("food");
@@ -140,6 +100,42 @@ public class GameControl {
         items.add(3, item);
         wagon.setItems(items);
         //End for Kathy's view
+        
+        //Create Actors
+        ActorObject Father = new ActorObject();
+            Father.setName("Kevin");
+            Father.setGender("M");
+            Father.setType("Adult");
+            Father.setHealth(50);
+            Father.setSickness("Broken Bone");
+        
+        ActorObject Mother = new ActorObject();
+            Mother.setName("Kannette");
+            Mother.setGender("F");
+            Mother.setType("Adult");
+            Mother.setHealth(75);
+            Mother.setSickness("Fatigue");
+            
+        ActorObject Child1 = new ActorObject();
+            Child1.setName("Chris");
+            Child1.setGender("M");
+            Child1.setType("Child");
+            Child1.setHealth(100);
+            Child1.setSickness("Healthy");
+            
+        ActorObject Child2 = new ActorObject();
+            Child2.setName("Thomas");
+            Child2.setGender("M");
+            Child2.setType("Child");
+            Child2.setHealth(100);
+            Child2.setSickness("Healthy");
+            
+        ActorObject Child3 = new ActorObject();
+            Child3.setName("Lili");
+            Child3.setGender("F");
+            Child3.setType("Child");
+            Child3.setHealth(100);
+            Child3.setSickness("Healthy");
         
         return game;
     }

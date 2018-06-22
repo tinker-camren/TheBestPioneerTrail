@@ -15,64 +15,38 @@ import pioneertrail.model.Wagon;
 
 /**
  *
- * @author Suckafish
+ * @author Tinkerc
  */
-class RepairWagonMenu {
+class RepairWagonMenu extends View {
 
-    void displayRepairWagonMenu() {
-        boolean endView = false;
-
-        do {
-
-            String[] inputs = this.getInputs();
-            String toUpperCase = inputs[0].toUpperCase();
-            if (toUpperCase.equals("Q") || inputs[0].length() < 1) {
-                return;
-            }
-            endView = doAction(inputs);
-        } while (endView != true);
-
-    }
-
-    private String[] getInputs() {
+    @Override
+    public String[] getInputs() {
         String[] inputs = new String[1];
-        boolean valid = false;
 
-        while (valid == false) {
-            System.out.println("**********"
-                    + "\nRepair Wagon Menu"
-                    + "\n**********");
+        System.out.println("**********"
+                + "\nRepair Wagon Menu"
+                + "\n**********");
 
-            System.out.println("\nEnter the amount of wood you would like "
-                    + "to use, or press enter to return to the previous menu: ");
-            Scanner scanner = new Scanner(System.in);
-            inputs[0] = scanner.nextLine();
-            inputs[0] = inputs[0].trim();
+        String input = this.getInput("\nEnter the amount of wood you would like "
+                + "to use, or enter any character to quit: ");
+        inputs[0] = input;
 
-            if (inputs[0].length() < 1) {
-                return inputs;
-            }
-            try {
-                int menuItem = 0;
-                menuItem = Integer.parseInt(inputs[0]);
-            } catch (Exception ex) {
-                System.out.println("\nError: You must enter a number or press "
-                        + "Enter to return to the previous menu");
-                continue;
-            }
-            //Check for negative values
-            if (Integer.parseInt(inputs[0]) < 1) {
-                System.out.println("\nError: You must enter a positive value");
-                continue;
-            }
-            valid = true;
+        if (inputs[0].equalsIgnoreCase("Q")) {
             return inputs;
         }
 
+        try {
+            int menuItem = 0;
+            menuItem = Integer.parseInt(inputs[0]);
+        } catch (Exception ex) {
+            System.out.println("\nReturning to previous menu");
+            inputs[0] = "Q"; //Forces menu to quit if anything except an int is entered
+        }
         return inputs;
     }
 
-    private boolean doAction(String[] inputs) {
+    @Override
+    public boolean doAction(String[] inputs) {
         Game game = PioneerTrail.getCurrentGame();
         Wagon wagon = game.getWagon();
         InventoryItem item = wagon.getItems().get(0);
