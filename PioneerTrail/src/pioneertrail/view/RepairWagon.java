@@ -24,7 +24,7 @@ public class RepairWagon extends View {
         displayMessage = buildMenu();
     }
 
-    public String buildMenu() {
+    private String buildMenu() {
 
         ArrayList<InventoryItem> items = new ArrayList<InventoryItem>();
         Game game = PioneerTrail.getCurrentGame();
@@ -59,16 +59,12 @@ public class RepairWagon extends View {
                     + " your wagon");
         }
         input += ("\n\nR - Repair Wagon "
-                + "\nQ - Quit");
-        input = this.getInput("Enter your selection: ");
-        input = input;
-
-        if (input.length() < 1) {
-            input += ("You must enter a non-blank value");
-        }
+                + "\nQ - Quit ");
+        input += this.getInput("Enter your selection: ");
+        //input = input;
 
         return input;
-        
+
 //        String[] inputs = new String[1];
 //
 //        ArrayList<InventoryItem> items = new ArrayList<InventoryItem>();

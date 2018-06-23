@@ -18,8 +18,7 @@ import pioneertrail.model.Wagon;
 class GameMenuView extends View {
 
     public GameMenuView() {
-        super(
-                "**********"
+        super("**********"
                 + "\nGame MENU"
                 + "\n**********\n"
                 + "V - View Map"
@@ -161,7 +160,7 @@ class GameMenuView extends View {
 
     private void ToolView() {
         ToolView toolView = new ToolView();
-        toolView.displayToolView();
+        toolView.display();
     }
 
 }
