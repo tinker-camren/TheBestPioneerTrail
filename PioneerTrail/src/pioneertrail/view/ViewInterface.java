@@ -11,7 +11,7 @@ package pioneertrail.view;
  */
 public interface ViewInterface {
     public void display();
-    public String[] getInputs();
+    public String getInputs();
     public String getInput(String promptMessage);
-    public boolean doAction(String[] inputs);
+    public boolean doAction(String inputs);
 }

@@ -17,29 +17,39 @@ import pioneertrail.model.Player;
  */
 class MainMenuView extends View {
 
-    @Override
-    public String[] getInputs() {
-        String[] inputs = new String[1];
-
-        System.out.println("**********"
+    public MainMenuView() {
+        super("**********"
                 + "\nMain MENU"
-                + "\n**********");
-        System.out.println(
-                "N - Start new game\n"
+                + "\n**********\n"
+                + "N - Start new game\n"
                 + "R - Restart existing game\n"
                 + "H - Get help on how to play the game\n"
                 + "E - Exit");
-
-        String input = this.getInput("Enter your selection: ");
-        inputs[0] = input;
-
-        return inputs;
     }
 
-    @Override
-    public boolean doAction(String[] inputs) {
+//    @Override
+//    public String getInputs() {
+//        String inputs = "";
+//
+//        System.out.println("**********"
+//                + "\nMain MENU"
+//                + "\n**********");
+//        System.out.println(
+//                "N - Start new game\n"
+//                + "R - Restart existing game\n"
+//                + "H - Get help on how to play the game\n"
+//                + "E - Exit");
+//
+//        String input = this.getInput("Enter your selection: ");
+//        inputs = input;
+//
+//        return inputs;
+//    }
 
-        String menuItem = inputs[0].toUpperCase();
+    @Override
+    public boolean doAction(String inputs) {
+
+        String menuItem = inputs.toUpperCase();
 
         switch (menuItem) {
             case "N":

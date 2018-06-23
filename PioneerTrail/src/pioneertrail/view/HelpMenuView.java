@@ -12,29 +12,40 @@ import java.util.Scanner;
  * @author Danica
  */
 class HelpMenuView extends View {
-
-    @Override
-    public String[] getInputs() {
-        String[] inputs = new String[1];
-
-        System.out.println("**********"
+    
+    public HelpMenuView() {
+        super("**********"
                 + "\nhelp MENU"
-                + "\n**********");
-        System.out.println(
-                "G - What is the goal of the game?"
+                + "\n**********\n"
+                + "G - What is the goal of the game?"
                 + "\nM - How to move"
                 + "\nR - Using the resources"
-                + "\nQ - Quit");
-        String input = this.getInput("Enter your selection: ");
-        inputs[0] = input;
-
-        return inputs;
+                + "\nQ - Quit"
+                + "\nEnter your selection: ");
     }
 
-    @Override
-    public boolean doAction(String[] inputs) {
+//    @Override
+//    public String[] getInputs() {
+//        String[] inputs = new String[1];
+//
+//        System.out.println("**********"
+//                + "\nhelp MENU"
+//                + "\n**********");
+//        System.out.println(
+//                "G - What is the goal of the game?"
+//                + "\nM - How to move"
+//                + "\nR - Using the resources"
+//                + "\nQ - Quit");
+//        String input = this.getInput("Enter your selection: ");
+//        inputs[0] = input;
+//
+//        return inputs;
+//    }
 
-        String menuItem = inputs[0].toUpperCase();
+    @Override
+    public boolean doAction(String inputs) {
+
+        String menuItem = inputs.toUpperCase();
 
         switch (menuItem) {
             case "G":

@@ -12,24 +12,30 @@ import java.util.Scanner;
  * @author Danica
  */
 public abstract class View implements ViewInterface {
-
+    protected String displayMessage;
     public View() {
     }
-
+    public View(String msg) {
+        displayMessage = msg;
+    }
     @Override
     public void display() {
         boolean endOfView = false;
         do {
 
-            String[] inputs = this.getInputs();
-            String toUpperCase = inputs[0].toUpperCase();
-            if (toUpperCase.equals("Q") || inputs[0].length() < 1) {
+            String inputs = this.getInputs();
+            String toUpperCase = inputs.toUpperCase();
+            if (toUpperCase.equals("Q") || inputs.length() < 1) {
                 return;
             }
             endOfView = doAction(inputs);
         } while (endOfView != true);
     }
 
+    @Override
+    public String getInputs() {
+        return getInput(displayMessage);
+    };
     @Override
     public String getInput(String promptMessage) {
 

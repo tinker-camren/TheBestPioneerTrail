@@ -18,17 +18,11 @@ import pioneertrail.model.Wagon;
 class GameMenuView extends View {
 
     public GameMenuView() {
-    }
-
-    @Override
-    public String[] getInputs() {
-        String[] inputs = new String[1];
-
-        System.out.println("**********"
+        super(
+                "**********"
                 + "\nGame MENU"
-                + "\n**********");
-        System.out.println(
-                "V - View Map"
+                + "\n**********\n"
+                + "V - View Map"
                 + "\nI - View inventory items"
                 + "\nT - View Tool List"
                 + "\nP - Purchase supplies"
@@ -40,16 +34,38 @@ class GameMenuView extends View {
                 + "\nH - Help"
                 + "\nS - Save game"
                 + "\nQ - Quit");
-        String input = this.getInput("Enter your selection: ");
-        inputs[0] = input;
-
-        return inputs;
     }
 
+//    @Override
+//    public String[] getInputs() {
+//        String[] inputs = new String[1];
+//
+//        System.out.println("**********"
+//                + "\nGame MENU"
+//                + "\n**********");
+//        System.out.println(
+//                "V - View Map"
+//                + "\nI - View inventory items"
+//                + "\nT - View Tool List"
+//                + "\nP - Purchase supplies"
+//                + "\nM - Move to new location"
+//                + "\nF - View Family Members"
+//                + "\nG - Gather resources"
+//                + "\nR - Repair wagon"
+//                + "\nD - Deal with sickness"
+//                + "\nH - Help"
+//                + "\nS - Save game"
+//                + "\nQ - Quit");
+//        String input = this.getInput("Enter your selection: ");
+//        inputs[0] = input;
+//
+//        return inputs;
+//    }
+    
     @Override
-    public boolean doAction(String[] inputs) {
+    public boolean doAction(String inputs) {
 
-        String menuItem = inputs[0].toUpperCase();
+        String menuItem = inputs.toUpperCase();
 
         switch (menuItem) {
             case "V":

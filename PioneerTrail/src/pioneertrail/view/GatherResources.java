@@ -16,29 +16,36 @@ import pioneertrail.model.InventoryItem;
 class GatherResources extends View {
 
     public GatherResources() {
-    }
-
-    @Override
-    public String[] getInputs() {
-        String[] inputs = new String[1];
-
-        System.out.println("*********************"
+        super("*********************"
                 + "\nGather Resources MENU"
-                + "\n*********************");
-        System.out.println(
-                "C - Chop wood"
+                + "\n*********************\n"
+                + "C - Chop wood"
                 + "\nH - Hunt for meat"
-                + "\nQ - Quit");
-        String input = this.getInput("Enter your selection: ");
-        inputs[0] = input;
-
-        return inputs;
+                + "\nQ - Quit\n"
+                + "Enter your selection: ");
     }
 
-    @Override
-    public boolean doAction(String[] inputs) {
+//    @Override
+//    public String[] getInputs() {
+//        String[] inputs = new String[1];
+//
+//        System.out.println("*********************"
+//                + "\nGather Resources MENU"
+//                + "\n*********************");
+//        System.out.println(
+//                "C - Chop wood"
+//                + "\nH - Hunt for meat"
+//                + "\nQ - Quit");
+//        String input = this.getInput("Enter your selection: ");
+//        inputs[0] = input;
+//
+//        return inputs;
+//    }
 
-        String menuItem = inputs[0].toUpperCase();
+    @Override
+    public boolean doAction(String inputs) {
+
+        String menuItem = inputs.toUpperCase();
 
         switch (menuItem) {
             case "C":
