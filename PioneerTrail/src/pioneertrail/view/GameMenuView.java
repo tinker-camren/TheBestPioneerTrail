@@ -145,7 +145,7 @@ class GameMenuView extends View {
     }
 
     private void handleSickness() {
-        HandleSickness handleSickness = new HandleSickness();
+        SicknessMenu handleSickness = new SicknessMenu();
         handleSickness.display();
     }
 

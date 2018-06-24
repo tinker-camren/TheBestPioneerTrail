@@ -60,7 +60,7 @@ public class RepairWagon extends View {
         }
         input += ("\n\nR - Repair Wagon "
                 + "\nQ - Quit ");
-        input += this.getInput("Enter your selection: ");
+        input += ("\nEnter your selection:");
         //input = input;
 
         return input;
