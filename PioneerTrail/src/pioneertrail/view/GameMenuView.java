@@ -91,9 +91,9 @@ class GameMenuView extends View {
             case "R":
                 repairWagon();
                 break;
-            case "D":
-                handleSickness();
-                break;
+//            case "D":
+//                handleSickness();
+//                break;
             case "H":
                 getHelp();
             case "S":
@@ -144,10 +144,10 @@ class GameMenuView extends View {
         repairWagon.display();
     }
 
-    private void handleSickness() {
-        SicknessMenu handleSickness = new SicknessMenu();
-        handleSickness.display();
-    }
+//    private void handleSickness() {
+//        SicknessMenu handleSickness = new SicknessMenu();
+//        handleSickness.display();
+//    }
 
     private void getHelp() {
         HelpMenuView helpMenuView = new HelpMenuView();
