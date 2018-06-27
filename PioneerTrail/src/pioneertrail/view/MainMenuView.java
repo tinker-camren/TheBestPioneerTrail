@@ -73,7 +73,7 @@ class MainMenuView extends View {
     }
 
     private void startNewGame() {
-        PioneerTrail.setCurrentGame(GameControl.createNewGame(PioneerTrail.getPlayer()));
+        
         GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.display();
     }

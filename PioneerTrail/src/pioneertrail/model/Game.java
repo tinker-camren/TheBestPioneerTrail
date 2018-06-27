@@ -20,8 +20,9 @@ public class Game implements Serializable {
     private Wagon wagon;
     private Tool tool;
     private InventoryItem item;
-    private ArrayList<ActorObject> actors = new ArrayList<ActorObject>();
+    private ActorObject[] actors = new ActorObject[4];
     private ArrayList<InventoryItem> items;
+    private Map map;
 
     /**
      * Get the value of items
@@ -86,11 +87,19 @@ public class Game implements Serializable {
 //        //End create instances
     }
 
-    public ArrayList<ActorObject> getActors() {
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    public ActorObject[] getActors() {
         return actors;
     }
 
-    public void setActors(ArrayList<ActorObject> actors) {
+    public void setActors(ActorObject[] actors) {
         this.actors = actors;
     }
 
