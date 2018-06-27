@@ -61,54 +61,9 @@ public class RepairWagon extends View {
         input += ("\n\nR - Repair Wagon "
                 + "\nQ - Quit ");
         input += ("\nEnter your selection:");
-        //input = input;
 
         return input;
 
-//        String[] inputs = new String[1];
-//
-//        ArrayList<InventoryItem> items = new ArrayList<InventoryItem>();
-//        Game game = PioneerTrail.getCurrentGame();
-//        Wagon wagon = game.getWagon();
-//        items = wagon.getItems();
-//        InventoryItem item = items.get(0);
-//        Tool tool = wagon.getTools().get(0);
-//
-//        System.out.println("**********"
-//                + "\nRepair Wagon"
-//                + "\n**********");
-//        System.out.println("\nWagon Health: " + wagon.getHealth());
-//
-//        if (tool.getToolType().equalsIgnoreCase("Hammer")) {
-//            if (tool.getDurability() > 0) {
-//                System.out.println("Hammer Durability: " + tool.getDurability());
-//            } else {
-//                System.out.println("Hammer broken or non-existent");
-//            }
-//        } else {
-//            System.out.println("Hammer broken or non-existent");
-//        }
-//        if (item.getItemType().equalsIgnoreCase("Wood")) {
-//            if (item.getCount() > 0) {
-//                System.out.println("Wood Amount: " + item.getCount());
-//            } else {
-//                System.out.println("No wood. You must gather wood before repairing"
-//                        + " your wagon");
-//            }
-//        } else {
-//            System.out.println("No wood. You must gather wood before repairing"
-//                    + " your wagon");
-//        }
-//        System.out.println("\nR - Repair Wagon "
-//                + "\nQ - Quit");
-//        String input = this.getInput("Enter your selection: ");
-//        inputs[0] = input;
-//
-//        if (inputs[0].length() < 1) {
-//            System.out.println("You must enter a non-blank value");
-//        }
-//
-//        return inputs;
     }
 
     @Override
@@ -123,12 +78,14 @@ public class RepairWagon extends View {
         } else {
             System.out.println("Invalid menu item");
         }
-
+        
         return false;
     }
 
     private void repairWagonMenu() {
         RepairWagonMenu repairWagonMenu = new RepairWagonMenu();
         repairWagonMenu.display();
+        //This refreshes the Repair Wagon view
+        displayMessage = buildMenu();
     }
 }

@@ -153,7 +153,7 @@ public class GameControl {
     public static ArrayList<Tool> createTools() {
 
         ArrayList<Tool> tools = new ArrayList<Tool>();
-        Game game = PioneerTrail.getCurrentGame();
+//        Game game = PioneerTrail.getCurrentGame();
 
         Tool tool = new Tool();
         tool.setDurability(85);
