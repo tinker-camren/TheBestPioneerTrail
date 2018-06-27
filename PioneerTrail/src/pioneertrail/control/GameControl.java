@@ -38,7 +38,7 @@ public class GameControl {
         }
         Game game = new Game();
         game.setPlayer(player);
-        PioneerTrail.setCurrentGame(game);
+        
 
         //Create wagon model layer object and save the data to the game
         Wagon wagon = createWagon();
@@ -59,6 +59,7 @@ public class GameControl {
         Map map = createMap(1, 1);
         game.setMap(map);
 
+        PioneerTrail.setCurrentGame(game);
         return 1;
     }
 
@@ -69,7 +70,7 @@ public class GameControl {
 
     public static ActorObject[] createActors() {
 
-        ActorObject[] actors = new ActorObject[4];
+        ActorObject[] actors = new ActorObject[5];
 
         ActorObject Father = new ActorObject();
         Father.setName("Kevin");
@@ -85,7 +86,7 @@ public class GameControl {
         Mother.setType("Adult");
         Mother.setHealth(75);
         Mother.setSickness("Fatigue");
-        Mother = actors[1];
+        actors[1] = Mother;
 
         ActorObject Child1 = new ActorObject();
         Child1.setName("Chris");
@@ -93,7 +94,7 @@ public class GameControl {
         Child1.setType("Child");
         Child1.setHealth(100);
         Child1.setSickness("Healthy");
-        Child1 = actors[2];
+        actors[2] = Child1;
 
         ActorObject Child2 = new ActorObject();
         Child2.setName("Thomas");
@@ -101,7 +102,7 @@ public class GameControl {
         Child2.setType("Child");
         Child2.setHealth(100);
         Child2.setSickness("Healthy");
-        Child2 = actors[3];
+        actors[3] = Child2;
 
         ActorObject Child3 = new ActorObject();
         Child3.setName("Lili");
@@ -109,7 +110,7 @@ public class GameControl {
         Child3.setType("Child");
         Child3.setHealth(100);
         Child3.setSickness("Healthy");
-        Child3 = actors[4];
+        actors[4] = Child3;
 
         return actors;
     }
