@@ -71,7 +71,7 @@ class GatherResources extends View {
 
     private void huntAnimals() {
         HuntAnimals huntAnimals = new HuntAnimals();
-        huntAnimals.displayHuntAnimals();
+        huntAnimals.display();
     }
 
 }
