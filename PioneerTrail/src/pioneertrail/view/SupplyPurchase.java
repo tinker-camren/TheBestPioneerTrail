@@ -5,6 +5,7 @@
  */
 package pioneertrail.view;
 
+import pioneertrail.control.InventoryControl;
 import pioneertrail.model.InventoryItem;
 import pioneertrail.model.Purchase;
 
@@ -18,9 +19,9 @@ class SupplyPurchase {
         
         InventoryItem item = new InventoryItem();
         
-        System.out.println(item);
+        //System.out.println(item);
 
-       
+       InventoryControl.listItems();
 
     }
 }

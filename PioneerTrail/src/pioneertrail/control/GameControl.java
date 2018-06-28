@@ -11,6 +11,7 @@ import pioneertrail.model.ActorEnum;
 import pioneertrail.model.ActorObject;
 import pioneertrail.model.Game;
 import pioneertrail.model.InventoryItem;
+import pioneertrail.model.InventoryItemEnum;
 import pioneertrail.model.Map;
 import pioneertrail.model.Player;
 import pioneertrail.model.Purchase;
@@ -40,15 +41,14 @@ public class GameControl {
         }
         Game game = new Game();
         game.setPlayer(player);
-        
 
         //Create wagon model layer object and save the data to the game
         Wagon wagon = createWagon();
         game.setWagon(wagon);
-        
+
         Purchase purchase = new Purchase();
         purchase.setMoney(500);
-        
+
         game.setPurchase(purchase);
 
         //Create Actor array and save the data to the game
@@ -61,7 +61,7 @@ public class GameControl {
 
         //Saving array
         purchase.setItems(items);
-        
+
         //Create Array List of Tools and save the data to the wagon object
         ArrayList<Tool> tools = createTools();
         wagon.setTools(tools);
@@ -135,14 +135,14 @@ public class GameControl {
         wood.setCount(10);
         wood.setDescription("Used to repair wagons");
         wood.setItemType("Wood");
-        items.add(0, wood);
+        items.add(InventoryItemEnum.Wood.ordinal(), wood);
 
         item = new InventoryItem();
         item.setPrice(5);
         item.setDescription("food");
         item.setCount(10);
         item.setItemType("potatoes");
-        items.add(1, item);
+        items.add(InventoryItemEnum.Potatoes.ordinal(), item);
 
         item = new InventoryItem();
         item.setPrice(2);
@@ -150,7 +150,7 @@ public class GameControl {
         item.setCount(10);
         item.setItemType("water");
         item.setWeight(3);
-        items.add(2, item);
+        items.add(InventoryItemEnum.Water.ordinal(), item);
 
         item = new InventoryItem();
         item.setPrice(8);
@@ -158,7 +158,7 @@ public class GameControl {
         item.setCount(10);
         item.setItemType("Meat");
         item.setWeight(10);
-        items.add(3, item);
+        items.add(InventoryItemEnum.Meat.ordinal(), item);
 //        wagon.setItems(items);
 
         return items;
@@ -202,7 +202,7 @@ public class GameControl {
 
         return wagon;
     }
-    
+
     //purchase array
 //    public static Purchase[] createPurchase() {
 //
@@ -250,7 +250,6 @@ public class GameControl {
 //
 //        return purchase;
 //    }
-
     public static Map createMap(int noOfRows, int noOfColumns) {
         Map map = new Map();
         System.out.println("CreateMap Method Called");
