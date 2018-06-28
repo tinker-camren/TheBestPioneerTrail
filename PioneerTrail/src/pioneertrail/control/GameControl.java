@@ -44,6 +44,11 @@ public class GameControl {
         //Create wagon model layer object and save the data to the game
         Wagon wagon = createWagon();
         game.setWagon(wagon);
+        
+        Purchase purchase = new Purchase();
+        purchase.setMoney(500);
+        
+        game.setPurchase(purchase);
 
         //Create Actor array and save the data to the game
         ActorObject[] actors = createActors();
@@ -53,6 +58,9 @@ public class GameControl {
         ArrayList<InventoryItem> items = createItems();
         wagon.setItems(items);
 
+        //Saving array
+        purchase.setItems(items);
+        
         //Create Array List of Tools and save the data to the wagon object
         ArrayList<Tool> tools = createTools();
         wagon.setTools(tools);
@@ -122,27 +130,31 @@ public class GameControl {
         InventoryItem item = new InventoryItem();
 
         InventoryItem wood = new InventoryItem();
-        wood.setCount(25);
+        wood.setPrice(5);
+        wood.setCount(10);
         wood.setDescription("Used to repair wagons");
         wood.setItemType("Wood");
         items.add(0, wood);
 
         item = new InventoryItem();
+        item.setPrice(5);
         item.setDescription("food");
-        item.setCount(20);
+        item.setCount(10);
         item.setItemType("potatoes");
         items.add(1, item);
 
         item = new InventoryItem();
+        item.setPrice(2);
         item.setDescription("drink");
-        item.setCount(5);
+        item.setCount(10);
         item.setItemType("water");
         item.setWeight(3);
         items.add(2, item);
 
         item = new InventoryItem();
+        item.setPrice(8);
         item.setDescription("food");
-        item.setCount(8);
+        item.setCount(10);
         item.setItemType("Meat");
         item.setWeight(10);
         items.add(3, item);
@@ -191,52 +203,52 @@ public class GameControl {
     }
     
     //purchase array
-    public static Purchase[] createPurchase() {
-
-        Purchase[] purchase = new Purchase[5];
-
-        Purchase Food = new Purchase();
-        Food.setPrice(.5);
-        Food.setType("food");
-        Food.setWeight(5);
-        Food.setCount(100);
-        Food.setDescription("Food for eating");
-        purchase[0] = Food;
-
-        Purchase Water = new Purchase();
-        Water.setPrice(.2);
-        Water.setType("water");
-        Water.setWeight(10);
-        Water.setCount(100);
-        Water.setDescription("Water for drinking");
-        purchase[1] = Water;
-
-        Purchase Wood = new Purchase();
-        Wood.setPrice(.5);
-        Wood.setType("wood");
-        Wood.setWeight(10);
-        Wood.setCount(100);
-        Wood.setDescription("Wood to repair the wagon and start fires");
-        purchase[2] = Wood;
-
-        Purchase Hammer = new Purchase();
-        Hammer.setPrice(1);
-        Hammer.setType("tool");
-        Hammer.setWeight(5);
-        Hammer.setCount(2);
-        Hammer.setDescription("Hammers are used to repair the wagon");
-        purchase[3] = Hammer;
-
-        Purchase Axe = new Purchase();
-        Axe.setPrice(1);
-        Axe.setType("tool");
-        Axe.setWeight(5);
-        Axe.setCount(2);
-        Axe.setDescription("Axes are used to chop and gather wood along the way");
-        purchase[4] = Axe;
-
-        return purchase;
-    }
+//    public static Purchase[] createPurchase() {
+//
+//        Purchase[] purchase = new Purchase[5];
+//
+//        Purchase Food = new Purchase();
+//        Food.setPrice(.5);
+//        Food.setType("food");
+//        Food.setWeight(5);
+//        Food.setCount(100);
+//        Food.setDescription("Food for eating");
+//        purchase[0] = Food;
+//
+//        Purchase Water = new Purchase();
+//        Water.setPrice(.2);
+//        Water.setType("water");
+//        Water.setWeight(10);
+//        Water.setCount(100);
+//        Water.setDescription("Water for drinking");
+//        purchase[1] = Water;
+//
+//        Purchase Wood = new Purchase();
+//        Wood.setPrice(.5);
+//        Wood.setType("wood");
+//        Wood.setWeight(10);
+//        Wood.setCount(100);
+//        Wood.setDescription("Wood to repair the wagon and start fires");
+//        purchase[2] = Wood;
+//
+//        Purchase Hammer = new Purchase();
+//        Hammer.setPrice(1);
+//        Hammer.setType("tool");
+//        Hammer.setWeight(5);
+//        Hammer.setCount(2);
+//        Hammer.setDescription("Hammers are used to repair the wagon");
+//        purchase[3] = Hammer;
+//
+//        Purchase Axe = new Purchase();
+//        Axe.setPrice(1);
+//        Axe.setType("tool");
+//        Axe.setWeight(5);
+//        Axe.setCount(2);
+//        Axe.setDescription("Axes are used to chop and gather wood along the way");
+//        purchase[4] = Axe;
+//
+//        return purchase;
+//    }
 
     public static Map createMap(int noOfRows, int noOfColumns) {
         Map map = new Map();

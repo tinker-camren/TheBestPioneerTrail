@@ -5,6 +5,7 @@
  */
 package pioneertrail.view;
 
+import pioneertrail.model.InventoryItem;
 import pioneertrail.model.Purchase;
 
 /**
@@ -14,10 +15,12 @@ import pioneertrail.model.Purchase;
 class SupplyPurchase {
 
     void displaySupplyPurchase() {
+        
+        InventoryItem item = new InventoryItem();
+        
+        System.out.println(item);
 
-        Purchase purchase = new Purchase();
-
-        System.out.println(purchase);
+       
 
     }
 }
