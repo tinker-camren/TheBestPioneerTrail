@@ -27,34 +27,15 @@ class RepairWagonMenu extends View {
                 + "to use, or enter Q to quit: ");
 }
 
-//    @Override
-//    public String[] getInputs() {
-//        String[] inputs = new String[1];
-//
-//        System.out.println("**********"
-//                + "\nRepair Wagon Menu"
-//                + "\n**********");
-//
-//        String input = this.getInput("\nEnter the amount of wood you would like "
-//                + "to use, or enter any character to quit: ");
-//        inputs[0] = input;
-//
-//        if (inputs[0].equalsIgnoreCase("Q")) {
-//            return inputs;
-//        }
-//
-//        try {
-//            int menuItem = 0;
-//            menuItem = Integer.parseInt(inputs[0]);
-//        } catch (Exception ex) {
-//            System.out.println("\nReturning to previous menu");
-//            inputs[0] = "Q"; //Forces menu to quit if anything except an int is entered
-//        }
-//        return inputs;
-//    }
-
     @Override
     public boolean doAction(String inputs) {
+        try {
+            int menuItem = Integer.parseInt(inputs);
+        } catch(Exception ex) {
+            System.out.println("\nInvalid input, please enter a number");
+            return false;
+        }
+        
         int menuItem = Integer.parseInt(inputs);
         Game game = PioneerTrail.getCurrentGame();
         Wagon wagon = game.getWagon();
