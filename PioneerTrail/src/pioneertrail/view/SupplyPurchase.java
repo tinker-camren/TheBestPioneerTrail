@@ -5,6 +5,8 @@
  */
 package pioneertrail.view;
 
+import pioneertrail.model.Purchase;
+
 /**
  *
  * @author Danica
@@ -12,6 +14,10 @@ package pioneertrail.view;
 class SupplyPurchase {
 
     void displaySupplyPurchase() {
-        System.out.println("Items will be purchased here.");
+
+        Purchase purchase = new Purchase();
+
+        System.out.println(purchase);
+
     }
 }

@@ -12,6 +12,7 @@ import pioneertrail.model.Game;
 import pioneertrail.model.InventoryItem;
 import pioneertrail.model.Map;
 import pioneertrail.model.Player;
+import pioneertrail.model.Purchase;
 import pioneertrail.model.Tool;
 import pioneertrail.model.Wagon;
 
@@ -187,6 +188,54 @@ public class GameControl {
 //        game.setWagon(wagon);
 
         return wagon;
+    }
+    
+    //purchase array
+    public static Purchase[] createPurchase() {
+
+        Purchase[] purchase = new Purchase[5];
+
+        Purchase Food = new Purchase();
+        Food.setPrice(.5);
+        Food.setType("food");
+        Food.setWeight(5);
+        Food.setCount(100);
+        Food.setDescription("Food for eating");
+        purchase[0] = Food;
+
+        Purchase Water = new Purchase();
+        Water.setPrice(.2);
+        Water.setType("water");
+        Water.setWeight(10);
+        Water.setCount(100);
+        Water.setDescription("Water for drinking");
+        purchase[1] = Water;
+
+        Purchase Wood = new Purchase();
+        Wood.setPrice(.5);
+        Wood.setType("wood");
+        Wood.setWeight(10);
+        Wood.setCount(100);
+        Wood.setDescription("Wood to repair the wagon and start fires");
+        purchase[2] = Wood;
+
+        Purchase Hammer = new Purchase();
+        Hammer.setPrice(1);
+        Hammer.setType("tool");
+        Hammer.setWeight(5);
+        Hammer.setCount(2);
+        Hammer.setDescription("Hammers are used to repair the wagon");
+        purchase[3] = Hammer;
+
+        Purchase Axe = new Purchase();
+        Axe.setPrice(1);
+        Axe.setType("tool");
+        Axe.setWeight(5);
+        Axe.setCount(2);
+        Axe.setDescription("Axes are used to chop and gather wood along the way");
+        purchase[4] = Axe;
+
+        return purchase;
     }
 
     public static Map createMap(int noOfRows, int noOfColumns) {
