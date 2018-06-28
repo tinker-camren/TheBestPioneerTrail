@@ -7,6 +7,7 @@ package pioneertrail.control;
 
 import java.util.ArrayList;
 import pioneertrail.PioneerTrail;
+import pioneertrail.model.ActorEnum;
 import pioneertrail.model.ActorObject;
 import pioneertrail.model.Game;
 import pioneertrail.model.InventoryItem;
@@ -78,7 +79,7 @@ public class GameControl {
         Father.setType("Adult");
         Father.setHealth(50);
         Father.setSickness("Broken Bone");
-        actors[0] = Father;
+        actors[ActorEnum.Father.ordinal()] = Father;
 
         ActorObject Mother = new ActorObject();
         Mother.setName("Kannette");
@@ -86,7 +87,7 @@ public class GameControl {
         Mother.setType("Adult");
         Mother.setHealth(75);
         Mother.setSickness("Fatigue");
-        actors[1] = Mother;
+        actors[ActorEnum.Mother.ordinal()] = Mother;
 
         ActorObject Child1 = new ActorObject();
         Child1.setName("Chris");
@@ -94,7 +95,7 @@ public class GameControl {
         Child1.setType("Child");
         Child1.setHealth(100);
         Child1.setSickness("Healthy");
-        actors[2] = Child1;
+        actors[ActorEnum.Child1.ordinal()] = Child1;
 
         ActorObject Child2 = new ActorObject();
         Child2.setName("Thomas");
@@ -102,7 +103,7 @@ public class GameControl {
         Child2.setType("Child");
         Child2.setHealth(100);
         Child2.setSickness("Healthy");
-        actors[3] = Child2;
+        actors[ActorEnum.Child2.ordinal()] = Child2;
 
         ActorObject Child3 = new ActorObject();
         Child3.setName("Lili");
@@ -110,7 +111,7 @@ public class GameControl {
         Child3.setType("Child");
         Child3.setHealth(100);
         Child3.setSickness("Healthy");
-        actors[4] = Child3;
+        actors[ActorEnum.Child3.ordinal()] = Child3;
 
         return actors;
     }

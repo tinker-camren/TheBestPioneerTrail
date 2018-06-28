@@ -5,6 +5,8 @@
  */
 package pioneertrail.control;
 
+import java.util.ArrayList;
+import pioneertrail.PioneerTrail;
 import pioneertrail.model.InventoryItem;
 import pioneertrail.model.Wagon;
 
@@ -41,5 +43,17 @@ public class InventoryControl {
         }
         
         return Wagon.getWeight() + (InventoryItem.getWeight() * InventoryItem.getCount());
+    }
+
+    public static void listItems() {
+        
+        ArrayList<InventoryItem> items = PioneerTrail.getCurrentGame().getWagon().getItems();
+        for (int i = 0; i < items.size(); i++ ) {
+            InventoryItem item = items.get(i);
+            System.out.println("\nItem: " + item.getItemType() +
+                               "\nQuantity: " + item.getCount() +
+                               "\nDescription: " + item.getDescription());
+        }
+        return;
     }
 }
