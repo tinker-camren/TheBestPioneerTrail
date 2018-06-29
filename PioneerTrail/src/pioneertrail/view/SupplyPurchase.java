@@ -34,22 +34,31 @@ class SupplyPurchase extends View {
                 + "\nStore Items"
                 + "\n************";
 
+        Game game = PioneerTrail.getCurrentGame();
+        Purchase purchase = game.getPurchase();
         InventoryItem item = new InventoryItem();
         InventoryControl.listItems();
 
-        //Purchase money = new Purchase();
         input += "\n***********************"
                 + "\nPurchase Supplies Menu"
                 + "\n***********************";
 
         //InventoryControl.listItems();
-        input += ("\n\nT - Wood"
+        input += ("\n$"
+                + purchase.getMoney()
+                + "\n\nT - Wood"
                 + "\nP - Potatoes"
                 + "\nW - Water"
                 + "\nM - Meat"
                 + "\nH = Highest priced item"
-                + "\nL - Lowest priced item");
-        input += ("\nEnter your selection or enter Q to quit:");
+                + "\nL - Lowest priced item"
+                + "\n\nEnter your selection or enter Q to quit:");
+
+        if (purchase.getMoney() > 0) {
+            input += ("\nMoney: $" + purchase.getMoney());
+        } else {
+            input += ("\nYou are out of money");
+        }
 
         return input;
 
