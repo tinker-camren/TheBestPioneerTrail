@@ -51,9 +51,23 @@ public class InventoryControl {
         for (int i = 0; i < items.size(); i++ ) {
             InventoryItem item = items.get(i);
             System.out.println("\nItem: " + item.getItemType() +
+                               "\nPrice: $" + item.getPrice() +
                                "\nQuantity: " + item.getCount() +
+                               "\nWeight: " + item.getWeight() + " lbs" +
                                "\nDescription: " + item.getDescription());
         }
         return;
     }
+    
+    
+//    public int getPriceItems(int[] prices) {
+//        
+//        int total = 0;
+//        
+//        for (int price : prices ) {
+//            total += price;
+//            System.out.println("\nPrice: $" + prices.getPrice());
+//        }
+//        return total;
+//    }
 }

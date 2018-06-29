@@ -47,7 +47,7 @@ public class GameControl {
         game.setWagon(wagon);
 
         Purchase purchase = new Purchase();
-        purchase.setMoney(500);
+        purchase.setMoney(100);
 
         game.setPurchase(purchase);
 
@@ -132,8 +132,9 @@ public class GameControl {
 
         InventoryItem wood = new InventoryItem();
         wood.setPrice(5);
-        wood.setCount(10);
         wood.setDescription("Used to repair wagons");
+        wood.setCount(10);
+        item.setWeight(10);
         wood.setItemType("Wood");
         items.add(InventoryItemEnum.Wood.ordinal(), wood);
 
@@ -141,6 +142,7 @@ public class GameControl {
         item.setPrice(5);
         item.setDescription("food");
         item.setCount(10);
+        item.setWeight(5);
         item.setItemType("potatoes");
         items.add(InventoryItemEnum.Potatoes.ordinal(), item);
 
@@ -148,16 +150,16 @@ public class GameControl {
         item.setPrice(2);
         item.setDescription("drink");
         item.setCount(10);
+        item.setWeight(4);
         item.setItemType("water");
-        item.setWeight(3);
         items.add(InventoryItemEnum.Water.ordinal(), item);
 
         item = new InventoryItem();
         item.setPrice(8);
         item.setDescription("food");
         item.setCount(10);
+        item.setWeight(6);
         item.setItemType("Meat");
-        item.setWeight(10);
         items.add(InventoryItemEnum.Meat.ordinal(), item);
 //        wagon.setItems(items);
 
