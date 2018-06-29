@@ -44,23 +44,25 @@ class SupplyPurchase extends View {
                 + "\n***********************";
 
         //InventoryControl.listItems();
-        input += ("\n$"
+        input += ("\nMoney $"
                 + purchase.getMoney()
                 + "\n\nT - Wood"
                 + "\nP - Potatoes"
                 + "\nW - Water"
                 + "\nM - Meat"
                 + "\nH = Highest priced item"
-                + "\nL - Lowest priced item"
-                + "\n\nEnter your selection or enter Q to quit:");
+                + "\nL - Lowest priced item");
 
         if (purchase.getMoney() > 0) {
-            input += ("\nMoney: $" + purchase.getMoney());
+            input += ("\n\nMoney: $" + purchase.getMoney());
         } else {
             input += ("\nYou are out of money");
         }
+        
+        input +=  ("\n\nEnter your selection or enter Q to quit:");
 
         return input;
+        
 
 //    void displaySupplyPurchase() {
 //        

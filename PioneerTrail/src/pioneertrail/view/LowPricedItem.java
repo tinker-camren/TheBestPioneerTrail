@@ -21,6 +21,19 @@ class LowPricedItem {
         //ActorControl.listActorSickness();
         Scanner purchase = new Scanner(System.in);
         
+        //Pseudocode:finding the smallest value
+//        min(list): number 
+//            BEGIN minValue = list[0] 
+//                FOR index = 1 TO list.length -1      
+//                IF ( list[index] < minValue)      
+//                THEN           
+//                    minValue = list[index]      
+//                ENDIF 
+//            ENDFOR 
+//            RETURN minValue 
+//        END
+
+        
         
         
         

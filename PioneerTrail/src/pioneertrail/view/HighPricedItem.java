@@ -31,13 +31,21 @@ class HighPricedItem extends View {
 
         String input = "\n**********"
                 + "\nHigh price"
-                + "\n**********" + "\n" + "$" + purchase.getMoney();
+                + "\n**********" + "\n";
 
-            if (purchase.getMoney() > 0) {
-                input += ("\nMoney: $" + purchase.getMoney());
-            } else {
-                input += ("\nYou are out of money");
-            }
+//      //Pseudocode: finding the largest value
+//            max(list): number
+//            BEGIN 
+//                maxValue = list[0] 
+//                FOR index = 1 TO list.length -1     
+//                    IF ( list[index] > maxValue)     
+//                    THEN           
+//                        maxValue = list[index]      
+//                    ENDIF 
+//                ENDFOR 
+//                RETURN maxValue 
+//            END
+
             
         return input;
     }
