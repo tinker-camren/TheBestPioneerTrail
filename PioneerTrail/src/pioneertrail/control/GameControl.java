@@ -18,6 +18,8 @@ import pioneertrail.model.Player;
 import pioneertrail.model.Purchase;
 import pioneertrail.model.RegularScene;
 import pioneertrail.model.ResourceScene;
+import pioneertrail.model.SceneType;
+import pioneertrail.model.SicknessScene;
 import pioneertrail.model.Tool;
 import pioneertrail.model.Wagon;
 
@@ -311,7 +313,7 @@ public class GameControl {
             + "they crossed into Illinois and settled in a swampy area along the Mississippi River."
             + " They named the city Nauvoo.");
     scene1.setTerrainType("Swamp");
-    scenes[0] = scene1;
+    scenes[SceneType.scene1.ordinal()] = scene1;
     
     //ResourceScene[] scenes = new ResourceScene[25];
     RegularScene scene2 = new RegularScene();
@@ -324,13 +326,13 @@ public class GameControl {
             + "Uncertainty about routes and destinations to the West, in addition to mounting problems with supplies and equipment, "
             + "kept the advance party from departing Sugar Creek for nearly a month.");
     scene2.setTerrainType("River");
-    scenes[0] = scene2;
+    scenes[SceneType.scene2.ordinal()] = scene2;
     
     
     
     
-Assign values to each attribute in the Scene object
-Assign scene1 to its position in the scenes array
+//Assign values to each attribute in the Scene object
+//Assign scene1 to its position in the scenes array
 //scene2 = Create a new ConstructionScene object
 //Assign values to each attribute in the Scene object
 //Assign scene2 to its position in the scenes array
