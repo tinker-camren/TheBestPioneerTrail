@@ -45,24 +45,51 @@ class SupplyPurchase extends View {
 
         //InventoryControl.listItems();
         input += ("\nMoney $"
-                + purchase.getMoney()
-                + "\n\nT - Wood"
-                + "\nP - Potatoes"
-                + "\nW - Water"
-                + "\nM - Meat"
-                + "\nH = Highest priced item"
-                + "\nL - Lowest priced item");
+                + purchase.getMoney());
+
+        ArrayList<InventoryItem> items = game.getWagon().getItems();
+        
+        int count = 0;
+        double maxPrice = 0;
+        double minPrice = 0;
+        for (InventoryItem currentItem : items) {
+            input += "\n" + count + " - $" + currentItem.getPrice() + ": " + currentItem.getItemType();
+            if (count == 0) {
+                maxPrice = currentItem.getPrice();
+                minPrice = currentItem.getPrice();
+            } else {
+//                maxPrice = count[0];
+//                for(int i = 1; i < count.length; i++) {
+//                if(currentItem.count[i] > maxPrice){
+//                    maxPrice = count()[i];
+//                }
+//            }
+                
+                //Math.max maxPrice = currentItem.getPrice();
+               // math.max/min 
+               //maxPrice = math.max maxprice, currentItem.getPrice
+            }
+            count ++;
+//            return maxPrice;
+        }
+        
+//        +"\n\nT - Wood"
+//                + "\nP - Potatoes"
+//                + "\nW - Water"
+//                + "\nM - Meat"
+                input += "\nH = Highest priced item = " + maxPrice; 
+                input += "\nL - Lowest priced item = " + minPrice;
+        
 
         if (purchase.getMoney() > 0) {
             input += ("\n\nMoney: $" + purchase.getMoney());
         } else {
             input += ("\nYou are out of money");
         }
-        
-        input +=  ("\n\nEnter your selection or enter Q to quit:");
+
+        input += ("\n\nEnter your selection or enter Q to quit:");
 
         return input;
-        
 
 //    void displaySupplyPurchase() {
 //        
@@ -74,31 +101,31 @@ class SupplyPurchase extends View {
     @Override
     public boolean doAction(String inputs) {
 
-        String menuItem = inputs.toUpperCase();
-
-        switch (menuItem) {
-            case "T":
-                purchaseMenu();
-                break;
-            case "P":
-                purchaseMenu();
-                break;
-            case "W":
-                purchaseMenu();
-                break;
-            case "M":
-                purchaseMenu();
-                break;
-            case "H":
-                highPricedItem();
-                break;
-            case "L":
-                lowPricedItem();
-                break;
-
-            default:
-                System.out.println("Invalid menu item");
-        }
+//        String menuItem = inputs.toUpperCase();
+//
+//        switch (menuItem) {
+//            case "T":
+//                purchaseMenu();
+//                break;
+//            case "P":
+//                purchaseMenu();
+//                break;
+//            case "W":
+//                purchaseMenu();
+//                break;
+//            case "M":
+//                purchaseMenu();
+//                break;
+//            case "H":
+//                highPricedItem();
+//                break;
+//            case "L":
+//                lowPricedItem();
+//                break;
+//
+//            default:
+//                System.out.println("Invalid menu item");
+//        }
         return false;
     }
 //        try {
