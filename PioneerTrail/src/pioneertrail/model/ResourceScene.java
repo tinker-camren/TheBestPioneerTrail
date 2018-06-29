@@ -13,7 +13,7 @@ import java.util.Objects;
  *
  * @author tinkerc
  */
-public class ResourceScene implements Serializable {
+public class ResourceScene extends Scene implements Serializable {
 
     //Class instance variables
     private int amount;

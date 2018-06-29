@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author tinkerc
  */
-public class RegularScene implements Serializable {
+public class RegularScene extends Scene implements Serializable {
 
     //Class instance variables
     private String sceneName;

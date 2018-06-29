@@ -166,6 +166,14 @@ public class GameControl {
         item.setWeight(6);
         item.setItemType("Meat");
         items.add(InventoryItemEnum.Meat.ordinal(), item);
+        
+        item = new InventoryItem();
+        item.setPrice(15);
+        item.setDescription("Medical Supplies");
+        item.setCount(10);
+        item.setWeight(6);
+        item.setItemType("Medical Supplies");
+        items.add(InventoryItemEnum.MedicalSupplies.ordinal(), item);
 //        wagon.setItems(items);
 
         return items;

@@ -14,6 +14,7 @@ public enum InventoryItemEnum {
     Wood,
     Potatoes,
     Water,
-    Meat
+    Meat,
+    MedicalSupplies
 }
 
