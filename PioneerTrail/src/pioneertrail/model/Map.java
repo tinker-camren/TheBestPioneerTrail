@@ -21,6 +21,7 @@ public class Map implements Serializable{
     private int currentRow;
     private int currentColumn;
     private Location currentLocation;
+    private Location[][] locations;
 
     public Map() {
     }
@@ -72,6 +73,14 @@ public class Map implements Serializable{
         this.currentLocation = currentLocation;
     }
 
+    public Location[][] getLocations() {
+        return locations;
+    }
+
+    public void setLocations(Location[][] locations) {
+        this.locations = locations;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 3;
