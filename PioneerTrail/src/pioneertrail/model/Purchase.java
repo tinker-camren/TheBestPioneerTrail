@@ -6,6 +6,7 @@
 package pioneertrail.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -20,6 +21,33 @@ public class Purchase implements Serializable {
     private int weight;
     private int count;
     private String description;
+    private ArrayList<InventoryItem> items;
+    private Tool[] tools;
+    private int money;
+
+    public Tool[] getTools() {
+        return tools;
+    }
+
+    public int getMoney() {
+        return money;
+    }
+
+    public void setMoney(int money) {
+        this.money = money;
+    }
+    
+    public void setTools(Tool[] tools) {
+        this.tools = tools;
+    }
+
+    public ArrayList<InventoryItem> getItems() {
+        return items;
+    }
+
+    public void setItems(ArrayList<InventoryItem> items) {
+        this.items = items;
+    }
     
     public Purchase() {
     }

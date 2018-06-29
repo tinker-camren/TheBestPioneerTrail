@@ -20,8 +20,17 @@ public class InventoryItem implements Serializable {
     private String itemType;
     private int count;
     private Game game;
+    private int price;
 
     public InventoryItem() {
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     public double getWeight() {

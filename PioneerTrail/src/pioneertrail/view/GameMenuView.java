@@ -91,9 +91,9 @@ class GameMenuView extends View {
             case "R":
                 repairWagon();
                 break;
-            case "D":
-                handleSickness();
-                break;
+//            case "D":
+//                handleSickness();
+//                break;
             case "H":
                 getHelp();
             case "S":
@@ -121,7 +121,7 @@ class GameMenuView extends View {
 
     private void supplyPurchase() {
         SupplyPurchase supplyPurchase = new SupplyPurchase();
-        supplyPurchase.displaySupplyPurchase();
+        supplyPurchase.display();
     }
 
     private void moveLocation() {
@@ -144,10 +144,10 @@ class GameMenuView extends View {
         repairWagon.display();
     }
 
-    private void handleSickness() {
-        SicknessMenu handleSickness = new SicknessMenu();
-        handleSickness.display();
-    }
+//    private void handleSickness() {
+//        SicknessMenu handleSickness = new SicknessMenu();
+//        handleSickness.display();
+//    }
 
     private void getHelp() {
         HelpMenuView helpMenuView = new HelpMenuView();

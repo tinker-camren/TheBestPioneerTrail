@@ -23,6 +23,15 @@ public class Game implements Serializable {
     private ActorObject[] actors = new ActorObject[4];
     private ArrayList<InventoryItem> items;
     private Map map;
+    private Purchase purchase;
+
+    public Purchase getPurchase() {
+        return purchase;
+    }
+
+    public void setPurchase(Purchase purchase) {
+        this.purchase = purchase;
+    }
 
     /**
      * Get the value of items
