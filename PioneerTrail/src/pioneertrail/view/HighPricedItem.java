@@ -31,7 +31,9 @@ class HighPricedItem extends View {
 
         String input = "\n**********"
                 + "\nHigh price"
-                + "\n**********" + "\n";
+                + "\n**********" 
+                + "\nI am a high priced item stub."
+                + "\nPress Q to return to previous menu.";
 
 //      //Pseudocode: finding the largest value
 //            max(list): number
