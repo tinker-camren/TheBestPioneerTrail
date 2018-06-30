@@ -380,10 +380,25 @@ public class MapControl {
         resourcesInScene.get(1).setCount(4);
         resourceScene2.setInventoryItems(items);
 
-//            ResourceScenes
-//            scene21 - Kathy 
-//            scene18 - Kathy
+        //Kathy -- Assign items to the 18th resource scene
+        ResourceScene resourceScene3 = (ResourceScene) scenes[SceneType.scene18.ordinal()];
+        resourcesInScene = new ArrayList<>();
+        resourcesInScene.add(0, items.get(InventoryItemEnum.Wood.ordinal()));
+        resourcesInScene.get(0).setCount(2);
+        resourcesInScene.add(1, items.get(InventoryItemEnum.Water.ordinal()));
+        resourcesInScene.get(1).setCount(4);
+        resourceScene3.setInventoryItems(items);
+        
+        //Kathy -- Assign items to the 21st resource scene
+        ResourceScene resourceScene4 = (ResourceScene) scenes[SceneType.scene21.ordinal()];
+        resourcesInScene = new ArrayList<>();
+        resourcesInScene.add(0, items.get(InventoryItemEnum.Potatoes.ordinal()));
+        resourcesInScene.get(0).setCount(2);
+        resourcesInScene.add(1, items.get(InventoryItemEnum.Water.ordinal()));
+        resourcesInScene.get(1).setCount(4);
+        resourceScene4.setInventoryItems(items);
 
+        
 //           (scene12 - Danica)
 // Assign items to the 12th resource scene
         ResourceScene resourceScene5 = (ResourceScene) scenes[SceneType.scene12.ordinal()];
@@ -403,6 +418,7 @@ public class MapControl {
         resourcesInScene.add(1, items.get(InventoryItemEnum.MedicalSupplies.ordinal()));
         resourcesInScene.get(1).setCount(1);
         resourceScene6.setInventoryItems(items);
+        
 //            
 //            scene8 - Camren
 //            scene6 - Camren
