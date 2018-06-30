@@ -14,14 +14,39 @@ import pioneertrail.control.InventoryControl;
  *
  * @author Danica
  */
-class LowPricedItem {
+class LowPricedItem extends View {
 
-    void displayLowPricedItem() {
-        //InventoryControl.getPriceItems();
-        //ActorControl.listActorSickness();
-        Scanner purchase = new Scanner(System.in);
+    public LowPricedItem() {
+        displayMessage = buildMenu();
+    }
+
+    private String buildMenu() {
+
+        String input = "\n**********"
+                + "\nLow price"
+                + "\n**********"
+                + "\nI am a low priced item stub"
+                + "\nPress Q to return to previous menu.";
+
+        return input;
         
-        //Pseudocode:finding the smallest value
+        
+    }
+    
+//    public static int getMinValue(int[] numbers){
+//  int minValue = numbers[0];
+//  for(int i=1;i<numbers.length;i++){
+//    if(numbers[i] < minValue){
+//	  minValue = numbers[i];
+//	}
+//  }
+//  return minValue;
+//}
+
+    @Override
+    public boolean doAction(String inputs) {
+
+//      Pseudocode:finding the smallest value
 //        min(list): number 
 //            BEGIN minValue = list[0] 
 //                FOR index = 1 TO list.length -1      
@@ -33,22 +58,29 @@ class LowPricedItem {
 //            RETURN minValue 
 //        END
 
-        
-        
-        
-        
+//        double minValue = 0;
+//
+//        minValue = list[0];
+//        for (index = 1 : list.length -1) {
+//        if (list[index] < minValue) {
+//            minValue = list[index];
+//        }
+//    }
+//        return minValue;
+
+        return false;
+    }
+}
+
 //        for (index = 0 list.length - 1) {
 //                if ( list[index] == value);
 //        return = index;
 //    }
 //        return -1;
-
 //        maxValue = list[0];
 //        for (index = 1 : list.length -1) {
 //        if (list[index] > maxValue);
 //    }
 //        return maxValue;
 //    
-    }
-    
-}
+
