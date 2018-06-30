@@ -20,7 +20,7 @@ import pioneertrail.model.SceneType;
  * @author tinkerc
  */
 public class MapControl {
-    
+
     public static Map createMap(int noOfRows, int noOfColumns, ArrayList<InventoryItem> items) {
 
         if (noOfRows < 0 || noOfColumns < 0) {
@@ -45,7 +45,7 @@ public class MapControl {
         return map;
 
     }
-    
+
     private static Location[][] createLocations(int noOfRows, int noOfColumns) {
         System.out.println("Create Locations");
 
@@ -89,7 +89,7 @@ public class MapControl {
                 + "kept the advance party from departing Sugar Creek for nearly a month.");
         scene2.setTerrainType("River");
         scenes[SceneType.scene2.ordinal()] = scene2;
-        
+
         //Sickness
         RegularScene scene3 = new RegularScene();
         scene3.setSceneName("Richardsons Point");
@@ -102,7 +102,7 @@ public class MapControl {
                 + "advantage of the opportunity");
         scene3.setTerrainType("Rainy, Swampy");
         scenes[SceneType.scene3.ordinal()] = scene3;
-        
+
         //Sickness
         RegularScene scene4 = new RegularScene();
         scene4.setSceneName("Chariton River Crossing");
@@ -112,7 +112,7 @@ public class MapControl {
                 + "completing the organization of the initial pioneer company. ");
         scene4.setTerrainType("Rainy, Swampy");
         scenes[SceneType.scene4.ordinal()] = scene4;
-        
+
         //Resource
         ResourceScene scene5 = new ResourceScene();
         scene5.setSceneName("Locust Creek");
@@ -121,7 +121,7 @@ public class MapControl {
                 + "traders he felt were taking advantage of the company.");
         scene5.setTerrainType("Creek");
         scenes[SceneType.scene5.ordinal()] = scene5;
-        
+
         //Resource, crops
         ResourceScene scene6 = new ResourceScene();
         scene6.setSceneName("Garden Grove");
@@ -133,7 +133,7 @@ public class MapControl {
                 + "The settlement was vacated in the spring of 1848.");
         scene6.setTerrainType("Resting area");
         scenes[SceneType.scene6.ordinal()] = scene6;
-        
+
         //Regular
         RegularScene scene7 = new RegularScene();
         scene7.setSceneName("Mount Pisgah");
@@ -144,7 +144,7 @@ public class MapControl {
                 + " to furnish volunteers for the Mormon Battalion.");
         scene7.setTerrainType("Creek");
         scenes[SceneType.scene7.ordinal()] = scene7;
-        
+
         //Resource
         ResourceScene scene8 = new ResourceScene();
         scene8.setSceneName("Nishnabotna River Crossing");
@@ -154,7 +154,7 @@ public class MapControl {
                 + " west would continue to travel across the area for some time.");
         scene8.setTerrainType("River");
         scenes[SceneType.scene8.ordinal()] = scene8;
-        
+
         //Regular
         RegularScene scene9 = new RegularScene();
         scene9.setSceneName("Grand Encampment");
@@ -164,7 +164,7 @@ public class MapControl {
                 + " Army for service in the war with Mexico.");
         scene9.setTerrainType("Resting Area");
         scenes[SceneType.scene9.ordinal()] = scene9;
-        
+
         //Regular
         RegularScene scene10 = new RegularScene();
         scene10.setSceneName("Council Bluffs");
@@ -174,7 +174,7 @@ public class MapControl {
                 + " the late 1840s and early 1850s.");
         scene10.setTerrainType("Plain");
         scenes[SceneType.scene10.ordinal()] = scene10;
-        
+
         //Sickness
         RegularScene scene11 = new RegularScene();
         scene11.setSceneName("Winter Quarters");
@@ -185,7 +185,7 @@ public class MapControl {
                 + " during the winter of 1846–47. ");
         scene11.setTerrainType("Plain");
         scenes[SceneType.scene11.ordinal()] = scene11;
-        
+
         //Resource
         ResourceScene scene12 = new ResourceScene();
         scene12.setSceneName("Elkhorn River Crossing");
@@ -194,7 +194,6 @@ public class MapControl {
                 + " three miles west of the Elkhorn, awaiting our arrival.” ");
         scene12.setTerrainType("River");
         scenes[SceneType.scene12.ordinal()] = scene12;
-        
 
         RegularScene scene13 = new RegularScene();
         scene13.setSceneName("Fort Kearny");
@@ -359,45 +358,62 @@ public class MapControl {
         return scenes;
     }
 
-
-    
     private static void assignItemsToScenes(ArrayList<InventoryItem> items, Scene[] scenes) {
         System.out.println("Create Items to Scene");
-       
-            // Assign items to the first resource scene
-            ResourceScene resourceScene1 = (ResourceScene) scenes[SceneType.scene2.ordinal()];
-            ArrayList<InventoryItem> resourcesInScene = new ArrayList<>();
-            resourcesInScene.add(0, items.get(InventoryItemEnum.Potatoes.ordinal()));           
-            //Set count to 2
-            resourcesInScene.get(0).setCount(5);
-            resourcesInScene.add(1, items.get(InventoryItemEnum.Water.ordinal()));
-            resourcesInScene.get(1).setCount(3);
-            resourceScene1.setInventoryItems(items);
-            
-            // Assign items to the second resource scene
-            ResourceScene resourceScene2 = (ResourceScene) scenes[SceneType.scene5.ordinal()];
-            resourcesInScene = new ArrayList<>();
-            resourcesInScene.add(0, items.get(InventoryItemEnum.Wood.ordinal()));           
-            resourcesInScene.get(0).setCount(2);
-            resourcesInScene.add(1, items.get(InventoryItemEnum.Water.ordinal()));
-            resourcesInScene.get(1).setCount(4);
-            resourceScene2.setInventoryItems(items);
-            
+
+        // Assign items to the first resource scene
+        ResourceScene resourceScene1 = (ResourceScene) scenes[SceneType.scene2.ordinal()];
+        ArrayList<InventoryItem> resourcesInScene = new ArrayList<>();
+        resourcesInScene.add(0, items.get(InventoryItemEnum.Potatoes.ordinal()));
+        //Set count to 2
+        resourcesInScene.get(0).setCount(5);
+        resourcesInScene.add(1, items.get(InventoryItemEnum.Water.ordinal()));
+        resourcesInScene.get(1).setCount(3);
+        resourceScene1.setInventoryItems(items);
+
+        // Assign items to the second resource scene
+        ResourceScene resourceScene2 = (ResourceScene) scenes[SceneType.scene5.ordinal()];
+        resourcesInScene = new ArrayList<>();
+        resourcesInScene.add(0, items.get(InventoryItemEnum.Wood.ordinal()));
+        resourcesInScene.get(0).setCount(2);
+        resourcesInScene.add(1, items.get(InventoryItemEnum.Water.ordinal()));
+        resourcesInScene.get(1).setCount(4);
+        resourceScene2.setInventoryItems(items);
+
 //            ResourceScenes
 //            scene21 - Kathy 
 //            scene18 - Kathy
-//            scene14 - Danica
-//            scene12 - Danica
+
+//           (scene12 - Danica)
+// Assign items to the 12th resource scene
+        ResourceScene resourceScene5 = (ResourceScene) scenes[SceneType.scene12.ordinal()];
+        resourcesInScene = new ArrayList<>();
+        resourcesInScene.add(0, items.get(InventoryItemEnum.Meat.ordinal()));
+        resourcesInScene.get(0).setCount(4);
+        resourcesInScene.add(1, items.get(InventoryItemEnum.MedicalSupplies.ordinal()));
+        resourcesInScene.get(1).setCount(2);
+        resourceScene5.setInventoryItems(items);
+        
+//           (scene14 - Danica)
+// Assign items to the 14th resource scene
+        ResourceScene resourceScene6 = (ResourceScene) scenes[SceneType.scene14.ordinal()];
+        resourcesInScene = new ArrayList<>();
+        resourcesInScene.add(0, items.get(InventoryItemEnum.Wood.ordinal()));
+        resourcesInScene.get(0).setCount(1);
+        resourcesInScene.add(1, items.get(InventoryItemEnum.MedicalSupplies.ordinal()));
+        resourcesInScene.get(1).setCount(1);
+        resourceScene6.setInventoryItems(items);
+//            
 //            scene8 - Camren
 //            scene6 - Camren
 
     }
-    
-        private static void assignScenesToLocations(Map map, Scene[] scenes) {
+
+    private static void assignScenesToLocations(Map map, Scene[] scenes) {
         System.out.println("Create Scenes to Locations");
-        
+
         Location[][] locations = map.getLocations();
-        
+
         //start point
         locations[0][0].setScene(scenes[SceneType.scene1.ordinal()]);
         locations[0][1].setScene(scenes[SceneType.scene2.ordinal()]);
