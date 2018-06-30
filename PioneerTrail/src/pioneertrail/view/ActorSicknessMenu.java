@@ -1,60 +1,86 @@
-///*
-// * To change this license header, choose License Headers in Project Properties.
-// * To change this template file, choose Tools | Templates
-// * and open the template in the editor.
-// */
-//package pioneertrail.view;
-//
-//import pioneertrail.PioneerTrail;
-//import pioneertrail.model.ActorObject;
-//import pioneertrail.model.Game;
-//
-///**
-// *
-// * @author tinkerc
-// */
-//class ActorSicknessMenu extends View  {
-//    
-//    public ActorSicknessMenu() {
-//        displayMessage = buildMenu();
-//    }
-//        public void displayActorSicknessMenu(ActorObject actor) {
-//            
-//        private String buildMenu() {
-//        String input = "**********\n"
-//                + actor.get
-//                + "\n**********";
-//
-//        Game game = PioneerTrail.getCurrentGame();
-//        Wagon wagon = game.getWagon();
-//        Tool hammer = wagon.getTools().get(0);
-//        Tool gun = wagon.getTools().get(1);
-//        Tool axe = wagon.getTools().get(2);
-//
-//        if (axe.getDurability() > 0) {
-//            input += ("\nTool Type: " + axe.getToolType());
-//            input += ("\n\tTool Durability: " + axe.getDurability());
-//        } else {
-//            input += ("\nAxe broken or non-existent");
-//        }
-//
-//        if (hammer.getDurability() > 0) {
-//            input += ("\nTool Type: " + hammer.getToolType());
-//            input += ("\n\tTool Durability: " + hammer.getDurability());
-//        } else {
-//            input += ("\nHammer broken or non-existent");
-//        }
-//
-//        if (gun.getDurability() > 0) {
-//            input += ("\nTool Type: " + gun.getToolType());
-//            input += ("\n\tTool Durability: " + gun.getDurability());
-//        } else {
-//            input += ("\nGun broken or non-existent");
-//        }
-//
-//        input += ("\n\nPress Enter or enter Q to quit");
-//
-//        return input;
-//    }
-//    }
-//}
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package pioneertrail.view;
+
+import java.util.ArrayList;
+import pioneertrail.PioneerTrail;
+import pioneertrail.control.InventoryControl;
+import pioneertrail.model.ActorObject;
+import pioneertrail.model.Game;
+import pioneertrail.model.InventoryItem;
+import pioneertrail.model.Wagon;
+
+/**
+ *
+ * @author tinkerc
+ */
+class ActorSicknessMenu extends View  {
+    
+    public ActorSicknessMenu(ActorObject actor) {
+        displayMessage = buildMenu(actor);
+    }
+            
+        private String buildMenu(ActorObject actor) {
+        String input = "********************\n"
+                + actor.getName() + " Sickness Menu"
+                + "\n********************";
+
+        Game game = PioneerTrail.getCurrentGame();
+        Wagon wagon = game.getWagon();
+        ArrayList<InventoryItem> items = new ArrayList<>();
+
+        InventoryControl.listItemsAlphabetically(items);
+        
+        input += ("\n\nS - Make Splint"
+                + "\tCost: 2 wood"
+                + "\nR - Rest"
+                + "\tCost: 2 units of food (potatoes or meat) and 1 water per person"
+                + "\nM - Medical Supplies "
+                + "\tCost: 1 unit of medical supplies"
+                + "\nE - Exit");
+        input += ("\nEnter the action you want to take");
+        
+        return input;
+    }
+        
+    @Override
+    public boolean doAction(String inputs) {
+
+        String menuItem = inputs.toUpperCase();
+
+        switch (menuItem) {
+            case "S":
+                createSplint();
+                break;
+            case "R":
+                rest();
+                break;
+            case "M":
+                medicalSupplies();
+                break;
+            case "E":
+                //mainMenuView();
+                return true;
+
+            default:
+                System.out.println("Invalid menu item");
+        }
+        return false;
+    }
+
+    private void createSplint() {
+        CreateSplintView createSplintView = new CreateSplintView();
+        createSplintView.displayResourceHelp();
+    }
+
+    private void rest() {
+        System.out.println("Rest called");
+    }
+
+    private void medicalSupplies() {
+        System.out.println("medicalSupplies called");
+    }
+}

@@ -7,6 +7,7 @@ package pioneertrail.model;
 
 import java.awt.Point;
 import java.io.Serializable;
+import java.util.Comparator;
 import java.util.Objects;
 
 /**
@@ -73,6 +74,19 @@ public class ActorObject implements Serializable {
     public void setCoordinates(Point coordinates) {
         this.coordinates = coordinates;
     }
+    
+    public static Comparator<ActorObject> NameComparator = new Comparator<ActorObject>() {
+
+	public int compare(ActorObject s1, ActorObject s2) {
+	   String ActorName1 = s1.getName().toUpperCase();
+	   String ActorName2 = s2.getName().toUpperCase();
+
+	   //ascending order
+	   //return StudentName1.compareTo(StudentName2);
+
+	   //descending order
+	   return ActorName2.compareTo(ActorName1);
+    }};
 
     @Override
     public int hashCode() {

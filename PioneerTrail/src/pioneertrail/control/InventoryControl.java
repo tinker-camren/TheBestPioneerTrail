@@ -6,7 +6,9 @@
 package pioneertrail.control;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import pioneertrail.PioneerTrail;
+import pioneertrail.model.ActorObject;
 import pioneertrail.model.InventoryItem;
 import pioneertrail.model.Wagon;
 
@@ -59,6 +61,20 @@ public class InventoryControl {
         return;
     }
     
+    public static void listItemsAlphabetically(ArrayList<InventoryItem> items) {
+        
+        //ArrayList<InventoryItem> items = PioneerTrail.getCurrentGame().getWagon().getItems();
+        
+        //Sorting based on Actor Name
+	   Collections.sort(items, InventoryItem.itemTypeComparator);
+
+	   for(InventoryItem item: items){
+			System.out.println("\nItem: " + item.getItemType() +
+                               "\nQuantity: " + item.getCount() +
+                               "\nWeight: " + item.getWeight() + " lbs" +
+                               "\nDescription: " + item.getDescription());
+	   }
+    }
     
 //    public int getPriceItems(int[] prices) {
 //        

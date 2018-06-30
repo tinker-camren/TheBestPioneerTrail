@@ -6,6 +6,7 @@
 package pioneertrail.model;
 
 import java.io.Serializable;
+import java.util.Comparator;
 import java.util.Objects;
 
 /**
@@ -72,7 +73,20 @@ public class InventoryItem implements Serializable {
     public void setGame(Game game) {
         this.game = game;
     }
+    
+    public static Comparator<InventoryItem> itemTypeComparator = new Comparator<InventoryItem>() {
 
+	public int compare(InventoryItem s1, InventoryItem s2) {
+	   String ItemType1 = s1.getItemType().toUpperCase();
+	   String ItemType2 = s2.getItemType().toUpperCase();
+
+	   //ascending order
+	   return ItemType2.compareTo(ItemType1);
+
+	   //descending order
+	   //return ItemType2.compareTo(ItemType1);
+    }};
+    
     @Override
     public int hashCode() {
         int hash = 7;

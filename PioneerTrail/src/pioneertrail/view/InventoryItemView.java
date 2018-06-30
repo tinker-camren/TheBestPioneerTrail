@@ -8,6 +8,7 @@ package pioneertrail.view;
 import java.util.ArrayList;
 import java.util.Scanner;
 import pioneertrail.PioneerTrail;
+import pioneertrail.control.InventoryControl;
 import pioneertrail.model.InventoryItem;
 
 /**
@@ -30,6 +31,9 @@ class InventoryItemView extends View {
             count++;
             input += ("\n\t" + count + " - " + item.getItemType());
         }
+        
+        //InventoryControl.listItemsAlphabetically();
+        
         input += ("\nEnter your selection(Press Q to quit): ");
 
         return input;

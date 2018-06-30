@@ -17,25 +17,6 @@ public class ToolControl {
     
     //Camren
     public static int repairWagon(InventoryItem item, Tool tool, Wagon wagon) {
-     
-//        pseudo code
-//        BEGIN
-//            IF (InventoryItem.getType != ‘Wood’ ) THEN
-//              RETURN -1
-//            IF (Tool.getDurability <1) THEN
-//              RETURN -2
-//            IF (InventoryItem.getCount < 1) THEN
-//              RETURN -3
-//            IF (Tool.getType != ‘Hammer’) THEN
-//              RETURN -4
-//            IF ((InventoryItem.getCount * Tool.getMultiplier) + Wagon.getHealth > Wagon.getMaxHealth) THEN
-//              Wagon.setHealth (Wagon.getMaxHealth)
-//            Tool.setDurability (Tool.getDurability – InventoryItem.getCount)
-//              Return Wagon.getHealth
-//            Wagon.setHealth (InventoryItem.getCount * InventoryItem.getMultiplier) + Wagon.getHealth
-//              Tool.setDurability (Tool.getDurability – InventoryItem.getCount)
-//          RETURN  Wagon.getHealth
-
 
         if (item.getItemType() != "Wood") {
             return -1;
