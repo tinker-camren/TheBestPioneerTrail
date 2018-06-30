@@ -20,9 +20,28 @@ public class Location implements Serializable {
     private boolean visited;
     private double amountRemaining;
     private ArrayList<Map> maps = new ArrayList<>();
+    private Scene scene;
 
     public Location() {
     }
+
+    public ArrayList<Map> getMaps() {
+        return maps;
+    }
+
+    public void setMaps(ArrayList<Map> maps) {
+        this.maps = maps;
+    }
+
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+    
+    
     public int getColumn() {
         return column;
     }

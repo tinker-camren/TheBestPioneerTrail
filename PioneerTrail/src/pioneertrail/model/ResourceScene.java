@@ -17,6 +17,9 @@ public class ResourceScene extends Scene implements Serializable {
 
     //Class instance variables
     private int amount;
+    private String sceneName;
+    private String description;
+    private String terrainType;
     private String sceneItemType;
     private ArrayList<InventoryItem> inventoryItems = new ArrayList<InventoryItem>();
 
@@ -25,6 +28,30 @@ public class ResourceScene extends Scene implements Serializable {
 
     public int getAmount() {
         return amount;
+    }
+
+    public String getSceneName() {
+        return sceneName;
+    }
+
+    public void setSceneName(String sceneName) {
+        this.sceneName = sceneName;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getTerrainType() {
+        return terrainType;
+    }
+
+    public void setTerrainType(String terrainType) {
+        this.terrainType = terrainType;
     }
 
     public void setAmount(int amount) {
