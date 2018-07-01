@@ -60,6 +60,8 @@ class SupplyPurchase extends View {
 //            }
             count++;
         }
+        
+        input += "\nQ - Return to previous MENU";
 
 //        input += "\nH = Highest priced item = " + maxPrice;
 //        input += "\nL - Lowest priced item = " + minPrice;
@@ -69,7 +71,7 @@ class SupplyPurchase extends View {
             input += ("\nYou are out of money");
         }
 
-        input += ("\n\nEnter your selection or enter Q to quit:");
+        input += ("\n\nEnter a number 0-4 or Q to quit.");
 
         return input;
 
@@ -86,7 +88,7 @@ class SupplyPurchase extends View {
         try {
             int menuItem = Integer.parseInt(inputs);
         } catch (Exception ex) {
-            System.out.println("\nInvalid input, please enter a number");
+            System.out.println("\nInvalid input, please enter a number or Q.");
             return false;
         }
 
@@ -129,13 +131,4 @@ class SupplyPurchase extends View {
         purchaseMenu.display();
     }
 
-    private void highPricedItem() {
-        HighPricedItem highPricedItem = new HighPricedItem();
-        highPricedItem.display();
-    }
-
-    private void lowPricedItem() {
-        LowPricedItem lowPricedItem = new LowPricedItem();
-        lowPricedItem.display();
-    }
 }

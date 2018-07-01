@@ -5,6 +5,7 @@
  */
 package pioneertrail.view;
 
+import pioneertrail.control.InventoryControl;
 import pioneertrail.model.InventoryItem;
 import pioneertrail.model.Purchase;
 
@@ -17,20 +18,23 @@ class PurchaseMenu extends View {
     public PurchaseMenu(InventoryItem item) {
         displayMessage = buildMenu(item);
     }
-
+    
     private String buildMenu(InventoryItem item) {
-        String input = "**************************\n"
-                + item.getItemType() + " purchase menu"
-                + "\n**************************\n\n"
-                + item.getItemType()
-                + " will be purchased here."
-                + "\n\nQ - Return to Previous MENU";
-
-        return input;
-    }
-
-    @Override
-    public boolean doAction(String inputs) {
+    String input = "**************************\n"
+            + item.getItemType() + " purchase menu"
+            + "\n**************************\n\n"
+            + item.getItemType() 
+            + " will be purchased here."
+            
+            + "\n\nQ - Return to Previous MENU";
+    
+            InventoryControl.listPriceSort();
+    
+    return input;
+}
+    
+@Override
+ public boolean doAction(String inputs) {
 
         String menuItem = inputs.toUpperCase();
 

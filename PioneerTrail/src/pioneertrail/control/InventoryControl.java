@@ -17,9 +17,9 @@ import pioneertrail.model.Wagon;
  * @author tinkerc
  */
 public class InventoryControl {
-
+    
     public static double calcNewWeight(InventoryItem InventoryItem, Wagon Wagon) {
-
+        
 //        BEGIN
 //            IF (inventoryItem.getWeight < 1) THEN
 //                RETURN -1
@@ -31,50 +31,68 @@ public class InventoryControl {
 //                RETURN -3
 //            RETURN wagon.getWeight + (inventoryItem.getWeight * inventoryItem.getCount)
 //        END 	
+
         if (InventoryItem.getWeight() < 1) {
             return -1;
         }
-
+        
         if (InventoryItem.getCount() < 1) {
             return -2;
         }
-
+        
         if (Wagon.getWeight() + (InventoryItem.getWeight() * InventoryItem.getCount()) > Wagon.getMaxWeight()) {
             return -3;
         }
-
+        
         return Wagon.getWeight() + (InventoryItem.getWeight() * InventoryItem.getCount());
     }
 
     public static String listItems() {
-
+        
         ArrayList<InventoryItem> items = PioneerTrail.getCurrentGame().getWagon().getItems();
         String output = "";
-        for (int i = 0; i < items.size(); i++) {
+        for (int i = 0; i < items.size(); i++ ) {
             InventoryItem item = items.get(i);
-            output += ("\n\nItem: " + item.getItemType()
-                    + "\nPrice: $" + item.getPrice()
-                    + "\nQuantity: " + item.getCount()
-                    + "\nWeight: " + item.getWeight() + " lbs"
-                    + "\nDescription: " + item.getDescription());
+            output += ("\n\nItem: " + item.getItemType() +
+                               "\nPrice: $" + item.getPrice() +
+                               "\nQuantity: " + item.getCount() +
+                               "\nWeight: " + item.getWeight() + " lbs" +
+                               "\nDescription: " + item.getDescription());
         }
         return output;
     }
-
+    
     public static void listItemsAlphabetically(ArrayList<InventoryItem> items) {
-
+        
         //ArrayList<InventoryItem> items = PioneerTrail.getCurrentGame().getWagon().getItems();
+        
         //Sorting based on Actor Name
-        Collections.sort(items, InventoryItem.itemTypeComparator);
+	   Collections.sort(items, InventoryItem.itemTypeComparator);
 
-        for (InventoryItem item : items) {
-            System.out.println("\nItem: " + item.getItemType()
-                    + "\nQuantity: " + item.getCount()
-                    + "\nWeight: " + item.getWeight() + " lbs"
-                    + "\nDescription: " + item.getDescription());
-        }
+	   for(InventoryItem item: items){
+			System.out.println("\nItem: " + item.getItemType() +
+                               "\nQuantity: " + item.getCount() +
+                               "\nWeight: " + item.getWeight() + " lbs" +
+                               "\nDescription: " + item.getDescription());
+	   }
     }
-
+    
+    
+    public static void listPriceSort() {
+        ArrayList<InventoryItem> items = PioneerTrail.getCurrentGame().getWagon().getItems();
+         System.out.println("******************************"
+                 + "\nPrices from lowest to highest:"
+                 + "\n******************************");
+	   Collections.sort(items, InventoryItem.PriceSort);
+	   for(InventoryItem item: items){
+			System.out.println("| ... $" 
+                                + item.getPrice() 
+                                + " : " 
+                                + item.getItemType());
+	   }
+	}
+    }
+    
 //    public int getPriceItems(int[] prices) {
 //        
 //        int total = 0;
@@ -85,4 +103,3 @@ public class InventoryControl {
 //        }
 //        return total;
 //    }
-}
