@@ -25,32 +25,27 @@ class SupplyPurchase extends View {
 
     private String buildMenu() {
 
-//        ArrayList<InventoryItem> items = new ArrayList<InventoryItem>();
-//        Game game = PioneerTrail.getCurrentGame();
-//        //Wagon wagon = game.getWagon();
-//        //items = wagon.getItems();
-//        InventoryItem item = items.get(0);
-        String input = "\n************"
-                + "\nStore Items"
-                + "\n************";
-
         Game game = PioneerTrail.getCurrentGame();
         Purchase purchase = game.getPurchase();
         InventoryItem item = new InventoryItem();
-        InventoryControl.listItems();
+        //InventoryControl.listItems();
 
-        input += "\n***********************"
+        String input = "\n************"
+                + "\nStore Items"
+                + "\n************"
+                + InventoryControl.listItems();
+
+        input += "\n\n***********************"
                 + "\nPurchase Supplies Menu"
                 + "\n***********************";
 
-        //InventoryControl.listItems();
         input += ("\nMoney $"
                 + purchase.getMoney());
 
         ArrayList<InventoryItem> items = game.getWagon().getItems();
         int count = 0;
-        double maxPrice = 0;
-        double minPrice = 0;
+//        double maxPrice = 0;
+//        double minPrice = 0;
         for (InventoryItem currentItem : items) {
             input += "\n" + count + " - $" + currentItem.getPrice() + ": " + currentItem.getItemType();
 //            if (count == 0) {
@@ -63,33 +58,11 @@ class SupplyPurchase extends View {
 //                    maxPrice = count()[i];
 //                }
 //            }
-                
-                //Math.max maxPrice = currentItem.getPrice();
-               // math.max/min 
-               //maxPrice = math.max maxprice, currentItem.getPrice
-            //}
-            count ++;
-//            return maxPrice;
+            count++;
         }
-        
-        //////////////////////////
-//        String buildMenuFromList(ArrayList<Item> items){
-//     String myMenu = "";
-//     int count = 0;
-//     for( Item item : items) {
-//        myMenu += "\n" + count + " - " item.getName();
-//         count++;
-//    }
-        //////////////////////
-        
-//        +"\n\nT - Wood"
-//                + "\nP - Potatoes"
-//                + "\nW - Water"
-//                + "\nM - Meat"
-                input += "\nH = Highest priced item = " + maxPrice; 
-                input += "\nL - Lowest priced item = " + minPrice;
-        
 
+//        input += "\nH = Highest priced item = " + maxPrice;
+//        input += "\nL - Lowest priced item = " + minPrice;
         if (purchase.getMoney() > 0) {
             input += ("\n\nMoney: $" + purchase.getMoney());
         } else {
@@ -99,7 +72,6 @@ class SupplyPurchase extends View {
         input += ("\n\nEnter your selection or enter Q to quit:");
 
         return input;
-        
 
 //    void displaySupplyPurchase() {
 //        
@@ -111,75 +83,50 @@ class SupplyPurchase extends View {
     @Override
     public boolean doAction(String inputs) {
 
-        String menuItem = inputs.toUpperCase();
+        try {
+            int menuItem = Integer.parseInt(inputs);
+        } catch (Exception ex) {
+            System.out.println("\nInvalid input, please enter a number");
+            return false;
+        }
+
+        int menuItem = Integer.parseInt(inputs);
+        InventoryItem item;
+        ArrayList<InventoryItem> items = PioneerTrail.getCurrentGame().getPurchase().getItems();
 
         switch (menuItem) {
-//            case "T":
-//                purchaseMenu();
-//                break;
-//            case "P":
-//                purchaseMenu();
-//                break;
-//            case "W":
-//                purchaseMenu();
-//                break;
-//            case "M":
-//                purchaseMenu();
-//                break;
-            case "H":
-                highPricedItem();
+            case 0:
+                item = items.get(InventoryItemEnum.Wood.ordinal());
+                purchaseMenu(item);
                 break;
-            case "L":
-                lowPricedItem();
+            case 1:
+                item = items.get(InventoryItemEnum.Potatoes.ordinal());
+                purchaseMenu(item);
+                break;
+            case 2:
+                item = items.get(InventoryItemEnum.Water.ordinal());
+                purchaseMenu(item);
+                break;
+            case 3:
+                item = items.get(InventoryItemEnum.Meat.ordinal());
+                purchaseMenu(item);
+                break;
+            case 4:
+                item = items.get(InventoryItemEnum.MedicalSupplies.ordinal());
+                purchaseMenu(item);
                 break;
 
             default:
                 System.out.println("Invalid menu item");
+
         }
 
-            //items.get(inputs);
         return false;
     }
-//        try {
-//            int menuItem = Integer.parseInt(inputs);
-//        } catch (Exception ex) {
-//            System.out.println("\nInvalid input, please enter a number");
-//            return false;
-//        }
-////
-//        int menuItem = Integer.parseInt(inputs);
-//        InventoryItem item = new InventoryItem();
-//        //InventoryItem[] item = pioneertrail.PioneerTrail.getCurrentGame().getItems();
-//
-//        switch (menuItem) {
-//            case 1:
-//                item = items[InventoryItemEnum.Wood.ordinal()];
-//                purchaseMenu();
-//                break;
-//            case 2:
-//                item = items[InventoryItemEnum.Potatoes.ordinal()];
-//                purchaseMenu();
-//                break;
-//            case 3:
-//                item = items[InventoryItemEnum.Water.ordinal()];
-//                purchaseMenu();
-//                break;
-//            case 4:
-//                item = items[InventoryItemEnum.Meat.ordinal()];
-//                purchaseMenu();
-//                break;
-//
-//            default:
-//                System.out.println("Invalid menu item");
-//
-//        }
-//
-//        return false;
-//    }
 
-    private void purchaseMenu() {
-        PurchaseMenu purchaseMenu = new PurchaseMenu();
-        purchaseMenu.displayPurchaseMenu();
+    private void purchaseMenu(InventoryItem item) {
+        PurchaseMenu purchaseMenu = new PurchaseMenu(item);
+        purchaseMenu.display();
     }
 
     private void highPricedItem() {

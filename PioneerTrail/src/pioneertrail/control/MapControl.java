@@ -69,6 +69,7 @@ public class MapControl {
 
         Scene[] scenes = new Scene[25];
         RegularScene scene1 = new RegularScene();
+        scene1.setMapSymbol("testing");
         scene1.setSceneName("Nauvoo");
         scene1.setDescription("As the Latter-day Saints fled Missouri during the winter of 1838–39, "
                 + "having been threatened with extermination by the governor of the state, "

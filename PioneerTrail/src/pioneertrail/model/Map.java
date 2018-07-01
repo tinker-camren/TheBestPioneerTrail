@@ -22,9 +22,11 @@ public class Map implements Serializable{
     private int currentColumn;
     private Location currentLocation;
     private Location[][] locations;
+    
 
     public Map() {
     }
+ 
     public String getDescription() {
         return description;
     }
