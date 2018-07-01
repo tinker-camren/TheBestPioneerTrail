@@ -76,9 +76,9 @@ public class InventoryItem implements Serializable {
     
     public static Comparator<InventoryItem> itemTypeComparator = new Comparator<InventoryItem>() {
 
-	public int compare(InventoryItem s1, InventoryItem s2) {
-	   String ItemType1 = s1.getItemType().toUpperCase();
-	   String ItemType2 = s2.getItemType().toUpperCase();
+	public int compare(InventoryItem item1, InventoryItem item2) {
+	   String ItemType1 = item1.getItemType().toUpperCase();
+	   String ItemType2 = item2.getItemType().toUpperCase();
 
 	   //ascending order
 	   return ItemType2.compareTo(ItemType1);
