@@ -52,9 +52,16 @@ public class PioneerTrail {
 
     public static void main(String[] args) {
 
-        StartProgramView startProgramView = new StartProgramView();
-        startProgramView.display();
-        //PioneerTrail.setPlayer(player);
+        try {
+            StartProgramView startProgramView = new StartProgramView();
+            startProgramView.display();
+            //PioneerTrail.setPlayer(player); 
+        } catch (Throwable me) {
+            System.out.println(me.getMessage());
+            me.printStackTrace();
+            return;
+        }
+
     }
 
 }

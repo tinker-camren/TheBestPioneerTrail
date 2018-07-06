@@ -8,6 +8,7 @@ package pioneertrail.control;
 import java.util.ArrayList;
 import java.util.Collections;
 import pioneertrail.PioneerTrail;
+import pioneertrail.exceptions.InventoryControlException;
 import pioneertrail.model.ActorObject;
 import pioneertrail.model.InventoryItem;
 import pioneertrail.model.Wagon;
@@ -18,7 +19,8 @@ import pioneertrail.model.Wagon;
  */
 public class InventoryControl {
     
-    public static double calcNewWeight(InventoryItem InventoryItem, Wagon Wagon) {
+    public static double calcNewWeight(InventoryItem InventoryItem, Wagon Wagon)
+        throws InventoryControlException {
         
 //        BEGIN
 //            IF (inventoryItem.getWeight < 1) THEN
@@ -33,15 +35,15 @@ public class InventoryControl {
 //        END 	
 
         if (InventoryItem.getWeight() < 1) {
-            return -1;
+            throw new InventoryControlException("Inventory Weight cannot be less than 1");
         }
         
         if (InventoryItem.getCount() < 1) {
-            return -2;
+            throw new InventoryControlException("Inventory amount cannot be less than 1");
         }
         
         if (Wagon.getWeight() + (InventoryItem.getWeight() * InventoryItem.getCount()) > Wagon.getMaxWeight()) {
-            return -3;
+            throw new InventoryControlException("Inventory Weight cannot exceed wagon weight");
         }
         
         return Wagon.getWeight() + (InventoryItem.getWeight() * InventoryItem.getCount());

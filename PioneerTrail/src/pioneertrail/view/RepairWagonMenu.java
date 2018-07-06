@@ -8,6 +8,7 @@ package pioneertrail.view;
 import java.util.Scanner;
 import pioneertrail.PioneerTrail;
 import pioneertrail.control.ToolControl;
+import pioneertrail.exceptions.ToolControlException;
 import pioneertrail.model.Game;
 import pioneertrail.model.InventoryItem;
 import pioneertrail.model.Tool;
@@ -50,25 +51,31 @@ class RepairWagonMenu extends View {
             int originalCount = (item.getCount());
             int woodUsage = (item.getCount() - menuItem);
             item.setCount(menuItem);
-            int result = ToolControl.repairWagon(item, tool, wagon);
-            if (result == -1) {
-                System.out.println("Incorrect item type");
-                item.setCount(originalCount);
-            } else if (result == -2) {
-                System.out.println("Tool durability too low");
-                item.setCount(originalCount);
-            } else if (result == -3) {
-                System.out.println("Not enough wood");
-                item.setCount(originalCount);
-            } else if (result == -4) {
-                System.out.println("Incorrect tool type");
-                item.setCount(originalCount);
-            } else {
+            int result;
+            try {
+            result = ToolControl.repairWagon(item, tool, wagon);
+            } catch (ToolControlException te) {
+                System.out.println(te.getMessage());
+                return false;
+            }
+//            if (result == -1) {
+//                System.out.println("Incorrect item type");
+//                item.setCount(originalCount);
+//            } else if (result == -2) {
+//                System.out.println("Tool durability too low");
+//                item.setCount(originalCount);
+//            } else if (result == -3) {
+//                System.out.println("Not enough wood");
+//                item.setCount(originalCount);
+//            } else if (result == -4) {
+//                System.out.println("Incorrect tool type");
+//                item.setCount(originalCount);
+//            } else {
                 System.out.println("Wagon new health is: " + result);
                 item.setCount(woodUsage);
                 System.out.println("You now have " + item.getCount() + " wood.");
                 System.out.println("Tool Durability is now " + tool.getDurability());
-            }
+//            }
         }
         return false;
     }

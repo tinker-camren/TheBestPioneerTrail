@@ -46,6 +46,11 @@ public class MapControl {
 
     }
 
+    public static void movePlayerToStartingLocation(Map map) {
+        // If starting location is not supposed to be 0,0 then use the correct values here.
+        movePlayer(map, 0, 0); // or instead of 0,0 you can select a different starting location
+    }
+
     private static Location[][] createLocations(int noOfRows, int noOfColumns) {
         System.out.println("Create Locations");
 
@@ -389,7 +394,7 @@ public class MapControl {
         resourcesInScene.add(1, items.get(InventoryItemEnum.Water.ordinal()));
         resourcesInScene.get(1).setCount(4);
         resourceScene3.setInventoryItems(items);
-        
+
         //Kathy -- Assign items to the 21st resource scene
         ResourceScene resourceScene4 = (ResourceScene) scenes[SceneType.scene21.ordinal()];
         resourcesInScene = new ArrayList<>();
@@ -399,7 +404,6 @@ public class MapControl {
         resourcesInScene.get(1).setCount(4);
         resourceScene4.setInventoryItems(items);
 
-        
 //           (scene12 - Danica)
 // Assign items to the 12th resource scene
         ResourceScene resourceScene5 = (ResourceScene) scenes[SceneType.scene12.ordinal()];
@@ -409,7 +413,7 @@ public class MapControl {
         resourcesInScene.add(1, items.get(InventoryItemEnum.MedicalSupplies.ordinal()));
         resourcesInScene.get(1).setCount(2);
         resourceScene5.setInventoryItems(items);
-        
+
 //           (scene14 - Danica)
 // Assign items to the 14th resource scene
         ResourceScene resourceScene6 = (ResourceScene) scenes[SceneType.scene14.ordinal()];
@@ -419,11 +423,10 @@ public class MapControl {
         resourcesInScene.add(1, items.get(InventoryItemEnum.MedicalSupplies.ordinal()));
         resourcesInScene.get(1).setCount(1);
         resourceScene6.setInventoryItems(items);
-        
+
 //            
 //            scene8 - Camren
 //            scene6 - Camren
-
     }
 
     private static void assignScenesToLocations(Map map, Scene[] scenes) {
@@ -458,4 +461,14 @@ public class MapControl {
         locations[4][3].setScene(scenes[SceneType.scene24.ordinal()]);
         locations[4][4].setScene(scenes[SceneType.scene25.ordinal()]);
     }
+
+    public static void movePlayer(Map map, int row, int column) {
+        map.setCurrentLocation(map.getLocations()[row][column]);
+        map.getCurrentLocation().setVisited(true);
+        map.setCurrentRow(row);
+        map.setCurrentColumn(column);
+        
+        
+    }
+
 }

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import pioneertrail.PioneerTrail;
 import pioneertrail.control.InventoryControl;
+import pioneertrail.exceptions.InventoryControlException;
 import pioneertrail.model.InventoryItem;
 
 /**
@@ -69,6 +70,11 @@ class InventoryItemView extends View {
 //    }
     @Override
     public boolean doAction(String inputs) {
+//        try {
+//            InventoryControl.calcNewWeight(InventoryItem, Wagon);
+//        } catch (InventoryControlException ie) {
+//            System.out.println(ie.getMessage());
+//        }
 
         String item = inputs.toUpperCase();
 

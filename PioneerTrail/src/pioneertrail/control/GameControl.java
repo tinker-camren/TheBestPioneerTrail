@@ -229,7 +229,7 @@ public class GameControl {
 //        Game game = PioneerTrail.getCurrentGame();
 
         Tool tool = new Tool();
-        tool.setDurability(85);
+        tool.setDurability(0);
         tool.setMultiplier(2);
         tool.setToolType("Hammer");
         tools.add(0, tool);

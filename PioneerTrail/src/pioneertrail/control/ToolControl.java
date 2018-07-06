@@ -5,6 +5,7 @@
  */
 package pioneertrail.control;
 
+import pioneertrail.exceptions.ToolControlException;
 import pioneertrail.model.InventoryItem;
 import pioneertrail.model.Tool;
 import pioneertrail.model.Wagon;
@@ -16,22 +17,23 @@ import pioneertrail.model.Wagon;
 public class ToolControl {
     
     //Camren
-    public static int repairWagon(InventoryItem item, Tool tool, Wagon wagon) {
+    public static int repairWagon(InventoryItem item, Tool tool, Wagon wagon) 
+        throws ToolControlException {
 
         if (item.getItemType() != "Wood") {
-            return -1;
+            throw new ToolControlException("Item type is not wood");
         }
         
         if (tool.getDurability() < 1) {
-            return -2;
+            throw new ToolControlException("Tool durability cannot be less than 1");
         }
         
         if (item.getCount() < 1) {
-            return -3;
+            throw new ToolControlException("Item count cannot be less than 1");
         }
         
         if (tool.getToolType() != "Hammer") {
-            return -4;
+            throw new ToolControlException("Tool type is not hammer");
         }
         
         if ((item.getCount() * tool.getMultiplier()) + wagon.getHealth() > wagon.getMaxHealth()) {
