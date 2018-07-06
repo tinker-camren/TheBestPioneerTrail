@@ -74,7 +74,8 @@ public class GameControl {
 
         Map map = MapControl.createMap(5, 5, items);
         game.setMap(map);
-
+        MapControl.movePlayerToStartingLocation(map);
+       
         PioneerTrail.setCurrentGame(game);
         return 1;
     }

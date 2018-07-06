@@ -6,6 +6,7 @@
 package pioneertrail.control;
 
 import java.util.ArrayList;
+import pioneertrail.exceptions.MapControlException;
 import pioneertrail.model.InventoryItem;
 import pioneertrail.model.InventoryItemEnum;
 import pioneertrail.model.Location;
@@ -48,7 +49,11 @@ public class MapControl {
 
     public static void movePlayerToStartingLocation(Map map) {
         // If starting location is not supposed to be 0,0 then use the correct values here.
+        try {
         movePlayer(map, 0, 0); // or instead of 0,0 you can select a different starting location
+        } catch (MapControlException te) {
+            System.out.println(te.getMessage());
+        }
     }
 
     private static Location[][] createLocations(int noOfRows, int noOfColumns) {
@@ -462,13 +467,28 @@ public class MapControl {
         locations[4][4].setScene(scenes[SceneType.scene25.ordinal()]);
     }
 
-    public static void movePlayer(Map map, int row, int column) {
+    public static void movePlayer(Map map, int row, int column)
+        throws MapControlException {
+              
+        if (column >= 4){
+            row = row + 1;
+            column = 0;
+        } else {
+            column = column + 1;
+        }
+        
+        if (column > 4) {
+            throw new MapControlException("Column number is out of bounds");
+        }
+        
+        if (row > 4) {
+            throw new MapControlException("Row number is out of bounds");
+        }
+        
         map.setCurrentLocation(map.getLocations()[row][column]);
         map.getCurrentLocation().setVisited(true);
         map.setCurrentRow(row);
         map.setCurrentColumn(column);
-        
-        
     }
 
 }

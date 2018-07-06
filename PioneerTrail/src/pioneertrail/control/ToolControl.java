@@ -48,7 +48,8 @@ public class ToolControl {
     }
 
     //Danica
-    public static double chopWood(InventoryItem item, double scrap) {
+    public static double chopWood(InventoryItem item, double scrap) 
+        throws ToolControlException {
 
 //pseudocode:
         // BEGIN
@@ -68,26 +69,27 @@ public class ToolControl {
         // END 
         
         if (item.getCount() < 1) { //is item count 0 or negative?
-            return -1;
+            throw new ToolControlException("Item count is less than 1");
         }
         
         if (item.getWeight() < 1) { //is item weight 0 or negative?
-            return -2;
+            throw new ToolControlException("Item weight is less than 1");
         }
         
         if (item.getCount() > 15) { //is item count greater than 15?
-            return -3;
+            throw new ToolControlException("Item count cannot be greater than 15");
         }
         
         if (item.getWeight() > 12) { //is item weight greater than 12?
-            return -4;
+            throw new ToolControlException("Item weight is greater than 12");
         }
         
         return item.getCount() * (item.getWeight() - item.getWeight() * scrap);
     }
 
     //Kathy
-    public static double calcFoodHunt(InventoryItem food){
+    public static double calcFoodHunt(InventoryItem food) 
+        throws ToolControlException {
     //Pseudocode:
     //BEGIN
         //IF (InventoryItem.getType == "Food") THEN
@@ -98,15 +100,15 @@ public class ToolControl {
 		//RETURN -3
         //RETURN totalInventoryItem.getWeight + (inventoryItem.getWeight * inventoryItem.getCount)
     //END
-    if (food.getItemType() == "Not food"){
-	return -1; //if the item is something else than food
+    if (food.getItemType() != "Meat") {
+	throw new ToolControlException("Item is not meat"); //if the item is something else than food
     }
     
     if (food.getCount() < 1){
-        return -2; // if food is less than 1
+        throw new ToolControlException("Meat is less than 1"); // if food is less than 1
     }
     if ((food.getWeight() + (food.getWeight() * food.getCount())) > 200){
-        return -3; // food more than 200lbs
+        throw new ToolControlException("Meat is more than 200 lbs"); // food more than 200lbs
     }
     return (food.getWeight() + (food.getWeight() * food.getCount()));
     }
