@@ -82,9 +82,9 @@ public class MapControl {
         scene1.setMapSymbol("testing");
         scene1.setSceneName("Nauvoo");
         scene1.setDescription("As the Latter-day Saints fled Missouri during the winter of 1838–39, "
-                + "having been threatened with extermination by the governor of the state, "
-                + "they crossed into Illinois and settled in a swampy area along the Mississippi River."
-                + " They named the city Nauvoo.");
+                + "\nhaving been threatened with extermination by the governor of the state, "
+                + "\nthey crossed into Illinois and settled in a swampy area along the Mississippi "
+                + "\nRiver. They named the city Nauvoo.");
         scene1.setTerrainType("Swamp");
         scenes[SceneType.scene1.ordinal()] = scene1;
 
@@ -92,25 +92,24 @@ public class MapControl {
         ResourceScene scene2 = new ResourceScene();
         scene2.setSceneName("Sugar Creek");
         scene2.setDescription("This first major campsite in Iowa, about seven miles inland from the Mississippi River, "
-                + "served an estimated 2,000 people in February 1846, including most of the Church leadership. "
-                + "This first company of pioneers was known as the Camp of Israel. "
-                + "The Sugar Creek camp also served as a portent of things to come. "
-                + "Bone-chilling cold, wind, snow, and ice plagued the refugees with sickness and death. "
-                + "Uncertainty about routes and destinations to the West, in addition to mounting problems with supplies and equipment, "
-                + "kept the advance party from departing Sugar Creek for nearly a month.");
+                + "\nserved an estimated 2,000 people in February 1846, including most of the Church leadership. "
+                + "\nThis first company of pioneers was known as the Camp of Israel. The Sugar Creek camp also "
+                + "\nserved as a portent of things to come. Bone-chilling cold, wind, snow, and ice plagued the "
+                + "\nrefugees with sickness and death. Uncertainty about routes and destinations to the West, in "
+                + "\naddition to mounting problems with supplies and equipment, kept the advance party from "
+                + "\ndeparting Sugar Creek for nearly a month.");
         scene2.setTerrainType("River");
         scenes[SceneType.scene2.ordinal()] = scene2;
 
         //Sickness
         RegularScene scene3 = new RegularScene();
         scene3.setSceneName("Richardsons Point");
-        scene3.setDescription("Suffering through 10 days of downpour, "
-                + "the Camp of Israel stalled here while awaiting improved weather. "
-                + "Some of the first deaths on the trail occurred here. "
-                + "The effect of the rain on immediate travel led to the decision "
-                + "to cache some artillery ordnance and also allowed many who wished "
-                + "to return to Nauvoo for family members to do so. At least 30 men took "
-                + "advantage of the opportunity");
+        scene3.setDescription("Suffering through 10 days of downpour, the Camp of Israel stalled here while "
+                + "\nawaiting improved weather. Some of the first deaths on the trail occurred "
+                + "\nhere. The effect of the rain on immediate travel led to the decision to "
+                + "\ncache some artillery ordnance and also allowed many who wished to return "
+                + "\nto Nauvoo for family members to do so. At least 30 men took advantage of "
+                + "\nthe opportunity");
         scene3.setTerrainType("Rainy, Swampy");
         scenes[SceneType.scene3.ordinal()] = scene3;
 
@@ -118,18 +117,19 @@ public class MapControl {
         RegularScene scene4 = new RegularScene();
         scene4.setSceneName("Chariton River Crossing");
         scene4.setDescription("The main body of the pioneers chose to remain at Chariton "
-                + "to wait out some of the worst weather of the Iowa crossing. "
-                + "The pause allowed Saints scattered along the length of the trail to catch up, "
-                + "completing the organization of the initial pioneer company. ");
+                + "\nto wait out some of the worst weather of the Iowa crossing. "
+                + "\nThe pause allowed Saints scattered along the length of the "
+                + "\ntrail to catch up, completing the organization of the initial "
+                + "\npioneer company. ");
         scene4.setTerrainType("Rainy, Swampy");
         scenes[SceneType.scene4.ordinal()] = scene4;
 
         //Resource
         ResourceScene scene5 = new ResourceScene();
         scene5.setSceneName("Locust Creek");
-        scene5.setDescription("Also at Locust Creek, Brigham Young redirected the Camp of Israel"
-                + " to a northwest heading in order to leave behind the trail-wise and unscrupulous "
-                + "traders he felt were taking advantage of the company.");
+        scene5.setDescription("Also at Locust Creek, Brigham Young redirected the Camp of Israel "      
+                + "\nto a northwest heading in order to leave behind the trail-wise and "
+                + "\nunscrupulous traders he felt were taking advantage of the company.");
         scene5.setTerrainType("Creek");
         scenes[SceneType.scene5.ordinal()] = scene5;
 
@@ -137,11 +137,12 @@ public class MapControl {
         ResourceScene scene6 = new ResourceScene();
         scene6.setSceneName("Garden Grove");
         scene6.setDescription("Church leaders decided to create a substantial camp at this site, "
-                + "a sort of temporary settlement to serve the thousands of weary and destitute "
-                + "pioneers who would yet come this way. Cabins were erected, grounds were fenced and plowed, "
-                + "crops were planted, and individuals were chosen to remain and oversee the camp. "
-                + "The bodies of several Saints were laid to final rest in a windswept lot known as the “cow yard.” "
-                + "The settlement was vacated in the spring of 1848.");
+                + "\na sort of temporary settlement to serve the thousands of weary and "
+                + "\ndestitute pioneers who would yet come this way. Cabins were erected, "
+                + "\ngrounds were fenced and plowed, crops were planted, and individuals "
+                + "\nwere chosen to remain and oversee the camp. The bodies of several "
+                + "\nSaints were laid to final rest in a windswept lot known as the "
+                + "\n“cow yard.” The settlement was vacated in the spring of 1848.");
         scene6.setTerrainType("Resting area");
         scenes[SceneType.scene6.ordinal()] = scene6;
 
@@ -149,30 +150,32 @@ public class MapControl {
         RegularScene scene7 = new RegularScene();
         scene7.setSceneName("Mount Pisgah");
         scene7.setDescription("The resources at Garden Grove proved insufficient for meeting all the "
-                + "needs of the Saints still crossing Iowa. A second, more expansive and permanent settlement"
-                + " was established at Mount Pisgah, named in honor of the biblical mount from which Moses was "
-                + "permitted to see the promised land. It was here that the U.S. Army first called on the Saints"
-                + " to furnish volunteers for the Mormon Battalion.");
+                + "\nneeds of the Saints still crossing Iowa. A second, more expansive and "
+                + "\npermanent settlement was established at Mount Pisgah, named in honor "
+                + "\nof the biblical mount from which Moses was permitted to see the promised "
+                + "\nland. It was here that the U.S. Army first called on the Saints to furnish "
+                + "\nvolunteers for the Mormon Battalion.");
         scene7.setTerrainType("Creek");
         scenes[SceneType.scene7.ordinal()] = scene7;
 
         //Resource
         ResourceScene scene8 = new ResourceScene();
         scene8.setSceneName("Nishnabotna River Crossing");
-        scene8.setDescription("The crossing of the Nishnabotna marks the meeting of two refugee peoples,"
-                + " the Latter-day Saints and the Potawatomi Indians. The Potawatomi remained in the area "
-                + "only during 1846, while Latter-day Saints on their way to Council Bluffs or points farther"
-                + " west would continue to travel across the area for some time.");
+        scene8.setDescription("The crossing of the Nishnabotna marks the meeting of two refugee peoples, "
+                + "\nthe Latter-day Saints and the Potawatomi Indians. The Potawatomi remained "
+                + "\nin the area only during 1846, while Latter-day Saints on their way to Council "
+                + "\nBluffs or points farther west would continue to travel across the area for "
+                + "\nsome time.");
         scene8.setTerrainType("River");
         scenes[SceneType.scene8.ordinal()] = scene8;
 
         //Regular
         RegularScene scene9 = new RegularScene();
         scene9.setSceneName("Grand Encampment");
-        scene9.setDescription("This broad, open area became the stopping place for pioneer companies as they"
-                + " approached the Missouri River. At this site, the current location of the Iowa School for "
-                + "the Deaf, more than 500 volunteers of the Mormon Battalion officially mustered into the U.S."
-                + " Army for service in the war with Mexico.");
+        scene9.setDescription("This broad, open area became the stopping place for pioneer companies as they "
+                + "\napproached the Missouri River. At this site, the current location of the Iowa "
+                + "\nSchool for the Deaf, more than 500 volunteers of the Mormon Battalion officially "
+                + "\nmustered into the U.S. Army for service in the war with Mexico.");
         scene9.setTerrainType("Resting Area");
         scenes[SceneType.scene9.ordinal()] = scene9;
 
@@ -180,29 +183,29 @@ public class MapControl {
         RegularScene scene10 = new RegularScene();
         scene10.setSceneName("Council Bluffs");
         scene10.setDescription("Council Bluffs was a major outfitting point for Latter-day Saints and countless"
-                + " others heading west during most of the overland emigration period. Located across the Missouri River"
-                + " from Winter Quarters, Council Bluffs was one of the most significant Latter-day Saint settlements during"
-                + " the late 1840s and early 1850s.");
+                + "\nothers heading west during most of the overland emigration period. Located across "
+                + "\nthe Missouri River from Winter Quarters, Council Bluffs was one of the most "
+                + "\nsignificant Latter-day Saint settlements during the late 1840s and early 1850s.");
         scene10.setTerrainType("Plain");
         scenes[SceneType.scene10.ordinal()] = scene10;
 
         //Sickness
         RegularScene scene11 = new RegularScene();
         scene11.setSceneName("Winter Quarters");
-        scene11.setDescription("An instant city on the plains, Winter Quarters served as Church headquarters for less than a year,"
-                + " until the leadership moved west in 1847. By Christmas 1846, Church members had built a large stockade and about"
-                + " 700 homes ranging from solid, two-story structures to simple dugouts in the bluffs. For many, however, the rigors"
-                + " of the Iowa crossing, exposure, and poor nutrition and sanitation proved too much, and several hundred Saints died"
-                + " during the winter of 1846–47. ");
+        scene11.setDescription("An instant city on the plains, Winter Quarters served as Church headquarters for less than a year, "
+                + "until the leadership moved west in 1847. By Christmas 1846, Church members had built a large stockade "
+                + "and about 700 homes ranging from solid, two-story structures to simple dugouts in the bluffs. For many, "
+                + "however, the rigors of the Iowa crossing, exposure, and poor nutrition and sanitation proved too much, "
+                + "and several hundred Saints died during the winter of 1846–47.");
         scene11.setTerrainType("Plain");
         scenes[SceneType.scene11.ordinal()] = scene11;
 
         //Resource
         ResourceScene scene12 = new ResourceScene();
         scene12.setSceneName("Elkhorn River Crossing");
-        scene12.setDescription("“Pursued our journey about 18 miles. Arrived at the Elkhorn River, where we found Capt. Dan Jones"
-                + " encamped with the Welsh company of Saints, and Capt. Silas Richards with his company of fifty, encamped about"
-                + " three miles west of the Elkhorn, awaiting our arrival.” ");
+        scene12.setDescription("“Pursued our journey about 18 miles. Arrived at the Elkhorn River, where we found Capt. Dan Jones "
+                + "\nencamped with the Welsh company of Saints, and Capt. Silas Richards with his company of fifty, "
+                + "\nencamped about three miles west of the Elkhorn, awaiting our arrival.” ");
         scene12.setTerrainType("River");
         scenes[SceneType.scene12.ordinal()] = scene12;
 
