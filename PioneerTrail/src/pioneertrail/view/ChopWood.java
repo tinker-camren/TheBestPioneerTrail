@@ -97,7 +97,7 @@ class ChopWood extends View {
             return false;
         }
 
-        System.out.println("Your chopped " + result + " logs of wood.");
+        System.out.println("You have chopped " + result + " logs of wood.");
        // System.out.println("You now have " + item.getCount() + " wood.");
 
         return false;
