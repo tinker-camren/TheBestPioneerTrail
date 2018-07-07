@@ -52,8 +52,8 @@ class ChopWood extends View {
         String input = "\n**********"
                 + "\nChop Wood MENU"
                 + "\n**********"
-                + "\nEnter the amount of wood you would like to chop (amount cannot be more than 15), "
-                + "\nand enter the weight of wood you would like to chop (weight cannot be more than 12), "
+                + "\nEnter the number of trees you would like to chop (cannot be more than 15), "
+                + "\nand enter the weight of wood you would like to chop (cannot be more than 12), "
                 + "\nseperated by a comma. (Example: 5,4): ";
         
 
