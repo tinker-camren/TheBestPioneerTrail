@@ -22,13 +22,14 @@ import pioneertrail.model.SceneType;
  */
 public class MapControl {
 
-    public static Map createMap(int noOfRows, int noOfColumns, ArrayList<InventoryItem> items) {
+    public static Map createMap(int noOfRows, int noOfColumns, ArrayList<InventoryItem> items) 
+    throws MapControlException {
 
         if (noOfRows < 0 || noOfColumns < 0) {
-            return null;
+            throw new MapControlException("Number of rows or number of columns cannot be less than 0");
         }
         if (items == null || items.size() < 1) {
-            return null;
+            throw new MapControlException("Items cannot be null or item size cannot be less than 1");
         }
         Map map = new Map();
         map.setRowCount(noOfRows);

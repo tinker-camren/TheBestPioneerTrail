@@ -7,6 +7,7 @@ package pioneertrail.control;
 
 import java.util.ArrayList;
 import pioneertrail.PioneerTrail;
+import pioneertrail.exceptions.MapControlException;
 import pioneertrail.model.ActorEnum;
 import pioneertrail.model.ActorObject;
 import pioneertrail.model.Game;
@@ -72,10 +73,14 @@ public class GameControl {
         ArrayList<Tool> tools = createTools();
         wagon.setTools(tools);
 
-        Map map = MapControl.createMap(5, 5, items);
-        game.setMap(map);
-        MapControl.movePlayerToStartingLocation(map);
-       
+        try {
+            Map map = MapControl.createMap(5, 5, items);
+            game.setMap(map);
+            MapControl.movePlayerToStartingLocation(map);
+        } catch (MapControlException mce) {
+            System.out.println(mce.getMessage());
+        }
+
         PioneerTrail.setCurrentGame(game);
         return 1;
     }
@@ -133,19 +138,18 @@ public class GameControl {
     }
 
     public static ArrayList<InventoryItem> createItems() {
-        
+
         InventoryItem[] itemsArray = new InventoryItem[5];
-        InventoryItem item = new InventoryItem();
-        
         InventoryItem wood = new InventoryItem();
         wood.setPrice(5);
         wood.setDescription("Used to repair wagons");
         wood.setCount(10);
-        item.setWeight(10);
+        wood.setWeight(10);
         wood.setItemType("Wood");
         itemsArray[InventoryItemEnum.Wood.ordinal()] = wood;
+        InventoryItem item = new InventoryItem();
 
-        item = new InventoryItem();
+        //item = new InventoryItem();
         item.setPrice(5);
         item.setDescription("food");
         item.setCount(10);
@@ -168,7 +172,7 @@ public class GameControl {
         item.setWeight(6);
         item.setItemType("Meat");
         itemsArray[InventoryItemEnum.Meat.ordinal()] = item;
-        
+
         item = new InventoryItem();
         item.setPrice(15);
         item.setDescription("Medical Supplies");
@@ -176,11 +180,9 @@ public class GameControl {
         item.setWeight(6);
         item.setItemType("Medical Supplies");
         itemsArray[InventoryItemEnum.MedicalSupplies.ordinal()] = item;
-        
-        ArrayList<InventoryItem> items = new ArrayList<InventoryItem>();
-        
 
-        
+        ArrayList<InventoryItem> items = new ArrayList<InventoryItem>();
+
         wood.setPrice(5);
         wood.setDescription("Used to repair wagons");
         wood.setCount(10);
@@ -211,7 +213,7 @@ public class GameControl {
         item.setWeight(6);
         item.setItemType("Meat");
         items.add(InventoryItemEnum.Meat.ordinal(), item);
-        
+
         item = new InventoryItem();
         item.setPrice(15);
         item.setDescription("Medical Supplies");
@@ -310,10 +312,4 @@ public class GameControl {
 //
 //        return purchase;
 //    }
-
-
-
-    
-
-
 }

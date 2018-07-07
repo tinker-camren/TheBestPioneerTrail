@@ -6,6 +6,15 @@
 package pioneertrail.view;
 
 //import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Scanner;
+import pioneertrail.PioneerTrail;
+import pioneertrail.control.ToolControl;
+import pioneertrail.exceptions.ToolControlException;
+import pioneertrail.model.Game;
+import pioneertrail.model.InventoryItem;
+import pioneertrail.model.Wagon;
+
 //import pioneertrail.PioneerTrail;
 //import pioneertrail.control.ToolControl;
 //import pioneertrail.model.Game;
@@ -20,161 +29,77 @@ package pioneertrail.view;
 class ChopWood extends View {
 
     public ChopWood() {
-        super("*********************"
+        displayMessage = buildMenu();
+//        super("*********************"
+//                + "\nChop Wood MENU"
+//                + "\n*********************"
+//                + "\nThere are trees near the trail. "
+//                + "You decide to investigate."
+//                + "\nChop the trees with your axe?"
+//                + "\nY - Yes"
+//                + "\nN - No"
+//                + "\nQ - Quit");
+    }
+
+    private String buildMenu() {
+        //ArrayList<InventoryItem> items = new ArrayList<InventoryItem>();
+        //InventoryItem item = items.get(0);
+        Game game = PioneerTrail.getCurrentGame();
+        Wagon wagon = game.getWagon();
+        InventoryItem item = wagon.getItems().get(0);
+        double scrap = .5;
+
+        String input = "\n**********"
                 + "\nChop Wood MENU"
-                + "\n*********************"
-                + "\nThere are trees near the trail. "
-                + "You decide to investigate."
-                + "\nChop the trees with your axe?"
-                + "\nY - Yes"
-                + "\nN - No"
-                + "\nQ - Quit");
+                + "\n**********"
+                + "\nEnter the amount of wood you would like to chop (amount cannot be more than 15), "
+                + "\nand enter the weight of wood you would like to chop (weight cannot be more than 12), "
+                + "\nseperated by a comma. (Example: 5,4): ";
+        
+
+////        //how to get this appearing after first input?
+//        input += "\n\nEnter the weight of wood you would like "
+//                + "to chop"
+//                + "\n(weight cannot be more than 12): ";
+//        //int num2 = inputs.nextInt();
+//        input += "\n\nPress Q to quit: ";
+        return input;
     }
 
     @Override
     public boolean doAction(String inputs) {
 
-        String menuItem = inputs.toUpperCase();
+        int amount;
+        int weight;
 
-        if (menuItem.compareToIgnoreCase("Y") == 0) {
-            System.out.println("You chopped some wood!");
+        try {
+            //amount = Integer.parseInt(inputs);
+            String[] parts = inputs.split(",");
+            amount = Integer.parseInt(parts[0].trim());
+            weight = Integer.parseInt(parts[1].trim());
+        } catch (Exception ex) {
+            System.out.println("\nInvalid input, please enter two numbers seperated by a comma.");
             return false;
-        } else if (menuItem.compareToIgnoreCase("N") == 0) {
-            System.out.println("You decided not to chop wood.");
-            return false;
-        } else {
-            System.out.println("Invalid menu item");
         }
+
+        Game game = PioneerTrail.getCurrentGame();
+        Wagon wagon = game.getWagon();
+        InventoryItem item = new InventoryItem();
+        item.setCount(amount);
+        item.setWeight(weight);
+        double scrap = .5;
+        double result;
+
+        try {
+            result = ToolControl.chopWood(item, scrap);
+        } catch (ToolControlException te) {
+            System.out.println(te.getMessage());
+            return false;
+        }
+
+        System.out.println("Your chopped wood is: " + result);
+       // System.out.println("You now have " + item.getCount() + " wood.");
+
         return false;
     }
 }
-
-//    public ChopWood() {
-//        super("**********"
-//                + "\nChop Wood"
-//                + "\n**********"
-//                + "Enter the amount of wood you would like to chop. "
-//                + "Enter the weight of wood you would like to chop. "); //would one of these be in a different view?
-//    }
-//    @Override
-//    public String[] getInputs() {
-//        String[] inputs = new String[1];
-//
-///////////////////////
-//        System.out.println("Input 1.");
-//        double InventoryItem.getCount = scanner.nextInt();
-//        System.out.println("Input 2.");
-//        double inventoryItem.getWeight = scanner.nextInt();
-////////////////////////
-//        Scanner sc = new Scanner(System.in);
-//        String input1 = sc.nextLine();
-//        System.out.println(input1);
-//
-//        int inputA1 = sc.nextInt();
-//        int inputA2 = sc.nextInt();
-//        int inputA3 = sc.nextInt();
-//        System.out.println("--------");
-//        System.out.println(inputA1);
-//        System.out.println(inputA2);
-//        System.out.println(inputA3);
-///////////////////////
-//        System.out.println("**********"
-//                + "\nChop Wood"
-//                + "\n**********");
-//
-//        String input = this.getInput("\nEnter the amount of wood you would like to chop. "
-//                // + "\nEnter the weight of wood. "
-//                + "\nEnter Q to quit: ");
-//        inputs[0] = input;
-//
-//        input = this.getInput("\nEnter the weight of wood you would like to chop. "
-//                + "\nEnter Q to quit: ");
-//        inputs[0] = input;
-//
-//        if (inputs[0].equalsIgnoreCase("Q")) {
-//            return inputs;
-//        }
-//        try {
-//            int menuItem = 0;
-//            menuItem = Integer.parseInt(inputs[0]);
-//        } catch (Exception ex) {
-//            System.out.println("\nReturning to previous menu");
-//            inputs[0] = "Q"; //Forces menu to quit if anything except an int is entered
-////        }
-//        return inputs;
-//    }
-//    @Override
-//    public boolean doAction(String inputs) {
-//        Game game = PioneerTrail.getCurrentGame();
-//        Wagon wagon = game.getWagon();
-//        InventoryItem item = wagon.getItems().get(0);
-//        int menuItem = Integer.parseInt(inputs);
-////        if (wagon.getMaxWeight() < item.getCount()) {
-////            System.out.println("Your wagon cannot carry more wood.");
-////            return false;
-////        }
-//        if (item.getItemType().equalsIgnoreCase("Wood")) {
-//            int woodAmount = (item.getCount());
-//            item.setCount(menuItem);
-//            double scrap = .5;
-//            double result = ToolControl.chopWood(item, scrap);
-//            if (result == -1) {
-//                System.out.println("Wood amount cannot be negative");
-//                item.setCount(woodAmount);
-//            } else if (result == -2) {
-//                System.out.println("Wood weight cannot be negative.");
-//                item.setWeight(woodAmount);
-//            } else if (result == -3) {
-//                System.out.println("Wood amount cannot be more than 15.");
-//                item.setCount(woodAmount);
-//            } else if (result == -4) {
-//                System.out.println("Wood weight cannot be more than 12.");
-//                item.setWeight(woodAmount);
-//            } else {
-//                System.out.println("Wood amount is: " + result);
-//                item.setCount(woodAmount);
-//                System.out.println("You now have " + item.getCount() + " wood.");
-//            }
-//        }
-//        return false;
-//    }
-//}
-//////IF ELSE MENU
-//    @Override
-//    public String[] getInputs() {
-//        String[] inputs = new String[1];
-//
-//        System.out.println("*********************"
-//                + "\nChop Wood MENU"
-//                + "\n*********************");
-//        System.out.println("There are trees near the trail. "
-//                + "You decide to investigate.");
-//        System.out.println(
-//                "\nChop the trees with your axe?"
-//                + "\nY - Yes"
-//                + "\nN - No"
-//                + "\nQ - Quit");
-//        String input = this.getInput("Enter your selection: ");
-//        inputs[0] = input;
-//
-//        return inputs;
-//    }
-
-//@Override
-//    public boolean doAction(String[] inputs) {
-//
-//        String menuItem = inputs[0].toUpperCase();
-//
-//        if (menuItem.compareToIgnoreCase("Y") == 0) {
-//            System.out.println("You chopped some wood!");
-//            return false;
-//        } else if (menuItem.compareToIgnoreCase("N") == 0) {
-//            System.out.println("You decided not to chop wood.");
-//            return false;
-//        } else {
-//            System.out.println("Invalid menu item");
-//        }
-//        return false;
-//    }
-//}
-//

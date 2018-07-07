@@ -69,11 +69,11 @@ public class ToolControl {
         // END 
         
         if (item.getCount() < 1) { //is item count 0 or negative?
-            throw new ToolControlException("Item count is less than 1");
+            throw new ToolControlException("Item count cannot be less than 1");
         }
         
         if (item.getWeight() < 1) { //is item weight 0 or negative?
-            throw new ToolControlException("Item weight is less than 1");
+            throw new ToolControlException("Item weight cannot be less than 1");
         }
         
         if (item.getCount() > 15) { //is item count greater than 15?
@@ -81,7 +81,7 @@ public class ToolControl {
         }
         
         if (item.getWeight() > 12) { //is item weight greater than 12?
-            throw new ToolControlException("Item weight is greater than 12");
+            throw new ToolControlException("Item weight cannot be greater than 12");
         }
         
         return item.getCount() * (item.getWeight() - item.getWeight() * scrap);
