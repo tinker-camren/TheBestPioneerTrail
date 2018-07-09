@@ -11,6 +11,7 @@ import pioneertrail.control.ToolControl;
 import pioneertrail.exceptions.ToolControlException;
 import pioneertrail.model.Game;
 import pioneertrail.model.InventoryItem;
+import pioneertrail.model.InventoryItemEnum;
 import pioneertrail.model.Tool;
 import pioneertrail.model.Wagon;
 
@@ -40,7 +41,7 @@ class RepairWagonMenu extends View {
         int menuItem = Integer.parseInt(inputs);
         Game game = PioneerTrail.getCurrentGame();
         Wagon wagon = game.getWagon();
-        InventoryItem item = wagon.getItems().get(0);
+        InventoryItem item = wagon.getItems().get(InventoryItemEnum.Wood.ordinal());
         Tool tool = wagon.getTools().get(0);
         //int menuItem = Integer.parseInt(inputs[0]);
         if (menuItem > item.getCount()) {

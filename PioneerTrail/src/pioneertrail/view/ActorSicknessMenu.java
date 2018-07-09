@@ -7,7 +7,10 @@ package pioneertrail.view;
 
 import java.util.ArrayList;
 import pioneertrail.PioneerTrail;
+import pioneertrail.control.ActorControl;
 import pioneertrail.control.InventoryControl;
+import pioneertrail.exceptions.ActorControlException;
+import pioneertrail.model.ActorEnum;
 import pioneertrail.model.ActorObject;
 import pioneertrail.model.Game;
 import pioneertrail.model.InventoryItem;
@@ -31,6 +34,7 @@ class ActorSicknessMenu extends View  {
         Game game = PioneerTrail.getCurrentGame();
         Wagon wagon = game.getWagon();
         ArrayList<InventoryItem> items = new ArrayList<>();
+        game.setSickActor(actor);
 
         InventoryControl.listItemsAlphabetically(items);
         
@@ -43,17 +47,21 @@ class ActorSicknessMenu extends View  {
                 + "\nE - Exit");
         input += ("\nEnter the action you want to take");
         
+        
+        
         return input;
     }
         
     @Override
     public boolean doAction(String inputs) {
-
+        
+        Game game = PioneerTrail.getCurrentGame();
+        ActorObject actor = game.getSickActor();
         String menuItem = inputs.toUpperCase();
 
         switch (menuItem) {
             case "S":
-                createSplint();
+                createSplint(actor);
                 break;
             case "R":
                 rest();
@@ -71,9 +79,15 @@ class ActorSicknessMenu extends View  {
         return false;
     }
 
-    private void createSplint() {
-        CreateSplintView createSplintView = new CreateSplintView();
-        createSplintView.displayResourceHelp();
+    private void createSplint(ActorObject actor) {
+        try {
+            System.out.println("Attempting to create a splint...");
+            ActorControl.createSplint(actor);
+        } catch(ActorControlException te) {
+            System.out.println("\n" + te.getMessage());
+        }
+        System.out.println("Splint created successfully");
+        displayMessage = buildMenu(actor);
     }
 
     private void rest() {

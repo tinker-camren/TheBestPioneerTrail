@@ -24,9 +24,18 @@ public class Game implements Serializable {
     private ArrayList<InventoryItem> items;
     private Map map;
     private Purchase purchase;
+    private ActorObject sickActor;
 
     public Purchase getPurchase() {
         return purchase;
+    }
+
+    public ActorObject getSickActor() {
+        return sickActor;
+    }
+
+    public void setSickActor(ActorObject sickActor) {
+        this.sickActor = sickActor;
     }
 
     public void setPurchase(Purchase purchase) {

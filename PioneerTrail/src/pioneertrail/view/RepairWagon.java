@@ -11,6 +11,7 @@ import pioneertrail.PioneerTrail;
 import pioneertrail.control.ToolControl;
 import pioneertrail.model.Game;
 import pioneertrail.model.InventoryItem;
+import pioneertrail.model.InventoryItemEnum;
 import pioneertrail.model.Tool;
 import pioneertrail.model.Wagon;
 
@@ -30,7 +31,8 @@ public class RepairWagon extends View {
         Game game = PioneerTrail.getCurrentGame();
         Wagon wagon = game.getWagon();
         items = wagon.getItems();
-        InventoryItem item = items.get(0);
+        System.out.println(items.toString());
+        InventoryItem item = items.get(InventoryItemEnum.Wood.ordinal());
         Tool tool = wagon.getTools().get(0);
 
         String input = "\n**********"

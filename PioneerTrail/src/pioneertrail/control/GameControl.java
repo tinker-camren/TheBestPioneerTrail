@@ -80,6 +80,13 @@ public class GameControl {
         } catch (MapControlException mce) {
             System.out.println(mce.getMessage());
         }
+        
+        //This exists to set the items back to what they should be. 
+        //Our attempt to add items to scenes didn't work. We need to figure out
+        //a way to create a new item for every scene and then add the count of that
+        //item to our overall count, and not actually add the item to the arraylist. 
+        items = createItems();
+        wagon.setItems(items);
 
         PioneerTrail.setCurrentGame(game);
         return 1;
@@ -139,56 +146,56 @@ public class GameControl {
 
     public static ArrayList<InventoryItem> createItems() {
 
-        InventoryItem[] itemsArray = new InventoryItem[5];
-        InventoryItem wood = new InventoryItem();
-        wood.setPrice(5);
-        wood.setDescription("Used to repair wagons");
-        wood.setCount(10);
-        wood.setWeight(10);
-        wood.setItemType("Wood");
-        itemsArray[InventoryItemEnum.Wood.ordinal()] = wood;
+//        InventoryItem[] itemsArray = new InventoryItem[5];
+//        InventoryItem wood = new InventoryItem();
+//        wood.setPrice(5);
+//        wood.setDescription("Used to repair wagons");
+//        wood.setCount(10);
+//        wood.setWeight(10);
+//        wood.setItemType("Wood");
+//        itemsArray[InventoryItemEnum.Wood.ordinal()] = wood;
         InventoryItem item = new InventoryItem();
-
-        //item = new InventoryItem();
-        item.setPrice(5);
-        item.setDescription("food");
-        item.setCount(10);
-        item.setWeight(5);
-        item.setItemType("potatoes");
-        itemsArray[InventoryItemEnum.Potatoes.ordinal()] = item;
-
-        item = new InventoryItem();
-        item.setPrice(2);
-        item.setDescription("drink");
-        item.setCount(10);
-        item.setWeight(4);
-        item.setItemType("water");
-        itemsArray[InventoryItemEnum.Water.ordinal()] = item;
-
-        item = new InventoryItem();
-        item.setPrice(8);
-        item.setDescription("food");
-        item.setCount(10);
-        item.setWeight(6);
-        item.setItemType("Meat");
-        itemsArray[InventoryItemEnum.Meat.ordinal()] = item;
-
-        item = new InventoryItem();
-        item.setPrice(15);
-        item.setDescription("Medical Supplies");
-        item.setCount(10);
-        item.setWeight(6);
-        item.setItemType("Medical Supplies");
-        itemsArray[InventoryItemEnum.MedicalSupplies.ordinal()] = item;
+//
+//        //item = new InventoryItem();
+//        item.setPrice(5);
+//        item.setDescription("food");
+//        item.setCount(10);
+//        item.setWeight(5);
+//        item.setItemType("potatoes");
+//        itemsArray[InventoryItemEnum.Potatoes.ordinal()] = item;
+//
+//        item = new InventoryItem();
+//        item.setPrice(2);
+//        item.setDescription("drink");
+//        item.setCount(10);
+//        item.setWeight(4);
+//        item.setItemType("water");
+//        itemsArray[InventoryItemEnum.Water.ordinal()] = item;
+//
+//        item = new InventoryItem();
+//        item.setPrice(8);
+//        item.setDescription("food");
+//        item.setCount(10);
+//        item.setWeight(6);
+//        item.setItemType("Meat");
+//        itemsArray[InventoryItemEnum.Meat.ordinal()] = item;
+//
+//        item = new InventoryItem();
+//        item.setPrice(15);
+//        item.setDescription("Medical Supplies");
+//        item.setCount(10);
+//        item.setWeight(6);
+//        item.setItemType("Medical Supplies");
+//        itemsArray[InventoryItemEnum.MedicalSupplies.ordinal()] = item;
 
         ArrayList<InventoryItem> items = new ArrayList<InventoryItem>();
 
-        wood.setPrice(5);
-        wood.setDescription("Used to repair wagons");
-        wood.setCount(10);
-        item.setWeight(10);
-        wood.setItemType("Wood");
-        items.add(InventoryItemEnum.Wood.ordinal(), wood);
+        item.setPrice(5);
+        item.setDescription("Used to repair wagons");
+        item.setCount(25);
+        item.setWeight(item.getCount() * 4);
+        item.setItemType("Wood");
+        items.add(InventoryItemEnum.Wood.ordinal(), item);
 
         item = new InventoryItem();
         item.setPrice(5);
@@ -232,7 +239,7 @@ public class GameControl {
 //        Game game = PioneerTrail.getCurrentGame();
 
         Tool tool = new Tool();
-        tool.setDurability(0);
+        tool.setDurability(80);
         tool.setMultiplier(2);
         tool.setToolType("Hammer");
         tools.add(0, tool);

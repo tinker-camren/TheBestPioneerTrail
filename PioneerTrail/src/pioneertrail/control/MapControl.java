@@ -428,7 +428,7 @@ public class MapControl {
         ResourceScene resourceScene6 = (ResourceScene) scenes[SceneType.scene14.ordinal()];
         resourcesInScene = new ArrayList<>();
         resourcesInScene.add(0, items.get(InventoryItemEnum.Wood.ordinal()));
-        resourcesInScene.get(0).setCount(1);
+        resourcesInScene.get(0).setCount(15);
         resourcesInScene.add(1, items.get(InventoryItemEnum.MedicalSupplies.ordinal()));
         resourcesInScene.get(1).setCount(1);
         resourceScene6.setInventoryItems(items);
