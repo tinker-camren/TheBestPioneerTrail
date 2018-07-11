@@ -7,7 +7,7 @@ package pioneertrail.exceptions;
 
 /**
  *
- * @author Guest
+ * @author Kathy
  */
 public class GameControlException extends Exception {
     
