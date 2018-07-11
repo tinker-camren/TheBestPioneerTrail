@@ -12,23 +12,25 @@ import java.awt.Point;
  * @author Guest
  */
 public enum Actor {
-    Father("Kevin", 'M', "Adult", 100, new Point(1,1)),
-    Mother("Jannette", 'F', "Adult", 100, new Point(1,1)),
-    Child1("Chris", 'M', "Child", 100, new Point(1,1)),
-    Child2("Thomas", 'M', "Child", 100, new Point(1,1)),
-    Child3("Lili",'F', "Child", 100, new Point(1,1));
+    Father("Kevin", 'M', "Adult", 100,100, new Point(1,1)),
+    Mother("Jannette", 'F', "Adult", 100,75, new Point(1,1)),
+    Child1("Chris", 'M', "Child", 100,50, new Point(1,1)),
+    Child2("Thomas", 'M', "Child", 100,55, new Point(1,1)),
+    Child3("Lili",'F', "Child", 100,35, new Point(1,1));
     
     private String name;
     private char gender;
     private String type;
     private int health;
+    private int strength;
     private Point coordinates;
     
-    Actor(String name, char gender, String type, int health, Point coordinates){
+    Actor(String name, char gender, String type, int health,int strength, Point coordinates){
         this.name = name;
         this.gender = gender;
         this.type = type;
         this.health = health;
+        this.strength = strength;
         this.coordinates = coordinates;
     }
 
@@ -46,6 +48,14 @@ public enum Actor {
 
     public int getHealth() {
         return health;
+    }
+
+    public int getStrength() {
+        return strength;
+    }
+
+    public void setStrength(int strength) {
+        this.strength = strength;
     }
 
     public Point getCoordinates() {

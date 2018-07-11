@@ -26,10 +26,19 @@ class FamilyMembers extends View {
                 + "\n**********";
 
         int count = 0;
+        int strongest = 0;
+        String strongestPerson = "";
         for (Actor actor : Actor.values()) {
             count++;
             input += ("\n\t" + count + " - " + actor.getName());
+           if (Integer.max(strongest, actor.getStrength()) > strongest) {
+                strongest = actor.getStrength();
+                strongestPerson = actor.getName();
+            
+            }
+           
         }
+        input += "\n Strongest Family member is: "+ strongestPerson+" ("+ strongest + ")";
         input += ("\nEnter your selection(Press Q to quit): ");
 
             return input;
