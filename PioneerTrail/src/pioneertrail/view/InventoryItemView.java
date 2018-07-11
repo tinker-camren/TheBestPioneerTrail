@@ -40,47 +40,19 @@ class InventoryItemView extends View {
         return input;
     }
 
-//    @Override
-//    public String[] getInputs() {
-//        String[] inputs = new String[1];
-//        boolean valid = false;
-//
-//        while (valid == false) {
-//            System.out.println("**********"
-//                    + "\nInventory Item List"
-//                    + "\n**********");
-//            int count = 0;
-//            for (InventoryItem item : PioneerTrail.getCurrentGame().getWagon().getItems()) {
-//                count++;
-//                System.out.println("\t" + count + " - " + item.getItemType());
-//            }
-//            System.out.println("Enter your selection(Press Q to quit): ");
-//            Scanner scanner = new Scanner(System.in);
-//            inputs[0] = scanner.nextLine();
-//            inputs[0] = inputs[0].trim();
-//
-//            if (inputs[0].length() < 1) {
-//                System.out.println("You must enter a non-blank value");
-//                continue; //Move to the top of the loop and repeat
-//            }
-//            valid = true;
-//            return inputs;
-//        }
-//        return inputs;
-//    }
     @Override
     public boolean doAction(String inputs) {
 //        try {
 //            InventoryControl.calcNewWeight(InventoryItem, Wagon);
 //        } catch (InventoryControlException ie) {
-//            System.out.println(ie.getMessage());
+//            this.console.println(ie.getMessage());
 //        }
 
         String item = inputs.toUpperCase();
 
         int value = Integer.parseInt(item);
         if ((value < 1) || (value > item.length())) {
-            System.out.println("Invalid menu item");
+            ErrorView.display(this.getClass().getName(), "Invalid menu item");
 
             return false;
         }
@@ -93,10 +65,10 @@ class InventoryItemView extends View {
 //        game.setItems(items);
 
         value--;
-        System.out.println("Description: " + item.length());
-        System.out.println("Count: " + item.length());
-        System.out.println("Type: " + item.length());
-        System.out.println("Weight: " + item.length());
+        this.console.println("Description: " + item.length());
+        this.console.println("Count: " + item.length());
+        this.console.println("Type: " + item.length());
+        this.console.println("Weight: " + item.length());
 
         return false;
     }

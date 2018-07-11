@@ -34,32 +34,6 @@ class GameMenuView extends View {
                 + "\nS - Save game"
                 + "\nQ - Quit");
     }
-
-//    @Override
-//    public String[] getInputs() {
-//        String[] inputs = new String[1];
-//
-//        System.out.println("**********"
-//                + "\nGame MENU"
-//                + "\n**********");
-//        System.out.println(
-//                "V - View Map"
-//                + "\nI - View inventory items"
-//                + "\nT - View Tool List"
-//                + "\nP - Purchase supplies"
-//                + "\nM - Move to new location"
-//                + "\nF - View Family Members"
-//                + "\nG - Gather resources"
-//                + "\nR - Repair wagon"
-//                + "\nD - Deal with sickness"
-//                + "\nH - Help"
-//                + "\nS - Save game"
-//                + "\nQ - Quit");
-//        String input = this.getInput("Enter your selection: ");
-//        inputs[0] = input;
-//
-//        return inputs;
-//    }
     
     @Override
     public boolean doAction(String inputs) {
@@ -104,7 +78,7 @@ class GameMenuView extends View {
                 return true;
 
             default:
-                System.out.println("Invalid menu item");
+                ErrorView.display(this.getClass().getName(), "Invalid menu item");
         }
         return false;
     }

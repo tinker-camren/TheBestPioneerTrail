@@ -1,0 +1,10 @@
+
+
+pioneertrail.view.StartProgramView - You must enter a non-blank value
+
+pioneertrail.view.StartProgramView - You must enter a non-blank value
+
+pioneertrail.view.RepairWagonMenu - 
+Invalid input, please enter a number
+
+pioneertrail.view.ActorSicknessMenu - The actor doesn't have a broken bone

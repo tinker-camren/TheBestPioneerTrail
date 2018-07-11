@@ -88,7 +88,7 @@ class SupplyPurchase extends View {
         try {
             int menuItem = Integer.parseInt(inputs);
         } catch (Exception ex) {
-            System.out.println("\nInvalid input, please enter a number or Q.");
+            ErrorView.display(this.getClass().getName(), "\nInvalid input, please enter a number or Q.");
             return false;
         }
 
@@ -119,7 +119,7 @@ class SupplyPurchase extends View {
                 break;
 
             default:
-                System.out.println("Invalid menu item");
+                ErrorView.display(this.getClass().getName(), "Invalid menu item");
 
         }
 

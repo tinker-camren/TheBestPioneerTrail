@@ -24,23 +24,7 @@ class HelpMenuView extends View {
                 + "\nEnter your selection: ");
     }
 
-//    @Override
-//    public String[] getInputs() {
-//        String[] inputs = new String[1];
-//
-//        System.out.println("**********"
-//                + "\nhelp MENU"
-//                + "\n**********");
-//        System.out.println(
-//                "G - What is the goal of the game?"
-//                + "\nM - How to move"
-//                + "\nR - Using the resources"
-//                + "\nQ - Quit");
-//        String input = this.getInput("Enter your selection: ");
-//        inputs[0] = input;
-//
-//        return inputs;
-//    }
+
 
     @Override
     public boolean doAction(String inputs) {
@@ -62,7 +46,7 @@ class HelpMenuView extends View {
                 return true;
 
             default:
-                System.out.println("Invalid menu item");
+                ErrorView.display(this.getClass().getName(), "Invalid menu item");
         }
         return false;
     }

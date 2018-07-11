@@ -34,7 +34,7 @@ class RepairWagonMenu extends View {
         try {
             int menuItem = Integer.parseInt(inputs);
         } catch(Exception ex) {
-            System.out.println("\nInvalid input, please enter a number");
+            ErrorView.display(this.getClass().getName(), "\nInvalid input, please enter a number");
             return false;
         }
         
@@ -45,7 +45,7 @@ class RepairWagonMenu extends View {
         Tool tool = wagon.getTools().get(0);
         //int menuItem = Integer.parseInt(inputs[0]);
         if (menuItem > item.getCount()) {
-            System.out.println("You cannot enter more wood than you have.");
+            ErrorView.display(this.getClass().getName(), "You cannot enter more wood than you have.");
             return false;
         }
         if (item.getItemType().equalsIgnoreCase("Wood")) {
@@ -56,7 +56,7 @@ class RepairWagonMenu extends View {
             try {
             result = ToolControl.repairWagon(item, tool, wagon);
             } catch (ToolControlException te) {
-                System.out.println(te.getMessage());
+                ErrorView.display(this.getClass().getName(), te.getMessage());
                 return false;
             }
 //            if (result == -1) {

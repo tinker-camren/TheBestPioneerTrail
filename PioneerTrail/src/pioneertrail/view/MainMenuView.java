@@ -27,24 +27,6 @@ class MainMenuView extends View {
                 + "E - Exit");
     }
 
-//    @Override
-//    public String getInputs() {
-//        String inputs = "";
-//
-//        System.out.println("**********"
-//                + "\nMain MENU"
-//                + "\n**********");
-//        System.out.println(
-//                "N - Start new game\n"
-//                + "R - Restart existing game\n"
-//                + "H - Get help on how to play the game\n"
-//                + "E - Exit");
-//
-//        String input = this.getInput("Enter your selection: ");
-//        inputs = input;
-//
-//        return inputs;
-//    }
 
     @Override
     public boolean doAction(String inputs) {
@@ -65,7 +47,7 @@ class MainMenuView extends View {
                 return true;
 
             default:
-                System.out.println("Invalid menu item");
+                ErrorView.display(this.getClass().getName(), "Invalid menu item");
 
         }
 

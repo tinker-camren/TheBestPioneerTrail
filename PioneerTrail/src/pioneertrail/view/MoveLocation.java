@@ -38,7 +38,7 @@ class MoveLocation extends View {
             try {
                 movePlayer(map, map.getCurrentRow(), map.getCurrentColumn()); // or instead of 0,0 you can select a different starting location
             } catch (MapControlException te) {
-                System.out.println(te.getMessage());
+                ErrorView.display(this.getClass().getName(), te.getMessage());
                 return true;
             }
             System.out.println("Moving to " + scene.getSceneName()
@@ -46,7 +46,7 @@ class MoveLocation extends View {
         } else if ("N".equals(menuItem)) {
             return true;
         } else {
-            System.out.println("Invalid input");
+            ErrorView.display(this.getClass().getName(), "Invalid input");
         }
 
         return true;

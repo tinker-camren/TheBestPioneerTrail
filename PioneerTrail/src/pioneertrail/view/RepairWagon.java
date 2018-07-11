@@ -31,7 +31,6 @@ public class RepairWagon extends View {
         Game game = PioneerTrail.getCurrentGame();
         Wagon wagon = game.getWagon();
         items = wagon.getItems();
-        System.out.println(items.toString());
         InventoryItem item = items.get(InventoryItemEnum.Wood.ordinal());
         Tool tool = wagon.getTools().get(0);
 
@@ -78,7 +77,7 @@ public class RepairWagon extends View {
         } else if ("Q".equals(menuItem)) {
             return true;
         } else {
-            System.out.println("Invalid menu item");
+            ErrorView.display(this.getClass().getName(), "Invalid menu item");
         }
         
         return false;

@@ -76,7 +76,7 @@ public class HuntAnimals extends View {
         } else if ("Q".equals(menuItem)) {
             return true;
         } else {
-            System.out.println("Invalid menu item");
+            ErrorView.display(this.getClass().getName(), "Invalid menu item");
         }
 
         return false;

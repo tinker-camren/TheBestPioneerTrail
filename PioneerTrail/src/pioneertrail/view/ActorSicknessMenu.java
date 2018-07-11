@@ -74,27 +74,27 @@ class ActorSicknessMenu extends View  {
                 return true;
 
             default:
-                System.out.println("Invalid menu item");
+                ErrorView.display(this.getClass().getName(), "Invalid menu item");
         }
         return false;
     }
 
     private void createSplint(ActorObject actor) {
         try {
-            System.out.println("Attempting to create a splint...");
+            this.console.println("Attempting to create a splint...");
             ActorControl.createSplint(actor);
         } catch(ActorControlException te) {
-            System.out.println("\n" + te.getMessage());
+            ErrorView.display(this.getClass().getName(), te.getMessage());
         }
-        System.out.println("Splint created successfully");
+        this.console.println("Splint created successfully");
         displayMessage = buildMenu(actor);
     }
 
     private void rest() {
-        System.out.println("Rest called");
+        this.console.println("Rest called");
     }
 
     private void medicalSupplies() {
-        System.out.println("medicalSupplies called");
+        this.console.println("medicalSupplies called");
     }
 }

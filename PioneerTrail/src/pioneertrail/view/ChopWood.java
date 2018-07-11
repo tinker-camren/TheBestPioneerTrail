@@ -78,7 +78,7 @@ class ChopWood extends View {
             amount = Integer.parseInt(parts[0].trim());
             weight = Integer.parseInt(parts[1].trim());
         } catch (Exception ex) {
-            System.out.println("\nInvalid input, please enter two numbers seperated by a comma.");
+            ErrorView.display(this.getClass().getName(), "\nInvalid input, please enter two numbers seperated by a comma.");
             return false;
         }
 
@@ -93,12 +93,12 @@ class ChopWood extends View {
         try {
             result = ToolControl.chopWood(item, scrap);
         } catch (ToolControlException te) {
-            System.out.println(te.getMessage());
+            ErrorView.display(this.getClass().getName(), te.getMessage());
             return false;
         }
 
-        System.out.println("You have chopped " + result + " logs of wood.");
-       // System.out.println("You now have " + item.getCount() + " wood.");
+        this.console.println("You have chopped " + result + " logs of wood.");
+       // this.console.println("You now have " + item.getCount() + " wood.");
 
         return false;
     }

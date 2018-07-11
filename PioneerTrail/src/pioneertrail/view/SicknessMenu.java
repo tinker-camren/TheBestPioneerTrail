@@ -54,7 +54,7 @@ class SicknessMenu extends View {
         try {
             int menuItem = Integer.parseInt(inputs);
         } catch(Exception ex) {
-            System.out.println("\nInvalid input, please enter a number");
+            ErrorView.display(this.getClass().getName(), "\nInvalid input, please enter a number");
             return false;
         }
         
@@ -85,7 +85,7 @@ class SicknessMenu extends View {
                 break;
 
             default:
-                System.out.println("Invalid menu item");
+                ErrorView.display(this.getClass().getName(), "Invalid menu item");
 
         }
 

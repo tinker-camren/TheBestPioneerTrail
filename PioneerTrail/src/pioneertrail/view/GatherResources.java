@@ -25,22 +25,6 @@ class GatherResources extends View {
                 + "Enter your selection: ");
     }
 
-//    @Override
-//    public String[] getInputs() {
-//        String[] inputs = new String[1];
-//
-//        System.out.println("*********************"
-//                + "\nGather Resources MENU"
-//                + "\n*********************");
-//        System.out.println(
-//                "C - Chop wood"
-//                + "\nH - Hunt for meat"
-//                + "\nQ - Quit");
-//        String input = this.getInput("Enter your selection: ");
-//        inputs[0] = input;
-//
-//        return inputs;
-//    }
 
     @Override
     public boolean doAction(String inputs) {
@@ -59,7 +43,7 @@ class GatherResources extends View {
                 return true;
 
             default:
-                System.out.println("Invalid menu item");
+                ErrorView.display(this.getClass().getName(), "Invalid menu item");
         }
         return false;
     }
