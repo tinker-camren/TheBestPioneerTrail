@@ -5,8 +5,12 @@
  */
 package pioneertrail.control;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import pioneertrail.PioneerTrail;
+import pioneertrail.exceptions.GameControlException;
 import pioneertrail.exceptions.MapControlException;
 import pioneertrail.model.ActorEnum;
 import pioneertrail.model.ActorObject;
@@ -92,10 +96,24 @@ public class GameControl {
         return 1;
     }
 
-    public static void saveGame() {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        System.out.println("save game not implemented yet");
+    public static void saveGame(Game game, String filePath) 
+        throws GameControlException{
+        if(game == null){
+           throw new GameControlException("game is invalid"); 
+            
+        }
+        if(filePath == null){
+           throw new GameControlException("filepath is empty");
+        }
+        try(ObjectOutputStream out =
+                new ObjectOutputStream(new FileOutputStream(filePath))){
+            out.writeObject(game);
+            
+        }catch (IOException ex) {
+    System.out.println("I/O Error: " + ex.getMessage());
     }
+    }
+    
 
     public static ActorObject[] createActors() {
 

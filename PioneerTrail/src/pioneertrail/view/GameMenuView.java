@@ -129,7 +129,9 @@ class GameMenuView extends View {
     }
 
     private void saveGame() {
-        GameControl.saveGame();
+        SaveGameView saveGameView = new SaveGameView();
+        saveGameView.display();
+        //GameControl.saveGame();
     }
 
     private void ToolView() {
