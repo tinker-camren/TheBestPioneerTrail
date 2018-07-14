@@ -125,6 +125,7 @@ public class GameControl {
         Father.setType("Adult");
         Father.setHealth(50);
         Father.setSickness("Broken Bone");
+        Father.setStrength(100);
         actors[ActorEnum.Father.ordinal()] = Father;
 
         ActorObject Mother = new ActorObject();
@@ -133,6 +134,7 @@ public class GameControl {
         Mother.setType("Adult");
         Mother.setHealth(75);
         Mother.setSickness("Fatigue");
+        Mother.setStrength(75);
         actors[ActorEnum.Mother.ordinal()] = Mother;
 
         ActorObject Child1 = new ActorObject();
@@ -141,6 +143,7 @@ public class GameControl {
         Child1.setType("Child");
         Child1.setHealth(100);
         Child1.setSickness("Healthy");
+        Child1.setStrength(50);
         actors[ActorEnum.Child1.ordinal()] = Child1;
 
         ActorObject Child2 = new ActorObject();
@@ -149,6 +152,7 @@ public class GameControl {
         Child2.setType("Child");
         Child2.setHealth(100);
         Child2.setSickness("Healthy");
+        Child1.setStrength(55);
         actors[ActorEnum.Child2.ordinal()] = Child2;
 
         ActorObject Child3 = new ActorObject();
@@ -157,6 +161,7 @@ public class GameControl {
         Child3.setType("Child");
         Child3.setHealth(100);
         Child3.setSickness("Healthy");
+        Child1.setStrength(35);
         actors[ActorEnum.Child3.ordinal()] = Child3;
 
         return actors;

@@ -23,8 +23,17 @@ public class ActorObject implements Serializable {
     private int health;
     private Point coordinates;
     private String sickness;
+    private int strength;
 
     public ActorObject() {
+    }
+
+    public int getStrength() {
+        return strength;
+    }
+
+    public void setStrength(int strength) {
+        this.strength = strength;
     }
 
     public String getSickness() {

@@ -6,7 +6,9 @@
 package pioneertrail.view;
 
 import java.util.Scanner;
+import pioneertrail.PioneerTrail;
 import pioneertrail.model.Actor;
+import pioneertrail.model.ActorObject;
 
 /**
  *
@@ -25,10 +27,12 @@ class FamilyMembers extends View {
                 + "\nFind more about details of each actor"
                 + "\n**********";
 
+        ActorObject[] actors = PioneerTrail.getCurrentGame().getActors();
         int count = 0;
         int strongest = 0;
         String strongestPerson = "";
-        for (Actor actor : Actor.values()) {
+        for (int i = 0; i < actors.length ; i++ ) {
+            ActorObject actor = actors[i];
             count++;
             input += ("\n\t" + count + " - " + actor.getName());
            if (Integer.max(strongest, actor.getStrength()) > strongest) {
@@ -38,7 +42,7 @@ class FamilyMembers extends View {
             }
            
         }
-        input += "\n\t" + (Actor.values().length + 1) + " - Run Report";
+        input += "\n\t" + (actors.length + 1) + " - Run Report";
         input += "\n Strongest Family member is: "+ strongestPerson+" ("+ strongest + ")";
         input += ("\nEnter your selection(Press Q to quit): ");
 
@@ -49,9 +53,9 @@ class FamilyMembers extends View {
         public boolean doAction(String inputs) {
 
         String menuItem = inputs.toUpperCase();
-
+        ActorObject[] actors = PioneerTrail.getCurrentGame().getActors();
             int value = Integer.parseInt(menuItem);
-            if ((value < 1) || (value > (Actor.values().length + 1))) {
+            if ((value < 1) || (value > (actors.length + 1))) {
                 ErrorView.display(this.getClass().getName(), "Invalid menu item");
 
                 return false;
@@ -67,10 +71,10 @@ class FamilyMembers extends View {
                 return false;
             } else {
             value--;
-                this.console.println("Name: " + Actor.values()[value].getName());
-                this.console.println("Gender: " + Actor.values()[value].getGender());
-                this.console.println("Type: " + Actor.values()[value].getType());
-                this.console.println("Health: " + Actor.values()[value].getHealth());
+                this.console.println("Name: " + actors[value].getName());
+                this.console.println("Gender: " + actors[value].getGender());
+                this.console.println("Type: " + actors[value].getType());
+                this.console.println("Health: " + actors[value].getHealth());
 
                 return false;
                 }
