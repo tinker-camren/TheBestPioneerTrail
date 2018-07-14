@@ -54,7 +54,7 @@ class RepairWagonMenu extends View {
             item.setCount(menuItem);
             int result;
             try {
-            result = ToolControl.repairWagon(item, tool, wagon);
+                result = ToolControl.repairWagon(item, tool, wagon);
             } catch (ToolControlException te) {
                 ErrorView.display(this.getClass().getName(), te.getMessage());
                 return false;

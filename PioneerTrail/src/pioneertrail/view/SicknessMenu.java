@@ -29,8 +29,6 @@ class SicknessMenu extends View {
         ArrayList<InventoryItem> items = new ArrayList<InventoryItem>();
         Game game = PioneerTrail.getCurrentGame();
         Wagon wagon = game.getWagon();
-        items = wagon.getItems();
-        InventoryItem item = items.get(0);
 
         String input = "\n**********"
                 + "\nSickness Menu"

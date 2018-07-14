@@ -38,6 +38,7 @@ class FamilyMembers extends View {
             }
            
         }
+        input += "\n\t" + (Actor.values().length + 1) + " - Run Report";
         input += "\n Strongest Family member is: "+ strongestPerson+" ("+ strongest + ")";
         input += ("\nEnter your selection(Press Q to quit): ");
 
@@ -50,7 +51,7 @@ class FamilyMembers extends View {
         String menuItem = inputs.toUpperCase();
 
             int value = Integer.parseInt(menuItem);
-            if ((value < 1) || (value > Actor.values().length)) {
+            if ((value < 1) || (value > (Actor.values().length + 1))) {
                 ErrorView.display(this.getClass().getName(), "Invalid menu item");
 
                 return false;
@@ -60,13 +61,19 @@ class FamilyMembers extends View {
 //        this.type = type;
 //        this.health = health;
 //        this.coordinates = coordinates;
+            if (value == (Actor.values().length + 1)) {
+                ActorReport actorReport = new ActorReport();
+                actorReport.display();
+                return false;
+            } else {
             value--;
-            this.console.println("Name: " + Actor.values()[value].getName());
-            this.console.println("Gender: " + Actor.values()[value].getGender());
-            this.console.println("Type: " + Actor.values()[value].getType());
-            this.console.println("Health: " + Actor.values()[value].getHealth());
+                this.console.println("Name: " + Actor.values()[value].getName());
+                this.console.println("Gender: " + Actor.values()[value].getGender());
+                this.console.println("Type: " + Actor.values()[value].getType());
+                this.console.println("Health: " + Actor.values()[value].getHealth());
 
-            return false;
+                return false;
+                }
         }
 
     }
