@@ -21,8 +21,8 @@ class SaveGameView extends View {
         super("**********"
                 + "\nSave Game Menu"
                 + "\n**********\n"
-                + "\nEnter the path where you would like to save "
-                + "your game, or enter Q to quit: ");
+                + "\nEnter the name you want to save your game as"
+                + ", or enter Q to quit: ");
     }
 
 //    @Override

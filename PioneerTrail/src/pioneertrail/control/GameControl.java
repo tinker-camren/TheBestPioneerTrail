@@ -5,10 +5,14 @@
  */
 package pioneertrail.control;
 
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import pioneertrail.PioneerTrail;
 import pioneertrail.exceptions.GameControlException;
 import pioneertrail.exceptions.MapControlException;
@@ -84,7 +88,7 @@ public class GameControl {
         } catch (MapControlException mce) {
             System.out.println(mce.getMessage());
         }
-        
+
         //This exists to set the items back to what they should be. 
         //Our attempt to add items to scenes didn't work. We need to figure out
         //a way to create a new item for every scene and then add the count of that
@@ -96,24 +100,23 @@ public class GameControl {
         return 1;
     }
 
-    public static void saveGame(Game game, String filePath) 
-        throws GameControlException{
-        if(game == null){
-           throw new GameControlException("game is invalid"); 
-            
+    public static void saveGame(Game game, String filePath)
+            throws GameControlException {
+        if (game == null) {
+            throw new GameControlException("game is invalid");
+
         }
-        if(filePath == null){
-           throw new GameControlException("filepath is empty");
+        if (filePath == null) {
+            throw new GameControlException("filepath is empty");
         }
-        try(ObjectOutputStream out =
-                new ObjectOutputStream(new FileOutputStream(filePath))){
+        try (ObjectOutputStream out
+                = new ObjectOutputStream(new FileOutputStream(filePath))) {
             out.writeObject(game);
-            
-        }catch (IOException ex) {
-    System.out.println("I/O Error: " + ex.getMessage());
+
+        } catch (IOException ex) {
+            System.out.println("I/O Error: " + ex.getMessage());
+        }
     }
-    }
-    
 
     public static ActorObject[] createActors() {
 
@@ -342,4 +345,28 @@ public class GameControl {
 //
 //        return purchase;
 //    }
+    public static Game getGame(String filePath)
+            throws GameControlException {
+        if (filePath == null) {
+            throw new GameControlException("file name is invalid");
+        }
+
+        try (FileInputStream in = new FileInputStream(filePath)) {
+            ObjectInputStream input = new ObjectInputStream(in);
+            try {
+                Game game = (Game) input.readObject();
+                PioneerTrail.setCurrentGame(game);
+                Player player = game.getPlayer();
+                PioneerTrail.setPlayer(player);
+                return game;
+            } catch (ClassNotFoundException ex) {
+                System.out.println("Game class not found");
+            }
+        } catch (IOException ex) {
+            System.out.println("I/O Error: " + ex.getMessage());
+
+        }
+        Game game = pioneertrail.PioneerTrail.getCurrentGame();
+        return game;
+    }
 }

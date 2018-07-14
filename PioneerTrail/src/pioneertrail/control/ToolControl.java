@@ -19,7 +19,7 @@ public class ToolControl {
     //Camren
     public static int repairWagon(InventoryItem item, Tool tool, Wagon wagon) 
         throws ToolControlException {
-
+        System.out.println(item.getItemType());
         if (item.getItemType() != "Wood") {
             throw new ToolControlException("Item type is not wood");
         }
