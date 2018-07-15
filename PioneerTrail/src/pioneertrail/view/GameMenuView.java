@@ -5,8 +5,10 @@
  */
 package pioneertrail.view;
 
+import java.io.PrintWriter;
 import java.util.Scanner;
 import pioneertrail.control.GameControl;
+import pioneertrail.model.Game;
 import pioneertrail.model.InventoryItem;
 import pioneertrail.model.Player;
 import pioneertrail.model.Wagon;

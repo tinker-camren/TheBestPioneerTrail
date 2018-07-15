@@ -25,9 +25,9 @@ class ToolView extends View {
     }
 
     private String buildMenu() {
-        String input = "**********"
+        String input = "***********"
                 + "\nTool List"
-                + "\n**********";
+                + "\n***********";
 
         Game game = PioneerTrail.getCurrentGame();
         Wagon wagon = game.getWagon();
@@ -55,6 +55,8 @@ class ToolView extends View {
         } else {
             input += ("\nGun broken or non-existent");
         }
+        
+        input += ("\n\nS - Save Report");
 
         input += ("\n\nPress Enter or enter Q to quit");
 
@@ -67,6 +69,9 @@ class ToolView extends View {
         String menuItem = inputs.toUpperCase();
 
         switch (menuItem) {
+            case "S":
+                toolReportView();
+                break;
             case "Q":
                 return true;
 
@@ -76,5 +81,10 @@ class ToolView extends View {
         }
 
         return false;
+    }
+
+    private void toolReportView() {
+        ToolReportView toolReportView = new ToolReportView();
+        toolReportView.display();
     }
 }
