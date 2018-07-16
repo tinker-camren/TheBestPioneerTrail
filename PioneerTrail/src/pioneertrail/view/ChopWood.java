@@ -47,13 +47,16 @@ class ChopWood extends View {
         //InventoryItem item = items.get(0);
         Game game = PioneerTrail.getCurrentGame();
         Wagon wagon = game.getWagon();
+        Tool tool = wagon.getTools().get(2);
         InventoryItem item = wagon.getItems().get(0);
         double scrap = .5;
 
-        String input = "\n**********"
+        String input = "\n***************"
                 + "\nChop Wood MENU"
-                + "\n**********"
-                + "\nEnter the number of trees you would like to chop (cannot be more than 15), "
+                + "\n***************"
+                + "\nEnter Q to return to the previous menu."
+                + "\n\nAxe durability is: " + tool.getDurability()
+                + "\n\nEnter the number of trees you would like to chop (cannot be more than 15), "
                 + "\nand enter the weight of wood you would like to chop (cannot be more than 12), "
                 + "\nseperated by a comma. (Example: 5,4): ";
         
@@ -98,10 +101,8 @@ class ChopWood extends View {
             ErrorView.display(this.getClass().getName(), te.getMessage());
             return false;
         }
-        
-        
 
-        this.console.println("You have chopped " + result + " logs of wood.");
+        this.console.println("\nYou have chopped " + result + " logs of wood.");
        // this.console.println("You now have " + item.getCount() + " wood.");
        
        
