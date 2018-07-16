@@ -13,6 +13,7 @@ import pioneertrail.control.ToolControl;
 import pioneertrail.exceptions.ToolControlException;
 import pioneertrail.model.Game;
 import pioneertrail.model.InventoryItem;
+import pioneertrail.model.Tool;
 import pioneertrail.model.Wagon;
 
 //import pioneertrail.PioneerTrail;
@@ -84,6 +85,7 @@ class ChopWood extends View {
 
         Game game = PioneerTrail.getCurrentGame();
         Wagon wagon = game.getWagon();
+        Tool tool = wagon.getTools().get(2);
         InventoryItem item = new InventoryItem();
         item.setCount(amount);
         item.setWeight(weight);
@@ -91,14 +93,23 @@ class ChopWood extends View {
         double result;
 
         try {
-            result = ToolControl.chopWood(item, scrap);
+            result = ToolControl.chopWood(item, tool, scrap);
         } catch (ToolControlException te) {
             ErrorView.display(this.getClass().getName(), te.getMessage());
             return false;
         }
+        
+        
 
         this.console.println("You have chopped " + result + " logs of wood.");
        // this.console.println("You now have " + item.getCount() + " wood.");
+       
+       
+       if (tool.getDurability() < 1) {
+            this.console.println("Axe has broken");
+        } else {
+           this.console.println("Axe durability is now " + tool.getDurability());
+       }
 
         return false;
     }

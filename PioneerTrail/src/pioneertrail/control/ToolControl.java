@@ -48,7 +48,7 @@ public class ToolControl {
     }
 
     //Danica
-    public static double chopWood(InventoryItem item, double scrap) 
+    public static double chopWood(InventoryItem item, Tool tool, double scrap) 
         throws ToolControlException {
 
 //pseudocode:
@@ -84,6 +84,16 @@ public class ToolControl {
             throw new ToolControlException("Item weight cannot be greater than 12");
         }
         
+        if (tool.getDurability() < 1) {
+            throw new ToolControlException("Tool durability cannot be less than 1");
+        }
+        
+        if (tool.getToolType() != "Axe") {
+            throw new ToolControlException("Tool type must be Axe");
+        }
+            
+        tool.setDurability(tool.getDurability() - item.getCount());
+            
         return item.getCount() * (item.getWeight() - item.getWeight() * scrap);
     }
 
