@@ -93,8 +93,11 @@ public class ToolControl {
         }
             
         tool.setDurability(tool.getDurability() - item.getCount());
-            
-        return item.getCount() * (item.getWeight() - item.getWeight() * scrap);
+        //item.setCount(item.getCount() + item.getCount());
+        double result = item.getCount() * (item.getWeight() - item.getWeight() * scrap);
+        item.setWeight (result * 2);
+        
+        return result;
     }
 
     //Kathy

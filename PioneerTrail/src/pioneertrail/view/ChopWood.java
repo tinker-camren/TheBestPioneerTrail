@@ -59,7 +59,6 @@ class ChopWood extends View {
                 + "\n\nEnter the number of trees you would like to chop (cannot be more than 15), "
                 + "\nand enter the weight of wood you would like to chop (cannot be more than 12), "
                 + "\nseperated by a comma. (Example: 5,4): ";
-        
 
 ////        //how to get this appearing after first input?
 //        input += "\n\nEnter the weight of wood you would like "
@@ -102,15 +101,16 @@ class ChopWood extends View {
             return false;
         }
 
-        this.console.println("\nYou have chopped " + result + " logs of wood.");
-       // this.console.println("You now have " + item.getCount() + " wood.");
-       
-       
-       if (tool.getDurability() < 1) {
+        this.console.println("\nYou have chopped " + result + " logs of wood," 
+                + " (" + item.getWeight() + " lbs of wood).");
+        // this.console.println("You now have " + item.getCount() + " wood.");
+        
+
+        if (tool.getDurability() < 1) {
             this.console.println("Axe has broken");
         } else {
-           this.console.println("Axe durability is now " + tool.getDurability());
-       }
+            this.console.println("Axe durability is now " + tool.getDurability());
+        }
 
         return false;
     }
