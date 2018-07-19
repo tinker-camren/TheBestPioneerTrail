@@ -40,14 +40,16 @@ class ActorSicknessMenu extends View  {
         
         input += ("\n\nS - Make Splint"
                 + "\tCost: 2 wood"
+                + "\tEffect: Fixes broken bones and restores 5 health"
                 + "\nR - Rest"
-                + "\tCost: 2 units of food (potatoes or meat) and 1 water per person"
+                + "\tCost: 1 unit of potatoes 1 unit of  meat and 1 unit of water"
+                + "\tEffect: Removes the Fatigue sickness and restores 5 health if meat, potatoes, and water are available"
+                + "\n\tif something is missing, it only restores a percentage of the health"
                 + "\nM - Medical Supplies "
                 + "\tCost: 1 unit of medical supplies"
+                + "\tEffect: Removes any illness and restores 15 health"
                 + "\nE - Exit");
         input += ("\nEnter the action you want to take");
-        
-        
         
         return input;
     }
@@ -64,10 +66,10 @@ class ActorSicknessMenu extends View  {
                 createSplint(actor);
                 break;
             case "R":
-                rest();
+                rest(actor);
                 break;
             case "M":
-                medicalSupplies();
+                medicalSupplies(actor);
                 break;
             case "E":
                 //mainMenuView();
@@ -76,7 +78,7 @@ class ActorSicknessMenu extends View  {
             default:
                 ErrorView.display(this.getClass().getName(), "Invalid menu item");
         }
-        return false;
+        return true;
     }
 
     private void createSplint(ActorObject actor) {
@@ -90,11 +92,25 @@ class ActorSicknessMenu extends View  {
         displayMessage = buildMenu(actor);
     }
 
-    private void rest() {
-        this.console.println("Rest called");
+    private void rest(ActorObject actor) {
+        try {
+            this.console.println("Resting...");
+            this.console.println(ActorControl.rest(actor));
+            
+        } catch(ActorControlException te) {
+            ErrorView.display(this.getClass().getName(), te.getMessage());
+        }
+        displayMessage = buildMenu(actor);
     }
 
-    private void medicalSupplies() {
-        this.console.println("medicalSupplies called");
+    private void medicalSupplies(ActorObject actor) {
+        try {
+            this.console.println("Using Medical Supplies...");
+            this.console.println(ActorControl.medicalSupplies(actor));
+            
+        } catch(ActorControlException te) {
+            ErrorView.display(this.getClass().getName(), te.getMessage());
+        }
+        displayMessage = buildMenu(actor);
     }
 }

@@ -228,7 +228,7 @@ public class GameControl {
         item.setDescription("food");
         item.setCount(10);
         item.setWeight(5);
-        item.setItemType("potatoes");
+        item.setItemType("Potatoes");
         items.add(InventoryItemEnum.Potatoes.ordinal(), item);
 
         item = new InventoryItem();
@@ -236,7 +236,7 @@ public class GameControl {
         item.setDescription("drink");
         item.setCount(10);
         item.setWeight(4);
-        item.setItemType("water");
+        item.setItemType("Water");
         items.add(InventoryItemEnum.Water.ordinal(), item);
 
         item = new InventoryItem();

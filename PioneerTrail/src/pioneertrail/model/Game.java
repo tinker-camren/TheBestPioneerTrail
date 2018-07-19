@@ -25,6 +25,15 @@ public class Game implements Serializable {
     private Map map;
     private Purchase purchase;
     private ActorObject sickActor;
+    private ActorObject[] deceased;
+
+    public ActorObject[] getDeceased() {
+        return deceased;
+    }
+
+    public void setDeceased(ActorObject[] deceased) {
+        this.deceased = deceased;
+    }
 
     public Purchase getPurchase() {
         return purchase;
