@@ -92,9 +92,9 @@ public class InventoryControl {
         }
     }
 
-    public static double purchase(InventoryItem item, Wagon Wagon, Purchase purchase)
+    public static double money(InventoryItem item, Purchase purchase, Wagon wagon)
             throws InventoryControlException {
-        
+//        
         if (purchase.getMoney() < 1) {
             throw new InventoryControlException("Money cannot be less than 1");
         }
@@ -102,12 +102,29 @@ public class InventoryControl {
         if (purchase.getMoney() > 100) {
             throw new InventoryControlException("Money cannot be greater than 100");
         }
-        
-        purchase.setMoney(purchase.getMoney() - item.getPrice());
+//        
+        purchase.setMoney(purchase.getMoney() - item.getPrice() * item.getCount());
+        //purchase.setMoney(purchase.getMoney() - item.getPrice());
 
         return purchase.getMoney();
     }
-    
+
+    public static double purchase(InventoryItem item, Wagon Wagon, Purchase purchase)
+            throws InventoryControlException {
+
+        if (item.getCount() < 1) { //is item count 0 or negative?
+            throw new InventoryControlException("Item count cannot be less than 1");
+        }
+
+        if (item.getCount() > 100) { //is item count greater than 100?
+            throw new InventoryControlException("Item count cannot be greater than 100");
+        }
+
+        item.setCount(purchase.getCount() + item.getCount());
+
+        return item.getCount();
+    }
+
 }
 
 //    public int getPriceItems(int[] prices) {

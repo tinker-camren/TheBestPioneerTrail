@@ -44,27 +44,12 @@ class SupplyPurchase extends View {
 
         ArrayList<InventoryItem> items = game.getWagon().getItems();
         int count = 0;
-//        double maxPrice = 0;
-//        double minPrice = 0;
         for (InventoryItem currentItem : items) {
             input += "\n" + count + " - $" + currentItem.getPrice() + ": " + currentItem.getItemType();
-//            if (count == 0) {
-//                maxPrice = currentItem.getPrice();
-//                minPrice = currentItem.getPrice();
-//            } else {
-//                maxPrice = count[0];
-//                for(int i = 1; i < count.length; i++) {
-//                if(currentItem.count[i] > maxPrice){
-//                    maxPrice = count()[i];
-//                }
-//            }
             count++;
         }
-        
-        input += "\nQ - Return to previous MENU";
 
-//        input += "\nH = Highest priced item = " + maxPrice;
-//        input += "\nL - Lowest priced item = " + minPrice;
+        input += "\nQ - Return to previous MENU";
         if (purchase.getMoney() > 0) {
             input += ("\n\nMoney: $" + purchase.getMoney());
         } else {
@@ -74,12 +59,6 @@ class SupplyPurchase extends View {
         input += ("\n\nEnter a number 0-4 or Q to quit.");
 
         return input;
-
-//    void displaySupplyPurchase() {
-//        
-//        InventoryItem item = new InventoryItem();
-//
-//       InventoryControl.listItems();
     }
 
     @Override
@@ -120,15 +99,13 @@ class SupplyPurchase extends View {
 
             default:
                 ErrorView.display(this.getClass().getName(), "Invalid menu item");
-
         }
-
         return false;
     }
 
     private void purchaseMenu(InventoryItem item) {
         PurchaseMenu purchaseMenu = new PurchaseMenu(item);
         purchaseMenu.display();
+        displayMessage = buildMenu();
     }
-
 }

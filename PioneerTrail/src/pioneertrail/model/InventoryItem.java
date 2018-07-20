@@ -73,32 +73,34 @@ public class InventoryItem implements Serializable {
     public void setGame(Game game) {
         this.game = game;
     }
-    
+
     public static Comparator<InventoryItem> itemTypeComparator = new Comparator<InventoryItem>() {
 
-	public int compare(InventoryItem s1, InventoryItem s2) {
-	   String ItemType1 = s1.getItemType().toUpperCase();
-	   String ItemType2 = s2.getItemType().toUpperCase();
+        public int compare(InventoryItem s1, InventoryItem s2) {
+            String ItemType1 = s1.getItemType().toUpperCase();
+            String ItemType2 = s2.getItemType().toUpperCase();
 
-	   //ascending order
-	   return ItemType2.compareTo(ItemType1);
+            //ascending order
+            return ItemType2.compareTo(ItemType1);
 
-	   //descending order
-	   //return ItemType2.compareTo(ItemType1);
-    }};
-    
-     //Comparator for sorting item prices
+            //descending order
+            //return ItemType2.compareTo(ItemType1);
+        }
+    };
+
+    //Comparator for sorting item prices
     public static Comparator<InventoryItem> PriceSort = new Comparator<InventoryItem>() {
 
-	public int compare(InventoryItem ps1, InventoryItem ps2) {
+        public int compare(InventoryItem ps1, InventoryItem ps2) {
 
-	   int priceSort1 = ps1.getPrice();
-	   int priceSort2 = ps2.getPrice();
+            int priceSort1 = ps1.getPrice();
+            int priceSort2 = ps2.getPrice();
 
-	   //ascending order
-	   return priceSort1-priceSort2;
-   }};
-    
+            //ascending order
+            return priceSort1 - priceSort2;
+        }
+    };
+
     @Override
     public int hashCode() {
         int hash = 7;

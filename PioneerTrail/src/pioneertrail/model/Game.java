@@ -30,16 +30,16 @@ public class Game implements Serializable {
         return purchase;
     }
 
+    public void setPurchase(Purchase purchase) {
+        this.purchase = purchase;
+    }
+
     public ActorObject getSickActor() {
         return sickActor;
     }
 
     public void setSickActor(ActorObject sickActor) {
         this.sickActor = sickActor;
-    }
-
-    public void setPurchase(Purchase purchase) {
-        this.purchase = purchase;
     }
 
     /**
@@ -160,7 +160,7 @@ public class Game implements Serializable {
     public void setNumPeople(int numPeople) {
         this.numPeople = numPeople;
     }
-    
+
     public Player getPlayer() {
         return player;
     }

@@ -31,15 +31,6 @@ class ChopWood extends View {
 
     public ChopWood() {
         displayMessage = buildMenu();
-//        super("*********************"
-//                + "\nChop Wood MENU"
-//                + "\n*********************"
-//                + "\nThere are trees near the trail. "
-//                + "You decide to investigate."
-//                + "\nChop the trees with your axe?"
-//                + "\nY - Yes"
-//                + "\nN - No"
-//                + "\nQ - Quit");
     }
 
     private String buildMenu() {
@@ -59,13 +50,6 @@ class ChopWood extends View {
                 + "\n\nEnter the number of trees you would like to chop (cannot be more than 15), "
                 + "\nand enter the weight of wood you would like to chop (cannot be more than 12), "
                 + "\nseperated by a comma. (Example: 5,4): ";
-
-////        //how to get this appearing after first input?
-//        input += "\n\nEnter the weight of wood you would like "
-//                + "to chop"
-//                + "\n(weight cannot be more than 12): ";
-//        //int num2 = inputs.nextInt();
-//        input += "\n\nPress Q to quit: ";
         return input;
     }
 
@@ -95,7 +79,7 @@ class ChopWood extends View {
         double result;
 
         try {
-            result = ToolControl.chopWood(item, tool, scrap);
+            result = ToolControl.chopWood(item, tool, wagon, scrap);
         } catch (ToolControlException te) {
             ErrorView.display(this.getClass().getName(), te.getMessage());
             return false;
@@ -111,6 +95,8 @@ class ChopWood extends View {
         } else {
             this.console.println("Axe durability is now " + tool.getDurability());
         }
+        
+        //wagon.setItems();
 
         return false;
     }

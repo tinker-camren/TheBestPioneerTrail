@@ -5,10 +5,16 @@
  */
 package pioneertrail.view;
 
+import java.util.ArrayList;
 import pioneertrail.PioneerTrail;
+import pioneertrail.control.GameControl;
 import pioneertrail.control.InventoryControl;
+import static pioneertrail.control.InventoryControl.purchase;
+import pioneertrail.exceptions.GameControlException;
+import pioneertrail.exceptions.InventoryControlException;
 import pioneertrail.model.Game;
 import pioneertrail.model.InventoryItem;
+//import pioneertrail.model.InventoryItemEnum;
 import pioneertrail.model.Purchase;
 import pioneertrail.model.Wagon;
 
@@ -21,75 +27,68 @@ class PurchaseMenu extends View {
     public PurchaseMenu(InventoryItem item) {
         displayMessage = buildMenu(item);
     }
-    
+
     private String buildMenu(InventoryItem item) {
-    String input = "**************************\n"
-            + item.getItemType() + " purchase menu"
-            + "\n**************************\n\n"
-            + item.getItemType() 
-            + "\nA - Purchase 1"
-            + "\nB - Purchase 10"
-            + "\nC - Purchase 20"
-            + "\n\nQ - Return to Previous MENU";
-    
-            InventoryControl.listPriceSort();
-    
-    return input;
-}
-    
-@Override
- public boolean doAction(String inputs) {
-     
+        String input = "**************************\n"
+                + item.getItemType() + " purchase menu"
+                + "\n**************************\n\n"
+                + item.getItemType()
+                + "\nEnter the amount of items you would like to purchase: "
+                + "\n\nQ - Return to Previous MENU";
+
+        InventoryControl.listPriceSort();
+
+        Purchase purchase = PioneerTrail.getCurrentGame().getPurchase();
+        purchase.setCurrentItem(item);
+
+        return input;
+    }
+
+    @Override
+    public boolean doAction(String inputs) {
+
+        int amount;
+
+        try {
+            amount = Integer.parseInt(inputs);
+        } catch (Exception ex) {
+            ErrorView.display(this.getClass().getName(), "\nInvalid input, please enter a number.");
+            return false;
+        }
+
         Game game = PioneerTrail.getCurrentGame();
         Wagon wagon = game.getWagon();
-        InventoryItem item = new InventoryItem();
-        
-        double equation = item.getPrice() - item.getCount();
-        
-        String menuItem = inputs.toUpperCase();
+        Purchase purchase = game.getPurchase();
+        InventoryItem item = purchase.getCurrentItem();
+        item.setCount(amount);
+        double result;
 
-//        String menuItem = inputs[0].toUpperCase();
-//
-//        if (menuItem.compareToIgnoreCase("Y") == 0) {
-//            System.out.println("You chopped some wood!");
-//            return false;
-//        }
-//        else if (menuItem.compareToIgnoreCase("N") == 0) {
-//            System.out.println("You decided not to chop wood.");
-//            return false;
-//        } else {
-//            System.out.println("Invalid menu item");
-//        }
-//        return false;
-        
-        if (menuItem.compareToIgnoreCase("A") == 0) {
-            item.setCount(item.getCount());
-            this.console.println("Purchase 1" + item.getCount());
+        try {
+            result = InventoryControl.purchase(item, wagon, purchase);
+        } catch (InventoryControlException ice1) {
+            ErrorView.display(this.getClass().getName(), ice1.getMessage());
             return false;
-        } else if (menuItem.compareToIgnoreCase("B") == 0) {
-            item.setCount(item.getCount() * 10);
-            this.console.println("Purchase 10" + item.getCount());
+        }
+
+        this.console.println("\nYou bought " + result + " " + item.getItemType());
+
+        try {
+            result = InventoryControl.money(item, purchase, wagon);
+        } catch (InventoryControlException ice2) {
+            ErrorView.display(this.getClass().getName(), ice2.getMessage());
             return false;
-        }  else if (menuItem.compareToIgnoreCase("C") == 0) {
-            item.setCount(item.getCount() * 20);
-            this.console.println("Purchase 20" + item.getCount());
-            return false;
+        }
+
+        //this.console.println("\nWeight is " + item.getWeight());
+        if (purchase.getMoney() > 0) {
+            this.console.println("\nMoney is " + purchase.getMoney());
         } else {
-            this.console.println("Invalid menu item");
+            this.console.println("\nYou are out of money");
         }
-        //return false;
-        
-        switch (menuItem) {
-            case "Q":
-                //mainMenuView();
-                return true;  
+        //this.console.println("\nMoney is " + purchase.getMoney());
+        this.console.println("\nItem price: $" + item.getPrice());
+        //this.console.println("\namount remaining: " + item.getCount());
 
-            default:
-                ErrorView.display(this.getClass().getName(), "Invalid menu item");
-        }
-        
-        //this.console.println("amount: " + item.getCount());
-        
         return false;
     }
 }

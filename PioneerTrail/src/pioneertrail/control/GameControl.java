@@ -75,7 +75,8 @@ public class GameControl {
         wagon.setItems(items);
 
         //Saving array
-        purchase.setItems(items);
+        ArrayList<InventoryItem> purchaseItems = createPurchase();
+        purchase.setItems(purchaseItems);
 
         //Create Array List of Tools and save the data to the wagon object
         ArrayList<Tool> tools = createTools();
@@ -257,6 +258,56 @@ public class GameControl {
 //        wagon.setItems(items);
 
         return items;
+    }
+
+    //Testing for purchase functions
+    public static ArrayList<InventoryItem> createPurchase() {
+
+        InventoryItem item = new InventoryItem();
+
+        ArrayList<InventoryItem> purchaseItems = new ArrayList<InventoryItem>();
+
+        item.setPrice(5);
+        item.setDescription("Used to repair wagons");
+        item.setCount(100);
+        item.setWeight(item.getCount() * 4);
+        item.setItemType("Wood");
+        purchaseItems.add(InventoryItemEnum.Wood.ordinal(), item);
+
+        item = new InventoryItem();
+        item.setPrice(5);
+        item.setDescription("food");
+        item.setCount(100);
+        item.setWeight(5);
+        item.setItemType("potatoes");
+        purchaseItems.add(InventoryItemEnum.Potatoes.ordinal(), item);
+
+        item = new InventoryItem();
+        item.setPrice(2);
+        item.setDescription("drink");
+        item.setCount(100);
+        item.setWeight(4);
+        item.setItemType("water");
+        purchaseItems.add(InventoryItemEnum.Water.ordinal(), item);
+
+        item = new InventoryItem();
+        item.setPrice(8);
+        item.setDescription("food");
+        item.setCount(100);
+        item.setWeight(6);
+        item.setItemType("Meat");
+        purchaseItems.add(InventoryItemEnum.Meat.ordinal(), item);
+
+        item = new InventoryItem();
+        item.setPrice(15);
+        item.setDescription("Medical Supplies");
+        item.setCount(100);
+        item.setWeight(6);
+        item.setItemType("Medical Supplies");
+        purchaseItems.add(InventoryItemEnum.MedicalSupplies.ordinal(), item);
+//      wagon.setItems(items);
+
+        return purchaseItems;
     }
 
     public static ArrayList<Tool> createTools() {

@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * @author Danica
  */
 public class Purchase implements Serializable {
-    
+
     //class instance variables
     private String name;
     private double price;
@@ -24,6 +24,7 @@ public class Purchase implements Serializable {
     private ArrayList<InventoryItem> items;
     private Tool[] tools;
     private int money;
+    private InventoryItem currentItem;
 
     public Tool[] getTools() {
         return tools;
@@ -36,7 +37,7 @@ public class Purchase implements Serializable {
     public void setMoney(int money) {
         this.money = money;
     }
-    
+
     public void setTools(Tool[] tools) {
         this.tools = tools;
     }
@@ -48,7 +49,7 @@ public class Purchase implements Serializable {
     public void setItems(ArrayList<InventoryItem> items) {
         this.items = items;
     }
-    
+
     public Purchase() {
     }
 
@@ -99,10 +100,18 @@ public class Purchase implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
-    
+
+    public InventoryItem getCurrentItem() {
+        return currentItem;
+    }
+
+    public void setCurrentItem(InventoryItem currentItem) {
+        this.currentItem = currentItem;
+    }
+
     @Override
     public String toString() {
         return "Purchase Items{" + "price=" + price + ", weight=" + weight + ", type=" + type + ", count=" + count + ", description=" + description + '}';
     }
-    
+
 }
