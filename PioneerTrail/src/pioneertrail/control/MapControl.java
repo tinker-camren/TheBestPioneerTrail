@@ -6,7 +6,9 @@
 package pioneertrail.control;
 
 import java.util.ArrayList;
+import pioneertrail.PioneerTrail;
 import pioneertrail.exceptions.MapControlException;
+import pioneertrail.model.ActorObject;
 import pioneertrail.model.InventoryItem;
 import pioneertrail.model.InventoryItemEnum;
 import pioneertrail.model.Location;
@@ -15,6 +17,7 @@ import pioneertrail.model.RegularScene;
 import pioneertrail.model.ResourceScene;
 import pioneertrail.model.Scene;
 import pioneertrail.model.SceneType;
+import pioneertrail.model.SicknessScene;
 
 /**
  *
@@ -41,6 +44,7 @@ public class MapControl {
         Scene[] scenes = createScenes();
 
         assignItemsToScenes(items, scenes);
+        assignSicknessesToScenes(scenes);
         assignScenesToLocations(map, scenes);
 
         System.out.println("CreateMap Method Called");
@@ -50,11 +54,13 @@ public class MapControl {
 
     public static void movePlayerToStartingLocation(Map map) {
         // If starting location is not supposed to be 0,0 then use the correct values here.
-        try {
-        movePlayer(map, 0, 0); // or instead of 0,0 you can select a different starting location
-        } catch (MapControlException te) {
-            System.out.println(te.getMessage());
-        }
+        Location[][] locations = map.getLocations();        
+        map.setCurrentLocation(locations[0][0]);
+//        try {
+//        movePlayer(map, 0, 0); // or instead of 0,0 you can select a different starting location
+//        } catch (MapControlException te) {
+//            System.out.println(te.getMessage());
+//        }
     }
 
     private static Location[][] createLocations(int noOfRows, int noOfColumns) {
@@ -80,7 +86,6 @@ public class MapControl {
 
         Scene[] scenes = new Scene[25];
         RegularScene scene1 = new RegularScene();
-        scene1.setMapSymbol("testing");
         scene1.setSceneName("Nauvoo");
         scene1.setDescription("As the Latter-day Saints fled Missouri during the winter of 1838–39, "
                 + "\nhaving been threatened with extermination by the governor of the state, "
@@ -115,7 +120,7 @@ public class MapControl {
         scenes[SceneType.scene3.ordinal()] = scene3;
 
         //Sickness
-        RegularScene scene4 = new RegularScene();
+        SicknessScene scene4 = new SicknessScene();
         scene4.setSceneName("Chariton River Crossing");
         scene4.setDescription("The main body of the pioneers chose to remain at Chariton "
                 + "\nto wait out some of the worst weather of the Iowa crossing. "
@@ -147,8 +152,8 @@ public class MapControl {
         scene6.setTerrainType("Resting area");
         scenes[SceneType.scene6.ordinal()] = scene6;
 
-        //Regular
-        RegularScene scene7 = new RegularScene();
+        //SicknessScene
+        SicknessScene scene7 = new SicknessScene();
         scene7.setSceneName("Mount Pisgah");
         scene7.setDescription("The resources at Garden Grove proved insufficient for meeting all the "
                 + "\nneeds of the Saints still crossing Iowa. A second, more expansive and "
@@ -191,7 +196,7 @@ public class MapControl {
         scenes[SceneType.scene10.ordinal()] = scene10;
 
         //Sickness
-        RegularScene scene11 = new RegularScene();
+        SicknessScene scene11 = new SicknessScene();
         scene11.setSceneName("Winter Quarters");
         scene11.setDescription("An instant city on the plains, Winter Quarters served as Church headquarters for less than a year, "
                 + "until the leadership moved west in 1847. By Christmas 1846, Church members had built a large stockade "
@@ -210,7 +215,8 @@ public class MapControl {
         scene12.setTerrainType("River");
         scenes[SceneType.scene12.ordinal()] = scene12;
 
-        RegularScene scene13 = new RegularScene();
+        //SicknessScene
+        SicknessScene scene13 = new SicknessScene();
         scene13.setSceneName("Fort Kearny");
         scene13.setDescription("469 miles from Nauvoo."
                 + "\nEstablished in June 1848 near Grand Island, Fort Kearny was the second fort named "
@@ -236,7 +242,7 @@ public class MapControl {
         scenes[SceneType.scene14.ordinal()] = scene14;
 
         //Possible SicknessScene
-        RegularScene scene15 = new RegularScene();
+        SicknessScene scene15 = new SicknessScene();
         scene15.setSceneName("Ash Hollow");
         scene15.setDescription("646 miles from Nauvoo."
                 + "\nAsh Hollow, its original beauty ruined by thousands of passing emigrants, was noted "
@@ -262,7 +268,7 @@ public class MapControl {
         scenes[SceneType.scene16.ordinal()] = scene16;
 
         //Possible SicknessScene
-        RegularScene scene17 = new RegularScene();
+        SicknessScene scene17 = new SicknessScene();
         scene17.setSceneName("Scotts Bluff");
         scene17.setDescription("738 miles from Nauvoo."
                 + "\nScotts Bluff is named for Hiram Scott, a Rocky Mountain Fur Company trapper abandoned "
@@ -287,7 +293,8 @@ public class MapControl {
         scene18.setTerrainType("Fort");
         scenes[SceneType.scene18.ordinal()] = scene18;
 
-        RegularScene scene19 = new RegularScene();
+        //SicknessScene
+        SicknessScene scene19 = new SicknessScene();
         scene19.setSceneName("Sweetwater River");
         scene19.setDescription("It was a high, dry, and difficult 50-mile overland journey from the North Platte to the"
                 + "\nSweetwater. Emigrants traveling to Salt Lake followed the Sweetwater for some distance "
@@ -316,7 +323,8 @@ public class MapControl {
         scene21.setTerrainType("Fort");
         scenes[SceneType.scene21.ordinal()] = scene21;
 
-        RegularScene scene22 = new RegularScene();
+        //SicknessScene
+        SicknessScene scene22 = new SicknessScene();
         scene22.setSceneName("Echo Canyon");
         scene22.setDescription("1246 miles from Nauvoo."
                 + "\nThis was one of the last canyons the emigrants descended through before entering "
@@ -374,72 +382,160 @@ public class MapControl {
     }
 
     private static void assignItemsToScenes(ArrayList<InventoryItem> items, Scene[] scenes) {
-        System.out.println("Create Items to Scene");
+        System.out.println("Assign Items to Scene");
 
         // Assign items to the first resource scene
         ResourceScene resourceScene1 = (ResourceScene) scenes[SceneType.scene2.ordinal()];
         ArrayList<InventoryItem> resourcesInScene = new ArrayList<>();
-        resourcesInScene.add(0, items.get(InventoryItemEnum.Potatoes.ordinal()));
-        //Set count to 2
-        resourcesInScene.get(0).setCount(5);
-        resourcesInScene.add(1, items.get(InventoryItemEnum.Water.ordinal()));
-        resourcesInScene.get(1).setCount(3);
-        resourceScene1.setInventoryItems(items);
+        
+        InventoryItem item = new InventoryItem();
+        item.setItemType("Wood");
+        item.setCount(5);
+        resourcesInScene.add(0, item);
+        
+        item = new InventoryItem();
+        item.setItemType("Water");
+        item.setCount(3);
+        resourcesInScene.add(1, item);
+        
+        resourceScene1.setInventoryItems(resourcesInScene);
 
         // Assign items to the second resource scene
         ResourceScene resourceScene2 = (ResourceScene) scenes[SceneType.scene5.ordinal()];
         resourcesInScene = new ArrayList<>();
-        resourcesInScene.add(0, items.get(InventoryItemEnum.Wood.ordinal()));
-        resourcesInScene.get(0).setCount(2);
-        resourcesInScene.add(1, items.get(InventoryItemEnum.Water.ordinal()));
-        resourcesInScene.get(1).setCount(4);
-        resourceScene2.setInventoryItems(items);
+        
+        item = new InventoryItem();
+        item.setItemType("Wood");
+        item.setCount(2);
+        resourcesInScene.add(0, item);
+        
+        item = new InventoryItem();
+        item.setItemType("Water");
+        item.setCount(4);
+        resourcesInScene.add(1, item);
+        
+        resourceScene2.setInventoryItems(resourcesInScene);
 
         //Kathy -- Assign items to the 18th resource scene
         ResourceScene resourceScene3 = (ResourceScene) scenes[SceneType.scene18.ordinal()];
         resourcesInScene = new ArrayList<>();
-        resourcesInScene.add(0, items.get(InventoryItemEnum.Wood.ordinal()));
-        resourcesInScene.get(0).setCount(2);
-        resourcesInScene.add(1, items.get(InventoryItemEnum.Water.ordinal()));
-        resourcesInScene.get(1).setCount(4);
-        resourceScene3.setInventoryItems(items);
+        
+        item = new InventoryItem();
+        item.setItemType("Wood");
+        item.setCount(2);
+        resourcesInScene.add(0, item);
+        
+        item = new InventoryItem();
+        item.setItemType("Water");
+        item.setCount(4);
+        resourcesInScene.add(1, item);
+        
+        resourceScene3.setInventoryItems(resourcesInScene);
 
         //Kathy -- Assign items to the 21st resource scene
         ResourceScene resourceScene4 = (ResourceScene) scenes[SceneType.scene21.ordinal()];
         resourcesInScene = new ArrayList<>();
-        resourcesInScene.add(0, items.get(InventoryItemEnum.Potatoes.ordinal()));
-        resourcesInScene.get(0).setCount(2);
-        resourcesInScene.add(1, items.get(InventoryItemEnum.Water.ordinal()));
-        resourcesInScene.get(1).setCount(4);
-        resourceScene4.setInventoryItems(items);
+        
+        item = new InventoryItem();
+        item.setItemType("Potatoes");
+        item.setCount(2);
+        resourcesInScene.add(0, item);
+        
+        item = new InventoryItem();
+        item.setItemType("Water");
+        item.setCount(4);
+        resourcesInScene.add(1, item);
+        
+        resourceScene4.setInventoryItems(resourcesInScene);
 
 //           (scene12 - Danica)
 // Assign items to the 12th resource scene
         ResourceScene resourceScene5 = (ResourceScene) scenes[SceneType.scene12.ordinal()];
         resourcesInScene = new ArrayList<>();
-        resourcesInScene.add(0, items.get(InventoryItemEnum.Meat.ordinal()));
-        resourcesInScene.get(0).setCount(4);
-        resourcesInScene.add(1, items.get(InventoryItemEnum.MedicalSupplies.ordinal()));
-        resourcesInScene.get(1).setCount(2);
-        resourceScene5.setInventoryItems(items);
+        
+        item = new InventoryItem();
+        item.setItemType("Meat");
+        item.setCount(2);
+        resourcesInScene.add(0, item);
+        
+        resourceScene5.setInventoryItems(resourcesInScene);
 
 //           (scene14 - Danica)
 // Assign items to the 14th resource scene
         ResourceScene resourceScene6 = (ResourceScene) scenes[SceneType.scene14.ordinal()];
         resourcesInScene = new ArrayList<>();
-        resourcesInScene.add(0, items.get(InventoryItemEnum.Wood.ordinal()));
-        resourcesInScene.get(0).setCount(15);
-        resourcesInScene.add(1, items.get(InventoryItemEnum.MedicalSupplies.ordinal()));
-        resourcesInScene.get(1).setCount(1);
-        resourceScene6.setInventoryItems(items);
-
-//            
+        
+        item = new InventoryItem();
+        item.setItemType("Wood");
+        item.setCount(2);
+        resourcesInScene.add(0, item);
+        
+        item = new InventoryItem();
+        item.setItemType("Meat");
+        item.setCount(2);
+        resourcesInScene.add(1, item);
+        
+        resourceScene6.setInventoryItems(resourcesInScene);
+        
 //            scene8 - Camren
+        ResourceScene resourceScene7 = (ResourceScene) scenes[SceneType.scene8.ordinal()];
+        resourcesInScene = new ArrayList<>();
+        
+        item = new InventoryItem();
+        item.setItemType("Water");
+        item.setCount(4);
+        resourcesInScene.add(0, item);
+        
+        resourceScene7.setInventoryItems(resourcesInScene);
 //            scene6 - Camren
+        ResourceScene resourceScene8 = (ResourceScene) scenes[SceneType.scene14.ordinal()];
+        resourcesInScene = new ArrayList<>();
+        
+        item = new InventoryItem();
+        item.setItemType("Meat");
+        item.setCount(4);
+        resourcesInScene.add(0, item);
+        
+        item = new InventoryItem();
+        item.setItemType("Water");
+        item.setCount(4);
+        resourcesInScene.add(1, item);
+        
+        resourceScene8.setInventoryItems(resourcesInScene);
+    }
+    
+    private static void assignSicknessesToScenes(Scene[] scenes) {
+        System.out.println("Assign Sicknesses to Scenes");
+        
+        // Assign sicknesses
+        SicknessScene sicknessScene1 = (SicknessScene) scenes[SceneType.scene4.ordinal()];
+        sicknessScene1.setSicknessType("Malaria");
+        
+        SicknessScene sicknessScene2 = (SicknessScene) scenes[SceneType.scene7.ordinal()];
+        sicknessScene2.setSicknessType("Fatigue");
+
+        SicknessScene sicknessScene3 = (SicknessScene) scenes[SceneType.scene11.ordinal()];
+        sicknessScene3.setSicknessType("Flu");
+
+        SicknessScene sicknessScene4 = (SicknessScene) scenes[SceneType.scene13.ordinal()];
+        sicknessScene4.setSicknessType("Malaria");
+        
+        SicknessScene sicknessScene5 = (SicknessScene) scenes[SceneType.scene15.ordinal()];
+        sicknessScene5.setSicknessType("Broken Bone");
+        
+        SicknessScene sicknessScene6 = (SicknessScene) scenes[SceneType.scene17.ordinal()];
+        sicknessScene6.setSicknessType("Broken Bone");
+        
+        SicknessScene sicknessScene7 = (SicknessScene) scenes[SceneType.scene19.ordinal()];
+        sicknessScene7.setSicknessType("Fatigue");
+        
+        SicknessScene sicknessScene8 = (SicknessScene) scenes[SceneType.scene22.ordinal()];
+        sicknessScene8.setSicknessType("Fatigue");
+        
     }
 
     private static void assignScenesToLocations(Map map, Scene[] scenes) {
-        System.out.println("Create Scenes to Locations");
+        System.out.println("Assign Scenes to Locations");
 
         Location[][] locations = map.getLocations();
 
@@ -471,9 +567,10 @@ public class MapControl {
         locations[4][4].setScene(scenes[SceneType.scene25.ordinal()]);
     }
 
-    public static void movePlayer(Map map, int row, int column)
+    public static String movePlayer(Map map, int row, int column)
         throws MapControlException {
               
+        String output = "";
         if (column >= 4){
             row = row + 1;
             column = 0;
@@ -493,6 +590,59 @@ public class MapControl {
         map.getCurrentLocation().setVisited(true);
         map.setCurrentRow(row);
         map.setCurrentColumn(column);
+        output = consumeResources();
+        output += ActorControl.sicknessPain();
+        
+        return output;
+    }
+
+    private static String consumeResources() {
+        ArrayList<InventoryItem> items = PioneerTrail.getCurrentGame().getWagon().getItems();
+        ActorObject[] actors = PioneerTrail.getCurrentGame().getActors();
+        String output = "";
+        ActorObject actor;
+        
+        InventoryItem meat = items.get(InventoryItemEnum.Meat.ordinal());
+        InventoryItem potatoes = items.get(InventoryItemEnum.Potatoes.ordinal());
+        InventoryItem water = items.get(InventoryItemEnum.Water.ordinal());
+        
+        /* The following code will consume 2 units of food and 1 unit of water
+           If there are no meat or potatoes, it will consume twice as many of 
+           whichever one is not missing. If both are missing, each actor loses 5
+           health. */
+        if (meat.getCount() < 1) {
+            if (potatoes.getCount() < 1) {
+                output += "Not enough meat or potatoes, each actor loses 5 health";
+                for (int i = 0; i < (actors.length) ; i++ ) {
+                    actor = actors[i];                      
+                    int newActorHealth = (actor.getHealth() - 5);
+                    actor.setHealth(newActorHealth);
+                }
+            } else {
+            output += "Not enough meat, consuming twice the amount of potatoes";
+            potatoes.setCount(potatoes.getCount() - 2);
+            }
+        } else if (potatoes.getCount() < 1) {
+            output += "Not enough potatoes, consuming twice the amount of meat";
+            meat.setCount(meat.getCount() - 2);
+        } else {
+        meat.setCount(meat.getCount() - 1);
+        potatoes.setCount(potatoes.getCount() - 1);
+        }
+        
+        //If there is no water, each actor loses 10 health
+        if (water.getCount() < 1) {
+            output += "No water, each actor loses 10 health";
+            for (int i = 0; i < (actors.length) ; i++ ) {
+                    actor = actors[i];                      
+                    int newActorHealth = (actor.getHealth() - 10);
+                    actor.setHealth(newActorHealth);
+                }
+        } else {
+            water.setCount(water.getCount() - 1);
+        }
+        
+        return output;
     }
 
 }

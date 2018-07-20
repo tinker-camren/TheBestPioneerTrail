@@ -5,9 +5,17 @@
  */
 package pioneertrail.view;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+import pioneertrail.PioneerTrail;
 import pioneertrail.control.GameControl;
+import pioneertrail.model.Game;
 import pioneertrail.model.InventoryItem;
+import pioneertrail.model.InventoryItemEnum;
+import pioneertrail.model.Location;
+import pioneertrail.model.Scene;
+import pioneertrail.model.Tool;
+import pioneertrail.model.Wagon;
 
 /**
  *
@@ -16,13 +24,31 @@ import pioneertrail.model.InventoryItem;
 class GatherResources extends View {
 
     public GatherResources() {
-        super("*********************"
+        displayMessage = buildMenu();
+    }
+    
+    private String buildMenu() {
+
+        ArrayList<InventoryItem> items = new ArrayList<>();
+        Game game = PioneerTrail.getCurrentGame();
+        Wagon wagon = game.getWagon();
+        items = wagon.getItems();
+        Location location = game.getMap().getCurrentLocation();
+        Scene scene = location.getScene();
+        
+        String input = ("*********************"
                 + "\nGather Resources MENU"
                 + "\n*********************\n"
-                + "C - Chop wood"
+                + "\nC - Chop wood"
                 + "\nH - Hunt for meat"
+                + "\nG - Gather other resources"
                 + "\nQ - Quit\n"
                 + "Enter your selection: ");
+        
+        
+        
+        return input;
+
     }
 
 
@@ -37,6 +63,9 @@ class GatherResources extends View {
                 break;
             case "H":
                 huntAnimals();
+                break;
+            case "G":
+                gather();
                 break;
             case "Q":
                 //gameMenuView();
@@ -56,6 +85,10 @@ class GatherResources extends View {
     private void huntAnimals() {
         HuntAnimals huntAnimals = new HuntAnimals();
         huntAnimals.display();
+    }
+
+    private void gather() {
+        System.out.println("Gather Called");
     }
 
 }

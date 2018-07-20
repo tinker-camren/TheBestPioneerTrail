@@ -16,8 +16,17 @@ public abstract class Scene {
     private String description;
     private String terrainType;
     private String mapSymbol;
+    private String sceneType;
 
     public Scene() {
+    }
+
+    public String getSceneType() {
+        return sceneType;
+    }
+
+    public void setSceneType(String sceneType) {
+        this.sceneType = sceneType;
     }
     
     public String getMapSymbol() {
