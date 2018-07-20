@@ -27,9 +27,10 @@ class GameMenuView extends View {
                 + "\nI - View inventory items"
                 + "\nT - View Tool List"
                 + "\nP - Purchase supplies"
-                + "\nM - Move to new location"
                 + "\nF - View Family Members"
-                + "\nG - Gather resources"
+                + "\nG - Go to Scene View"
+                + "\nM - Move to new location"
+//                + "\nG - Gather resources"
                 + "\nR - Repair wagon"
                 + "\nD - Deal with sickness"
                 + "\nH - Help"
@@ -61,8 +62,11 @@ class GameMenuView extends View {
             case "F":
                 familyMembers();
                 break;
-            case "G":
-                gatherResources();
+//            case "G":
+//                gatherResources();
+//                break;
+                case "G":
+                sceneView();
                 break;
             case "R":
                 repairWagon();
@@ -110,10 +114,10 @@ class GameMenuView extends View {
         familyMembers.display();
     }
 
-    private void gatherResources() {
-        GatherResources gatherResources = new GatherResources();
-        gatherResources.display();
-    }
+//    private void gatherResources() {
+//        GatherResources gatherResources = new GatherResources();
+//        gatherResources.display();
+//    }
 
     private void repairWagon() {
         RepairWagon repairWagon = new RepairWagon();
@@ -139,6 +143,11 @@ class GameMenuView extends View {
     private void ToolView() {
         ToolView toolView = new ToolView();
         toolView.display();
+    }
+
+    private void sceneView() {
+        SceneView sceneView = new SceneView();
+        sceneView.display();
     }
 
 }

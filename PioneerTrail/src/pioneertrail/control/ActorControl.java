@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 import pioneertrail.PioneerTrail;
 import pioneertrail.exceptions.ActorControlException;
 import pioneertrail.model.ActorEnum;
@@ -16,12 +17,15 @@ import pioneertrail.model.ActorObject;
 import pioneertrail.model.Game;
 import pioneertrail.model.InventoryItem;
 import pioneertrail.model.InventoryItemEnum;
+import pioneertrail.model.Scene;
+import pioneertrail.model.SicknessScene;
 
 /**
  *
  * @author Suckafish
  */
 public class ActorControl {
+    
     public static String listActorSickness() {
 
         String output = "";
@@ -79,9 +83,6 @@ public class ActorControl {
         boolean noMeat = false;
         boolean noPotatoes = false;
         boolean noWater = false;
-        int newMeatCount;
-        int newPotatoesCount;
-        int newWaterCount;
         
         //Error checking
         if (meat.getCount() < 1) {
@@ -173,6 +174,80 @@ public class ActorControl {
         
         return output;
     }
+    
+    public static ActorObject catchSickness(Scene scene) {
+        
+        ActorObject[] actors = PioneerTrail.getCurrentGame().getActors();
+        ActorObject actor = actors[0]; //set to 1st actor - it will change later
+        SicknessScene sScene = (SicknessScene) scene;
+        Random randomActor = new Random();
+        
+        for (int i = 0; i < (actors.length); i++ ) {
+            actor = actors[i];
+            
+            //Check actor to see if they're sick
+            if (actor.getSickness().equals("Healthy"))
+                break;
+            else
+                actor = null;
+        }
+        
+        // If all actors are sick, then it just picks a random one 
+        // and gives them a new illness
+        if (actor == null) {
+            int randomIndex = randomActor.nextInt(actors.length);
+            actor = actors[randomIndex]; 
+        } else {
+            // Use random generator to get only healthy actors
+            do {
+                int randomIndex = randomActor.nextInt(actors.length);
+                actor = actors[randomIndex];        
+            } while (!actor.getSickness().equals("Healthy"));        
+        }
+        actor.setSickness(sScene.getSicknessType());
+        return actor;
+    }
+
+    public static String sicknessPain() {
+        
+        /* This class subtracts or adds health everytime you move depending
+           on what sickness status the actor(s) have */
+        ActorObject[] actors = PioneerTrail.getCurrentGame().getActors();
+        ActorObject actor;
+        String output = "";
+        
+        for (int i = 0; i < (actors.length) ; i++ ) {
+            actor = actors[i];
+            
+            if (actor.getSickness().equals("Malaria")) {
+                actor.setHealth(actor.getHealth() - 10);
+                output += "\n" + actor.getName() + " Has lost 10 health due to " 
+                        + actor.getSickness();
+            }
+            if (actor.getSickness().equals("Broken Bone")) {
+                actor.setHealth(actor.getHealth() - 8);
+                output += "\n" + actor.getName() + " Has lost 8 health due to " 
+                        + actor.getSickness();
+            }
+            if (actor.getSickness().equals("Flu")) {
+                actor.setHealth(actor.getHealth() - 7);
+                output += "\n" + actor.getName() + " Has lost 7 health due to " 
+                        + actor.getSickness();
+            }
+            if (actor.getSickness().equals("Fatigue")) {
+                actor.setHealth(actor.getHealth() - 5);
+                output += "\n" + actor.getName() + " Has lost 5 health due to " 
+                        + actor.getSickness();
+            }
+            if (actor.getSickness().equals("Healthy")) {
+                actor.setHealth(actor.getHealth() + 3);
+                output += "\n" + actor.getName() + " Has gained 3 health due to being " 
+                        + actor.getSickness();
+            }
+        }
+        
+        return output;
+    }
 
 //    public static void ListActorsBySickness() {
 //        
@@ -245,6 +320,7 @@ public class ActorControl {
 //        
 //        return output;
 //    }
+
 
 
 }

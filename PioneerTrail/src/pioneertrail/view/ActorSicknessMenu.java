@@ -39,15 +39,15 @@ class ActorSicknessMenu extends View  {
         InventoryControl.listItemsAlphabetically(items);
         
         input += ("\n\nS - Make Splint"
-                + "\tCost: 2 wood"
-                + "\tEffect: Fixes broken bones and restores 5 health"
+                + "\n\tCost: 2 wood"
+                + "\n\tEffect: Fixes broken bones and restores 5 health"
                 + "\nR - Rest"
-                + "\tCost: 1 unit of potatoes 1 unit of  meat and 1 unit of water"
-                + "\tEffect: Removes the Fatigue sickness and restores 5 health if meat, potatoes, and water are available"
+                + "\n\tCost: 1 unit of potatoes 1 unit of  meat and 1 unit of water"
+                + "\n\tEffect: Removes the Fatigue sickness and restores 5 health if meat, potatoes, and water are available"
                 + "\n\tif something is missing, it only restores a percentage of the health"
                 + "\nM - Medical Supplies "
-                + "\tCost: 1 unit of medical supplies"
-                + "\tEffect: Removes any illness and restores 15 health"
+                + "\n\tCost: 1 unit of medical supplies"
+                + "\n\tEffect: Removes any illness and restores 15 health"
                 + "\nE - Exit");
         input += ("\nEnter the action you want to take");
         

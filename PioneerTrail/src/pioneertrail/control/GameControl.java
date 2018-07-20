@@ -81,6 +81,12 @@ public class GameControl {
         ArrayList<Tool> tools = createTools();
         wagon.setTools(tools);
 
+        //THESE ARE FOR TESTING!! REMOVE WHEN GAME IS COMPLETED!!
+        items = createItems();
+        wagon.setItems(items);
+        PioneerTrail.setCurrentGame(game);
+        //END TESTING
+        
         try {
             Map map = MapControl.createMap(5, 5, items);
             game.setMap(map);
@@ -93,8 +99,7 @@ public class GameControl {
         //Our attempt to add items to scenes didn't work. We need to figure out
         //a way to create a new item for every scene and then add the count of that
         //item to our overall count, and not actually add the item to the arraylist. 
-        items = createItems();
-        wagon.setItems(items);
+
 
         PioneerTrail.setCurrentGame(game);
         return 1;

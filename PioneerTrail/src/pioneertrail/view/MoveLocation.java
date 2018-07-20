@@ -36,13 +36,15 @@ class MoveLocation extends View {
 
         if ("Y".equals(menuItem)) {
             try {
-                movePlayer(map, map.getCurrentRow(), map.getCurrentColumn()); // or instead of 0,0 you can select a different starting location
+                this.console.println(movePlayer(map, map.getCurrentRow(), map.getCurrentColumn()));
             } catch (MapControlException te) {
                 ErrorView.display(this.getClass().getName(), te.getMessage());
                 return true;
             }
-            System.out.println("Moving to " + scene.getSceneName()
-                    + "\n" + scene.getDescription());
+            this.console.println("Moving to " + scene.getSceneName());
+            SceneView sceneView = new SceneView();
+            sceneView.display();
+            } else if ("N".equals(menuItem)) {
         } else if ("N".equals(menuItem)) {
             return true;
         } else {

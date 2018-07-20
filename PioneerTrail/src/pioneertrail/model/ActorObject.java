@@ -41,7 +41,11 @@ public class ActorObject implements Serializable {
     }
 
     public void setSickness(String sickness) {
-        this.sickness = sickness;
+        if (sickness.equals("Deceased"))
+            this.sickness = "Deceased";
+        else
+            this.sickness = sickness;
+        
     }
 
     public String getName() {
@@ -73,7 +77,14 @@ public class ActorObject implements Serializable {
     }
 
     public void setHealth(int health) {
-        this.health = health;
+        if (health <= 0) {
+            this.health = 0;
+            this.sickness = "Deceased";
+        } else if (health > 100){
+            this.health = 100;
+        } else {
+            this.health = health;
+        }
     }
 
     public Point getCoordinates() {
