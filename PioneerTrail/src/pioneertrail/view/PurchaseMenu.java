@@ -37,7 +37,6 @@ class PurchaseMenu extends View {
                 + "\nor press Q to return to the previous MENU";
 
         //InventoryControl.listPriceSort();
-
         Purchase purchase = PioneerTrail.getCurrentGame().getPurchase();
         purchase.setCurrentItem(item);
 
@@ -71,12 +70,13 @@ class PurchaseMenu extends View {
             return false;
         }
 
-        if (purchase.getMoney() - item.getPrice() * item.getCount() > 0) {
-            this.console.println("\nYou bought " + result + " " + item.getItemType());
-        } else {
-            this.console.println("\nYou cannot afford " + result + " " + item.getItemType());
-        }
+        this.console.println("\nYou bought " + result + " " + item.getItemType());
 
+//        if (purchase.getMoney() - item.getPrice() * item.getCount() > 0) {
+//            this.console.println("\nYou bought " + result + " " + item.getItemType());
+//        } else {
+//            this.console.println("\nYou cannot afford " + result + " " + item.getItemType());
+//        }
         try {
             result = InventoryControl.money(item, purchase, wagon);
         } catch (InventoryControlException ice2) {

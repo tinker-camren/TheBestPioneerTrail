@@ -93,17 +93,25 @@ public class ToolControl {
             throw new ToolControlException("Tool type must be Axe");
         }
 
-        tool.setDurability(tool.getDurability() - item.getCount() * 2);
+        int weight = (int) item.getWeight();
+        
+        if (tool.getDurability() - (item.getCount() + weight) < 0) {
+            throw new ToolControlException("Your axe durability is unable to chop that much. Enter lower numbers.");
+        }
+        
+        tool.setDurability(tool.getDurability() - (item.getCount() + weight));
         //item.setCount(item.getCount() + item.getCount());
         ArrayList<InventoryItem> items = wagon.getItems();
         InventoryItem wood = items.get(InventoryItemEnum.Wood.ordinal());
-//        int weight = (int) item.getWeight();
-        wood.setCount(wood.getCount() + item.getCount());
+        //int weight = (int) item.getWeight();
+        //wood.setCount(wood.getCount() + item.getCount());
         
         double result = item.getCount() * (item.getWeight() - item.getWeight() * scrap);
+        int roundedResult = (int) Math.round(result);
+        wood.setCount(wood.getCount() + roundedResult);
         item.setWeight(result * 2);
 
-        return result;
+        return roundedResult;
     }
 
     //Kathy

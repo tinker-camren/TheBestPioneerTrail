@@ -104,9 +104,6 @@ public class InventoryControl {
             throw new InventoryControlException("Money cannot be greater than 100");
         }
 
-//        
-
-//        
         purchase.setMoney(purchase.getMoney() - item.getPrice() * item.getCount());
         //purchase.setMoney(purchase.getMoney() - item.getPrice());
 
@@ -123,8 +120,8 @@ public class InventoryControl {
         if (item.getCount() > 100) { //is item count greater than 100?
             throw new InventoryControlException("Item count cannot be greater than 100");
         }
-        
-        if (purchase.getMoney() - item.getPrice() * item.getCount() < 1) {
+
+        if (purchase.getMoney() - item.getPrice() * item.getCount() < 0) {
             throw new InventoryControlException("Cannot purchase more than you can afford.  Money cannot be negative.");
         }
 
@@ -137,7 +134,6 @@ public class InventoryControl {
 //        item = items.get(InventoryItemEnum.Potatoes.ordinal());
 //        item = items.get(InventoryItemEnum.Meat.ordinal());
 //        item = items.get(InventoryItemEnum.MedicalSupplies.ordinal());
-
         if (item.getItemType().equalsIgnoreCase("Wood")) {
             wagonItem = items.get(InventoryItemEnum.Wood.ordinal());
         }
