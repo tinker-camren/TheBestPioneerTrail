@@ -30,12 +30,12 @@ class InventoryItemView extends View {
         int count = 0;
         for (InventoryItem item : PioneerTrail.getCurrentGame().getWagon().getItems()) {
             count++;
-            input += ("\n\t" + count + " - " + item.getItemType());
+            input += ("\n\t" + count + " - " + item.getItemType() + "\t - Qty: " + item.getCount());
         }
         
         //InventoryControl.listItemsAlphabetically();
         
-        input += ("\nEnter your selection(Press Q to quit): ");
+        input += ("\n\nEnter your selection(Press Q to quit): ");
 
         return input;
     }
