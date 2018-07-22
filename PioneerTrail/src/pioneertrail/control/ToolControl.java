@@ -93,12 +93,13 @@ public class ToolControl {
             throw new ToolControlException("Tool type must be Axe");
         }
 
-        tool.setDurability(tool.getDurability() - item.getCount());
+        tool.setDurability(tool.getDurability() - item.getCount() * 2);
         //item.setCount(item.getCount() + item.getCount());
-
         ArrayList<InventoryItem> items = wagon.getItems();
         InventoryItem wood = items.get(InventoryItemEnum.Wood.ordinal());
+//        int weight = (int) item.getWeight();
         wood.setCount(wood.getCount() + item.getCount());
+        
         double result = item.getCount() * (item.getWeight() - item.getWeight() * scrap);
         item.setWeight(result * 2);
 

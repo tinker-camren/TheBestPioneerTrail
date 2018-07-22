@@ -28,6 +28,7 @@ class SupplyPurchase extends View {
         Game game = PioneerTrail.getCurrentGame();
         Purchase purchase = game.getPurchase();
         InventoryItem item = new InventoryItem();
+        //InventoryControl.listPriceSort();
         //InventoryControl.listItems();
 
         String input = "\n************"

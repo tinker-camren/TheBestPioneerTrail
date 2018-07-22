@@ -85,8 +85,11 @@ class ChopWood extends View {
             return false;
         }
 
-        this.console.println("\nYou have chopped " + result + " logs of wood," 
-                + " (" + item.getWeight() + " lbs of wood).");
+        this.console.println("\nYou have chopped " + result + " logs of wood."); 
+        
+        ////displays weight:
+        //       + " (" + item.getWeight() + " lbs of wood).");
+        ////Other:
         // this.console.println("You now have " + item.getCount() + " wood.");
         
 

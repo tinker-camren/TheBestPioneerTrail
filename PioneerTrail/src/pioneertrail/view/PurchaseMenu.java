@@ -32,11 +32,11 @@ class PurchaseMenu extends View {
         String input = "**************************\n"
                 + item.getItemType() + " purchase menu"
                 + "\n**************************\n\n"
-                + item.getItemType()
-                + "\nEnter the amount of items you would like to purchase: "
-                + "\n\nQ - Return to Previous MENU";
+                + "Would you like to buy " + item.getItemType() + "?"
+                + "\n\nEnter the amount of items you would like to purchase, "
+                + "\nor press Q to return to the previous MENU";
 
-        InventoryControl.listPriceSort();
+        //InventoryControl.listPriceSort();
 
         Purchase purchase = PioneerTrail.getCurrentGame().getPurchase();
         purchase.setCurrentItem(item);
@@ -61,6 +61,7 @@ class PurchaseMenu extends View {
         Purchase purchase = game.getPurchase();
         InventoryItem item = purchase.getCurrentItem();
         item.setCount(amount);
+        //purchase.setCount(amount);
         double result;
 
         try {
@@ -70,7 +71,11 @@ class PurchaseMenu extends View {
             return false;
         }
 
-        this.console.println("\nYou bought " + result + " " + item.getItemType());
+        if (purchase.getMoney() - item.getPrice() * item.getCount() > 0) {
+            this.console.println("\nYou bought " + result + " " + item.getItemType());
+        } else {
+            this.console.println("\nYou cannot afford " + result + " " + item.getItemType());
+        }
 
         try {
             result = InventoryControl.money(item, purchase, wagon);
@@ -79,16 +84,14 @@ class PurchaseMenu extends View {
             return false;
         }
 
-        //this.console.println("\nWeight is " + item.getWeight());
+//        this.console.println("\nWeight is " + item.getWeight());
         if (purchase.getMoney() > 0) {
-            this.console.println("\nMoney is " + purchase.getMoney());
+            this.console.println("\nMoney is now $" + purchase.getMoney());
         } else {
             this.console.println("\nYou are out of money");
         }
-        //this.console.println("\nMoney is " + purchase.getMoney());
-        this.console.println("\nItem price: $" + item.getPrice());
-        //this.console.println("\namount remaining: " + item.getCount());
 
+        this.console.println("\nprice of " + item.getItemType() + ": " + "$" + item.getPrice());
         return false;
     }
 }

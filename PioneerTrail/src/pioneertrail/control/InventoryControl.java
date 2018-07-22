@@ -11,6 +11,7 @@ import pioneertrail.PioneerTrail;
 import pioneertrail.exceptions.InventoryControlException;
 import pioneertrail.model.ActorObject;
 import pioneertrail.model.InventoryItem;
+import pioneertrail.model.InventoryItemEnum;
 import pioneertrail.model.Purchase;
 import pioneertrail.model.Wagon;
 
@@ -102,6 +103,9 @@ public class InventoryControl {
         if (purchase.getMoney() > 100) {
             throw new InventoryControlException("Money cannot be greater than 100");
         }
+
+//        
+
 //        
         purchase.setMoney(purchase.getMoney() - item.getPrice() * item.getCount());
         //purchase.setMoney(purchase.getMoney() - item.getPrice());
@@ -109,7 +113,7 @@ public class InventoryControl {
         return purchase.getMoney();
     }
 
-    public static double purchase(InventoryItem item, Wagon Wagon, Purchase purchase)
+    public static double purchase(InventoryItem item, Wagon wagon, Purchase purchase)
             throws InventoryControlException {
 
         if (item.getCount() < 1) { //is item count 0 or negative?
@@ -119,9 +123,41 @@ public class InventoryControl {
         if (item.getCount() > 100) { //is item count greater than 100?
             throw new InventoryControlException("Item count cannot be greater than 100");
         }
+        
+        if (purchase.getMoney() - item.getPrice() * item.getCount() < 1) {
+            throw new InventoryControlException("Cannot purchase more than you can afford.  Money cannot be negative.");
+        }
 
-        item.setCount(purchase.getCount() + item.getCount());
+        ArrayList<InventoryItem> items = wagon.getItems();
+        InventoryItem wagonItem = new InventoryItem();
+        //InventoryItem items = item.getPurchase.getItems();
 
+//        item = items.get(InventoryItemEnum.Wood.ordinal());
+//        item = items.get(InventoryItemEnum.Water.ordinal());
+//        item = items.get(InventoryItemEnum.Potatoes.ordinal());
+//        item = items.get(InventoryItemEnum.Meat.ordinal());
+//        item = items.get(InventoryItemEnum.MedicalSupplies.ordinal());
+
+        if (item.getItemType().equalsIgnoreCase("Wood")) {
+            wagonItem = items.get(InventoryItemEnum.Wood.ordinal());
+        }
+        if (item.getItemType().equalsIgnoreCase("Water")) {
+            wagonItem = items.get(InventoryItemEnum.Water.ordinal());
+        }
+        if (item.getItemType().equalsIgnoreCase("Potatoes")) {
+            wagonItem = items.get(InventoryItemEnum.Potatoes.ordinal());
+        }
+        if (item.getItemType().equalsIgnoreCase("Meat")) {
+            wagonItem = items.get(InventoryItemEnum.Meat.ordinal());
+        }
+        if (item.getItemType().equalsIgnoreCase("Medical Supplies")) {
+            wagonItem = items.get(InventoryItemEnum.MedicalSupplies.ordinal());
+        }
+        System.out.println(wagonItem.toString());
+        System.out.println(item.toString());
+        System.out.println(items.get(InventoryItemEnum.Water.ordinal()));
+        wagonItem.setCount(wagonItem.getCount() + item.getCount());
+        System.out.println(wagonItem.toString());
         return item.getCount();
     }
 
