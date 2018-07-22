@@ -149,11 +149,11 @@ public class InventoryControl {
         if (item.getItemType().equalsIgnoreCase("Medical Supplies")) {
             wagonItem = items.get(InventoryItemEnum.MedicalSupplies.ordinal());
         }
-        System.out.println(wagonItem.toString());
-        System.out.println(item.toString());
-        System.out.println(items.get(InventoryItemEnum.Water.ordinal()));
+//        System.out.println(wagonItem.toString());
+//        System.out.println(item.toString());
+//        System.out.println(items.get(InventoryItemEnum.Water.ordinal()));
         wagonItem.setCount(wagonItem.getCount() + item.getCount());
-        System.out.println(wagonItem.toString());
+//        System.out.println(wagonItem.toString());
         return item.getCount();
     }
 
