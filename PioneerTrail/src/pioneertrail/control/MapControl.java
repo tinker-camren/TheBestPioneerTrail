@@ -47,7 +47,7 @@ public class MapControl {
         assignSicknessesToScenes(scenes);
         assignScenesToLocations(map, scenes);
 
-        System.out.println("CreateMap Method Called");
+//        System.out.println("CreateMap Method Called");
         return map;
 
     }
@@ -64,7 +64,7 @@ public class MapControl {
     }
 
     private static Location[][] createLocations(int noOfRows, int noOfColumns) {
-        System.out.println("Create Locations");
+        //System.out.println("Create Locations");
 
         Location[][] locations = new Location[noOfRows][noOfColumns];
         for (int i = 0; i < (locations.length); i++) {
@@ -82,7 +82,7 @@ public class MapControl {
     }
 
     private static Scene[] createScenes() {
-        System.out.println("Create Regular Scene");
+        //System.out.println("Create Regular Scene");
 
         Scene[] scenes = new Scene[25];
         RegularScene scene1 = new RegularScene();
@@ -382,7 +382,7 @@ public class MapControl {
     }
 
     private static void assignItemsToScenes(ArrayList<InventoryItem> items, Scene[] scenes) {
-        System.out.println("Assign Items to Scene");
+//        System.out.println("Assign Items to Scene");
 
         // Assign items to the first resource scene
         ResourceScene resourceScene1 = (ResourceScene) scenes[SceneType.scene2.ordinal()];
@@ -505,7 +505,7 @@ public class MapControl {
     }
     
     private static void assignSicknessesToScenes(Scene[] scenes) {
-        System.out.println("Assign Sicknesses to Scenes");
+//        System.out.println("Assign Sicknesses to Scenes");
         
         // Assign sicknesses
         SicknessScene sicknessScene1 = (SicknessScene) scenes[SceneType.scene4.ordinal()];
@@ -535,7 +535,7 @@ public class MapControl {
     }
 
     private static void assignScenesToLocations(Map map, Scene[] scenes) {
-        System.out.println("Assign Scenes to Locations");
+//        System.out.println("Assign Scenes to Locations");
 
         Location[][] locations = map.getLocations();
 
