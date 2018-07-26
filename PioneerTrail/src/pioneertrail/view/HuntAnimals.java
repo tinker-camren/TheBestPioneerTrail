@@ -50,7 +50,7 @@ public class HuntAnimals extends View {
                 input += ("\nNo Weight Available");
             }
         } else {
-            input += ("\nHunt some more");
+            input += ("\nHunt more");
         }
         if (animal.getItemType().equalsIgnoreCase("Buffalo")) {
             if (animal.getCount() > 0) {

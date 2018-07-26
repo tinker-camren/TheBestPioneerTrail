@@ -27,6 +27,7 @@ public class SceneView extends View {
         
         Game game = PioneerTrail.getCurrentGame();
         Scene scene = game.getMap().getCurrentLocation().getScene();
+    
 //        ResourceScene rScene = (ResourceScene) scene;
 //        SicknessScene sScene = (SicknessScene) scene;
 //        if (!rScene.getInventoryItems().isEmpty())

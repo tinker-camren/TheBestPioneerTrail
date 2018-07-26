@@ -26,8 +26,18 @@ public class Game implements Serializable {
     private Purchase purchase;
     private ActorObject sickActor;
     private ActorObject[] deceased;
+    private boolean gameOver;
 
-    public ActorObject[] getDeceased() {
+    public boolean isGameOver() {
+        return gameOver;
+    }
+
+    public void setGameOver(boolean gameOver) {
+        this.gameOver = gameOver;
+    }
+
+       
+      public ActorObject[] getDeceased() {
         return deceased;
     }
 

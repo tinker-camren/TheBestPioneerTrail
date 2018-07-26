@@ -11,6 +11,7 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import pioneertrail.PioneerTrail;
 
 /**
  *
@@ -24,6 +25,34 @@ public abstract class View implements ViewInterface {
     protected final PrintWriter console = pioneertrail.PioneerTrail.getOutFile();
 
     public View() {
+    }
+    
+    public void display(String menu){
+
+        boolean  endOfView = false;
+
+        do {
+
+            String inputs = getInput(menu);
+
+            if (inputs.length() < 1 || inputs.toUpperCase().equals("Q")) {
+
+                endOfView = true;
+
+                continue;
+
+            }
+
+            doAction(inputs);
+
+           if (PioneerTrail.getCurrentGame().isGameOver())
+
+             return;          
+
+           
+
+        } while (endOfView != true);
+
     }
 
     public View(String msg) {
