@@ -199,10 +199,10 @@ public class MapControl {
         SicknessScene scene11 = new SicknessScene();
         scene11.setSceneName("Winter Quarters");
         scene11.setDescription("An instant city on the plains, Winter Quarters served as Church headquarters for less than a year, "
-                + "until the leadership moved west in 1847. By Christmas 1846, Church members had built a large stockade "
-                + "and about 700 homes ranging from solid, two-story structures to simple dugouts in the bluffs. For many, "
-                + "however, the rigors of the Iowa crossing, exposure, and poor nutrition and sanitation proved too much, "
-                + "and several hundred Saints died during the winter of 1846–47.");
+                + "\nuntil the leadership moved west in 1847. By Christmas 1846, Church members had built a large stockade "
+                + "\nand about 700 homes ranging from solid, two-story structures to simple dugouts in the bluffs. For many, "
+                + "\nhowever, the rigors of the Iowa crossing, exposure, and poor nutrition and sanitation proved too much, "
+                + "\nand several hundred Saints died during the winter of 1846–47.");
         scene11.setTerrainType("Plain");
         scenes[SceneType.scene11.ordinal()] = scene11;
 
